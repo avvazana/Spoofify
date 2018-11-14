@@ -1,22 +1,26 @@
 import React from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { Route, Switch } from 'react-router-dom';
+import LoginFormContainer from './session/login_form_container';
+import SignupFormContainer from './session/signup_form_container';
+import SplashContainer from './splash/splash_container';
+// import Browse from './splash/splash';
 
-import MainContentContainer from './main/main_content_container';
-import Splash from './session/splash';
+const App = () => {
+    return (
+  <div>
+    <header>
+      <h1>Spoofify</h1>
+      <SplashContainer/>
+    </header>
 
-const App = (props) => {
-  const splashOrMain = Boolean(props.store.getState().session.currentUserId) ? (
-    <ProtectedRoute path="/" component={MainContentContainer} />
-  ) : (
-    <AuthRoute path="/" component={Splash} />
-  )
-
-  return (
-    <div className="page">
-      {splashOrMain}
-    </div>
-  )
+    <Switch>
+      <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+    </Switch>
+  </div>
+)
 };
+// <ProtectedRoute exact path="/browse" component={Browse}/>
 
 export default App;
