@@ -39,12 +39,7 @@ class SessionForm extends React.Component {
     const otherButtonText = this.props.formType === 'login' ? 'SIGN UP' : 'LOG IN'
     const otherButtonLabel = this.props.formType === 'login' ? 'Don\'t have an account?' : 'Already have an account?'
     const otherFormType = this.props.formType === 'login' ? 'signup' : 'login'
-
-    const demo = (
-      <div className="demo-div">
-        <button onClick={() => {this.props.processForm({username: 'Guest', password: 'password'})}} className="demo-button">DEMO LOGIN</button>
-      </div>
-    )
+    const clickType = this.props.formType === 'login' ? (<button className="session-form-other-button">SIGN UP</button>) : (<p className="session-form-other-login">Log in</p>)
 
     const email = (
       <div>
@@ -66,10 +61,16 @@ class SessionForm extends React.Component {
           <img className="session-logo" src={window.blackLogoURL}></img>
           <h1>Spoofify</h1>
         </header>
-        {this.props.formType === "login" ? demo : ''}
+        <div className="demo-div">
+          <button onClick={() => {this.props.login({username: 'Guest', password: 'password'})}} className="demo-button">DEMO LOGIN</button>
+        </div>
+        <div className="demo-form-divider">
+          <h2><span>OR</span></h2>
+        </div>
+
         <form onSubmit={this.handleSubmit} className="session-form">
           <br/>
-          {this.renderErrors()}
+          <div className="session-errors">{this.renderErrors()}</div>
           <div>
             <br/>
             <label>
@@ -97,7 +98,7 @@ class SessionForm extends React.Component {
           <h2>{otherButtonLabel}</h2>
         </form>
         <Link to={`/${otherFormType}`} className="session-link">
-          <button className="session-form-other-button">{otherButtonText}</button>
+          {clickType}
         </Link>
         <div>
         </div>

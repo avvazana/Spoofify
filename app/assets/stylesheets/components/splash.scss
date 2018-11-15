@@ -1,16 +1,25 @@
-
-.splash-page{
-  background: image-url('background-bubbles.svg'), linear-gradient(rgb(253, 80, 107), rgb(251, 153, 56));
-  width: 100%;
-  height: 2000px;
-  font-family: Circular, Helvetica, Arial, sans-serif;
-  position:relative
+.splash-page-contain{
+  width:100%;
+  height:1000px;
+  overflow:hidden;
 }
 
+.splash-page{
+  display: flex;
+  justify-content: center;
+  background: image-url('background-bubbles.svg'), linear-gradient(rgb(253, 80, 107), rgb(251, 153, 56));
+  background-position: -700px -660px;
+  background-size: cover;
+  width: 100%;
+  font-family: Circular, Helvetica, Arial, sans-serif;
+  position:relative;
+  height: 2000px;
+  overflow: hidden;
+}
 
 .splash-nav {
   background-color: rgba(0,0,0,0.5);
-  height: 89px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   font-size: 16px;
@@ -25,12 +34,12 @@
 .splash-page .logo {
   display: flex;
   justify-content: left;
-  font-weight: 400;
-  font-size: 28px;
+  font-weight: 545;
+  font-size: 24px;
   height: 40px;
   color: white;
-  margin-left: 110px;
-  margin-top: 24px;
+  margin-left: 150px;
+  margin-top: 20px;
 }
 
 .splash-page .logo img {
@@ -38,36 +47,89 @@
 }
 
 .splash-page .logo h1 {
-  padding-top: 4px;
+  padding-top: 7px;
   letter-spacing: 0px;
-  margin-left: 9px;
+  margin-left: 7px;
 }
 
 .login-signup{
   color: white;
-  margin-top: 36px;
+  margin-top: 30px;
   margin-right: 110px;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: 15px;
+  padding-right: 50px;
+  font-weight: 645;
 }
 
 .splash-session-link:hover {
   color: #1ed760;
 }
-
+//
+// @media (min-width: 992px)
+// .splash-body h1 {
+//     font-size: 80px;
+// }
+//
+// @media (min-width: 768px)
+// .splash-body h1 {
+//     font-size: 64px;
+// }
 .splash-body{
+  padding-top: 287px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  vertical-align: center;
+
+}
+
+.splash-body h1{
+
   display: flex;
   justify-content: space-around;
-  font-size: 80px;
+  font-size: 75px;
   font-weight: 900;
-  padding: 400px 0;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
   color: white;
 }
 
-.footer-div{
-  position:absolute;
-   bottom:0;
-   width:100%;
-   height:500px;
-   background-color:black;
+.splash-body h4{
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  margin: .5em 0 1em;
+  line-height: 1.1;
+  display: block;
 }
+
+.splash-to-sign-up{
+  background-color: #1db954;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 33%;
+  text-align: center;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.splash-to-sign-up:hover{
+  color: #FFF;
+  background-color: #1ED760;
+}
+
+// .footer-div{
+//   position:absolute;
+//    bottom:0;
+//    width:100%;
+//    height:500px;
+//    background-color:black;
+// }
