@@ -24,7 +24,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-        <ul>
+        <ul className="session-error-ul">
           {this.props.errors.map((error, i) => (
             <li key={`error-${i}`}>
               {error}
@@ -57,10 +57,12 @@ class SessionForm extends React.Component {
     )
     return (
       <div className="session-form-container">
-        <header className="session-header">
-          <img className="session-logo" src={window.blackLogoURL}></img>
-          <h1>Spoofify</h1>
-        </header>
+        <Link to={'/'} className="session-to-splash">
+          <header className="session-header">
+            <img className="session-logo" src={window.blackLogoURL}></img>
+            <h1>Spoofify</h1>
+          </header>
+        </Link>
         <div className="demo-div">
           <button onClick={() => {this.props.login({username: 'Guest', password: 'password'})}} className="demo-button">DEMO LOGIN</button>
         </div>
