@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Browse from '../browse/browse';
+import { withRouter, Route, Redirect } from 'react-router-dom';
+
 
 const sessionLinks = () => (
   <div className="splash-page">
@@ -31,10 +34,7 @@ const sessionLinks = () => (
 const personalGreeting = (currentUser, logout) => {
 
   return (
-    <hgroup className="header-group">
-      <h2 className="header-name">Hi, {currentUser.username}!</h2>
-      <button className="header-button" onClick={logout}>Log Out</button>
-    </hgroup>
+      <Redirect to="/browse" />
   )
 };
 

@@ -1,0 +1,85 @@
+.main-container {
+  height: 1000px;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(orange, red, black);
+}
+
+// .main-container {
+//   /* Set rules to fill background */
+//   min-height: 100%;
+//   min-width: 1024px;
+//
+//   /* Set up proportionate scaling */
+//   width: 100%;
+//   height: auto;
+//
+//   /* Set up positioning */
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+// }
+
+.main-container .nav-bar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    opacity: .9;
+}
+
+// .main-container .nav-bar a {
+//     padding: 6px 8px 6px 16px;
+//     text-decoration: none;
+//     font-size: 25px;
+//     color: purple;
+//     display: block;
+// }
+//
+// .main-container .nav-bar a:hover {
+//     color: #f1f1f1;
+// }
+
+// @media screen and (max-width: 1024px) { /* Specific to this particular image */
+//   .main-container {
+//     left: 50%;
+//     margin-left: -512px;   /* 50% */
+//   }
+// }
+//
+// .main-container .nav-bar {
+//   padding: 24px 24px 5px;
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   -webkit-box-orient: vertical;
+//   -webkit-box-direction: normal;
+//   -ms-flex-direction: column;
+//   flex-direction: column;
+//   height: 100%;
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+//   width: 230px;
+//   cursor: default;
+// }
+
+
+// body {
+//     --glue-font-family: "spotify-circular","noto-arabic","Helvetica Neue",Helvetica,Arial,"Hiragino Kaku Gothic Pro","Meiryo","MS Gothic",sans-serif;
+// }
+
+// body, button, input {
+//     font-size: 14px;
+//     line-height: 20px;
+//     letter-spacing: .015em;
+//     font-weight: var(--glue-font-weight-normal);
+//     color: #b3b3b3;
+//     text-transform: none;
+//     font-family: var(--glue-font-family);
+// }

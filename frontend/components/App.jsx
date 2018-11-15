@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import SplashContainer from './splash/splash_container';
-// import Browse from './splash/splash';
+import Browse from './browse/browse';
 
 const App = () => {
     return (
@@ -13,11 +13,11 @@ const App = () => {
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <ProtectedRoute exact path="/browse" component={Browse}/>
       <Route path="/" component={SplashContainer}/>
     </Switch>
   </div>
 )
 };
-// <ProtectedRoute exact path="/browse" component={Browse}/>
 
 export default App;
