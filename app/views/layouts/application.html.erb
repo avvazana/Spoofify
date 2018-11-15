@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Spoofify</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,6 +8,7 @@
     <%= javascript_include_tag 'application' %>
     <script>
       window.whiteLogoURL = "<%= image_url('Spotify_Icon_White.png') %>"
+      window.blackLogoURL = "<%= image_url('Spotify_Icon_Black.png') %>"
     </script>
   </head>
 

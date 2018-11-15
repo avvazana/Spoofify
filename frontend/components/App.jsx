@@ -9,14 +9,11 @@ import SplashContainer from './splash/splash_container';
 const App = () => {
     return (
   <div>
-    <header>
-      <h1>Spoofify</h1>
-      <SplashContainer/>
-    </header>
 
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Route path="/" component={SplashContainer}/>
     </Switch>
   </div>
 )

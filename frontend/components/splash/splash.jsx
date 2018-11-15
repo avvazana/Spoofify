@@ -2,11 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const sessionLinks = () => (
-  <nav className="login-signup">
-    <Link to="/login">Login</Link>
-    &nbsp;or&nbsp;
-    <Link to="/signup">Sign up!</Link>
-  </nav>
+  <div className="splash-page">
+
+    <nav className="splash-nav">
+      <div className="logo">
+            <img src={window.whiteLogoURL}></img>
+            <h1>Spoofify</h1>
+      </div>
+      <div className="login-signup">
+        <Link className='splash-session-link' to="/signup">Sign up</Link>
+        &nbsp;&nbsp;&nbsp;
+        <Link className='splash-session-link' to="/login">Log in</Link>
+      </div>
+    </nav>
+
+    <div className="splash-body">
+      <h1>Music for everyone.</h1>
+    </div>
+
+    <footer>
+      <div className="footer-div">
+
+      </div>
+    </footer>
+  </div>
 );
 
 const personalGreeting = (currentUser, logout) => {

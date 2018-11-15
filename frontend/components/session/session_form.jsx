@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -33,13 +35,25 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    const buttonText = this.props.formType === 'login' ? 'LOG IN' : 'SIGN UP'
+    const otherButtonText = this.props.formType === 'login' ? 'SIGN UP' : 'LOG IN'
+    const otherButtonLabel = this.props.formType === 'login' ? 'Don\'t have an account?' : 'Already have an account?'
+    const otherFormType = this.props.formType === 'login' ? 'signup' : 'login'
+
+    const demo = (
+      <div className="demo-div">
+        <button onClick={() => {this.props.processForm({username: 'Guest', password: 'password'})}} className="demo-button">DEMO LOGIN</button>
+      </div>
+    )
+
     const email = (
       <div>
-        <label>Email:
-          <input type="text"
+        <label>
+          <input type="email"
             value={this.state.email}
             onChange={this.update('email')}
             className="session-input"
+            placeholder="Email"
           />
         </label>
         <br/>
@@ -48,32 +62,45 @@ class SessionForm extends React.Component {
     )
     return (
       <div className="session-form-container">
+        <header className="session-header">
+          <img className="session-logo" src={window.blackLogoURL}></img>
+          <h1>Spoofify</h1>
+        </header>
+        {this.props.formType === "login" ? demo : ''}
         <form onSubmit={this.handleSubmit} className="session-form">
-          Welcome to Spoofify!
           <br/>
           {this.renderErrors()}
           <div>
             <br/>
-            <label>Username:
+            <label>
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
                 className="session-input"
+                placeholder="Username"
               />
             </label>
             <br/>
             {this.props.formType === "signup" ? email : ''}
-            <label>Password:
+            <label>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="session-input"
+                placeholder="Password"
               />
             </label>
             <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <button className="session-submit">{buttonText}</button>
+            <hr className="divider"></hr>
           </div>
+          <h2>{otherButtonLabel}</h2>
         </form>
+        <Link to={`/${otherFormType}`} className="session-link">
+          <button className="session-form-other-button">{otherButtonText}</button>
+        </Link>
+        <div>
+        </div>
       </div>
     );
   }
