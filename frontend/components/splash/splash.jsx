@@ -15,6 +15,7 @@ const sessionLinks = () => (
       <div className="login-signup">
         <Link className='splash-session-link' to="/signup">Sign up</Link>
         &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;
         <Link className='splash-session-link' to="/login">Log in</Link>
       </div>
     </nav>

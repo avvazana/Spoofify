@@ -6,6 +6,7 @@ class Browse extends React.Component {
     return (
       <div className="main-container">
         <nav className="nav-bar">
+          <button onClick={()=>this.props.logout()}>Logout</button>
         </nav>
       </div>
     );

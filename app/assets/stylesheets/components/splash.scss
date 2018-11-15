@@ -10,7 +10,7 @@
 
 .splash-nav {
   background-color: rgba(0,0,0,0.5);
-  height: 80px;
+  height: 89px;
   display: flex;
   justify-content: space-between;
   font-size: 16px;
@@ -30,7 +30,7 @@
   height: 40px;
   color: white;
   margin-left: 110px;
-  margin-top: 18px;
+  margin-top: 24px;
 }
 
 .splash-page .logo img {
@@ -39,16 +39,16 @@
 
 .splash-page .logo h1 {
   padding-top: 4px;
-  letter-spacing: -1px;
+  letter-spacing: 0px;
   margin-left: 9px;
 }
 
 .login-signup{
   color: white;
-  margin-top: 28px;
+  margin-top: 36px;
   margin-right: 110px;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .splash-session-link:hover {
