@@ -115,6 +115,7 @@
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  text-align: left;
 }
 
 
@@ -137,6 +138,11 @@
   font-family: Circular,Helvetica,Arial,sans-serif;
   text-align: left;
 }
+//
+// .session-form input[placeholder]:focus {
+//   color: red;
+// }
+
 .session-submit:hover{
   color: #fff;
   background-color: #4bdf80;
