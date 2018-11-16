@@ -26,12 +26,12 @@
   },
   "engines": {
     "node": "8.9.4",
-    "npm": "6.1.0"
+    "npm": "5.6.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --mode=development --watch",
-    "postinstall": "webpack"
+    "postinstall": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
