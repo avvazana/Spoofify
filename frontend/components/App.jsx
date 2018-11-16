@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import SplashContainer from './splash/splash_container';
-import BrowseContainer from './browse/browse_container';
+import BrowseContainer from './main/browse_container';
 
 const App = () => {
     return (
