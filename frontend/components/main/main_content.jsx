@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Browse extends React.Component {
+class MainContent extends React.Component {
 
   render() {
     return (
@@ -13,4 +13,4 @@ class Browse extends React.Component {
   }
 }
 
-export default Browse;
+export default MainContent;

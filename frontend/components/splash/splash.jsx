@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Browse from '../browse/browse';
+import BrowseContainer from '../main/main_content';
 import { withRouter, Route, Redirect } from 'react-router-dom';
 
 
