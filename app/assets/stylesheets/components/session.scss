@@ -138,6 +138,14 @@
   font-family: Circular,Helvetica,Arial,sans-serif;
   text-align: left;
 }
+
+.session-form input:focus {
+  border: 1px solid black;
+}
+
+.session-form input:focus::placeholder{
+  color:#C6C2C2;
+}
 //
 // .session-form input[placeholder]:focus {
 //   color: red;
