@@ -10,7 +10,25 @@ class MainContent extends React.Component {
             <img src={window.whiteLogoURL}></img>
             <h1>Spoofify</h1>
           </div>
-          <button onClick={()=>this.props.logout()}>Logout</button>
+          <div>
+            <span>
+              <img src={window.searchIcon}></img>
+              <h2>Search</h2>
+            </span>
+            <br></br>
+            <span>
+              <img src={window.homeIcon}></img>
+              <h2>Home</h2>
+            </span>
+            <br></br>
+            <span>
+              <img src={window.libraryIcon}></img>
+              <h2>Your Library</h2>
+            </span>
+          </div>
+          <div>
+            <button className="logout" onClick={()=>this.props.logout()}>Logout</button>
+          </div>
         </nav>
       </div>
     );
