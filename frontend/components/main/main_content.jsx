@@ -1,10 +1,25 @@
 import React from 'react';
+import PlaylistIndexItem from './playlist_index_item';
 
 class MainContent extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      playlists: []
+    };
+    this.fetchPlaylists = props.fetchPlaylists.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchPlaylists();
+  }
+
   render() {
+    const {playlists} = this.props;
     return (
       <div className="main-container">
+
         <nav className="nav-bar">
           <div className="logo">
             <img src={window.whiteLogoURL}></img>
@@ -30,6 +45,11 @@ class MainContent extends React.Component {
             <button className="logout" onClick={()=>this.props.logout()}>Logout</button>
           </div>
         </nav>
+
+        <ul> Image Goes Here:
+
+          {playlists.map(playlist => <PlaylistIndexItem key={playlist.id} playlist={playlist} />)}
+        </ul>
       </div>
     );
   }
