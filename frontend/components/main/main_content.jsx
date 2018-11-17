@@ -10,7 +10,7 @@ class MainContent extends React.Component {
             <img src={window.whiteLogoURL}></img>
             <h1>Spoofify</h1>
           </div>
-          <div>
+          <div className="icon-holder">
             <span>
               <img src={window.searchIcon}></img>
               <h2>Search</h2>
