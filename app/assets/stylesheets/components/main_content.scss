@@ -4,7 +4,6 @@
   background-image: linear-gradient(#8D200A, #6D1A08, #451005, #150501);
 }
 
-
 .main-container .nav-bar {
   padding: 24px 24px 5px;
   display: flex;
@@ -48,6 +47,7 @@
   display: flex;
   color: #B3B3B3;
 }
+
 .nav-bar span:hover{
   color: white;
 }
@@ -60,6 +60,7 @@
   font-size: 14px;
   letter-spacing:1px;
 }
+
 .nav-bar span img{
   width: 31px;
   height: 31px;
@@ -71,18 +72,6 @@
   align-self: end;
 }
 
-
-
-// body {
-//     --glue-font-family: "spotify-circular","noto-arabic","Helvetica Neue",Helvetica,Arial,"Hiragino Kaku Gothic Pro","Meiryo","MS Gothic",sans-serif;
-// }
-
-// body, button, input {
-//     font-size: 14px;
-//     line-height: 20px;
-//     letter-spacing: .015em;
-//     font-weight: var(--glue-font-weight-normal);
-//     color: #b3b3b3;
-//     text-transform: none;
-//     font-family: var(--glue-font-family);
-// }
+.nav-bar .active-link{
+  color: green;
+}
