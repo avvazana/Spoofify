@@ -8,7 +8,7 @@ import MainContent from './main_content'
 
 const mapStateToProps = state => ({
   playlists: selectAllPlaylists(state),
-  path: "collection"
+  navpath: "collection"
 });
 
 const mapDispatchToProps = dispatch => {

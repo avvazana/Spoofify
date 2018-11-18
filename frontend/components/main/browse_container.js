@@ -6,10 +6,12 @@ import { fetchPlaylists } from '../../actions/playlist_actions';
 import { selectAllPlaylists } from '../../reducers/selectors';
 import MainContent from './main_content'
 
-const mapStateToProps = state => ({
-  playlists: selectAllPlaylists(state),
-  path: "browse"
-});
+const mapStateToProps = state => {
+  return {
+    playlists: selectAllPlaylists(state),
+    navpath: "browse"
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {

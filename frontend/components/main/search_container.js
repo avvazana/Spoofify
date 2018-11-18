@@ -8,7 +8,7 @@ import MainContent from './main_content'
 
 const mapStateToProps = state => ({
   playlists: selectAllPlaylists(state),
-  path: "search"
+  navpath: "search",
 });
 
 const mapDispatchToProps = dispatch => {
@@ -19,3 +19,5 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
+
+// pagepath: props.pagepath || "playlists"
