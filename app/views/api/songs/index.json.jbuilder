@@ -1,6 +1,4 @@
-@songs.each do |song|
-  json.tracks do
-    json.extract! song, :id, :title, :album_id
-    json.file song.song_file
-  end
+json.array! @songs do |song|
+  json.extract! song, :id, :title, :album_id
+  json.trackUrl url_for(song.track)
 end
