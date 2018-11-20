@@ -5,6 +5,7 @@ const playlistsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;
   let playlist;
+  debugger
   switch(action.type){
     case RECEIVE_ALL_PLAYLISTS:
       return merge({}, state, action.playlists );

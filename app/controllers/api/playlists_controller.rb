@@ -9,6 +9,17 @@ class Api::PlaylistsController < ApplicationController
     render :index
   end
 
+  def create
+    @playlist = Playlist.new(playlist_params)
+    @playlist.author_id = current_user.id
+
+    if (@playlist.save)
+      render :show
+    else
+      render json: @playlist.errors.full_messages, status: 422
+    end
+  end
+
   private
 
   def playlist_params

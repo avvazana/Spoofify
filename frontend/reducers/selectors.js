@@ -6,7 +6,7 @@ export const selectAllAuthoredPlaylists = state => {
   let authoredPlaylists = [];
   let playlists = state.entities.playlists;
   Object.values(playlists).forEach((playlist) => {
-    debugger
+    
     if (playlist.author_id === state.session.currentUser.id){
       authoredPlaylists.push(playlist);
     }
@@ -18,7 +18,7 @@ export const selectAllUnauthoredPlaylists = state => {
   let unauthoredPlaylists = [];
   let playlists = state.entities.playlists;
   Object.values(playlists).forEach((playlist) => {
-    debugger
+    
     if (playlist.author_id != state.session.currentUser.id){
       unauthoredPlaylists.push(playlist);
     }

@@ -6,12 +6,13 @@ import { PulseLoader } from 'react-spinners';
 class ShowBoxContent extends React.Component {
   constructor(props) {
     super(props);
+    debugger
     this.state = { loading: true };
   }
 
   componentDidMount(){
     this.props.fetchPlaylist(this.props.playlistId)
-    .then( () => setTimeout(() => this.setState({loading: false}), 100));
+    .then( () => setTimeout(() => this.setState({loading: false}), 700));
   }
 
   render () {
@@ -42,7 +43,6 @@ class ShowBoxContent extends React.Component {
         </div>
       );
     }
-
     return (
       <div className="main-container">
         <NavBar className="nav" logout={logout.bind(this)}/>

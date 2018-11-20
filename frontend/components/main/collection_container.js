@@ -6,9 +6,10 @@ import { fetchPlaylists } from '../../actions/playlist_actions';
 import { selectAllAuthoredPlaylists } from '../../reducers/selectors';
 import MainContent from './main_content';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   playlists: selectAllAuthoredPlaylists(state),
-  navpath: "collection"
+  navpath: "collection",
+  path: ownProps.location.pathname
 });
 
 const mapDispatchToProps = dispatch => {

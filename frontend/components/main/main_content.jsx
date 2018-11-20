@@ -4,6 +4,7 @@ import PlaylistIndexItem from './playlist_index_item';
 import { NavLink, Redirect } from 'react-router-dom';
 import NavBar from './navbar';
 import Header from './header';
+import Modal from './modal';
 
 class MainContent extends React.Component {
 
@@ -22,7 +23,7 @@ class MainContent extends React.Component {
 
   render() {
     const {playlists, navpath, show} = this.props;
-
+    debugger
     const index = (
       <div className="grid">
         <ul>
@@ -31,7 +32,6 @@ class MainContent extends React.Component {
       </div>
     );
 
-
     let redirect = "";
     if (this.props.path === '/browse' || this.props.path === '/browse/'){
       redirect = <Redirect to={`/${navpath}/playlists`} />;
@@ -39,9 +39,16 @@ class MainContent extends React.Component {
 
     return (
       <div className="main-container">
-        <NavBar className="nav" logout={this.logout}/>
-
-        {show ? show : index}
+        <div>
+          <NavBar className="nav" logout={this.logout}/>
+        </div>
+        <div className="main-body">
+          <div>
+            <Header className="header"/>
+          </div>
+          <Modal />
+          {index}
+        </div>
 
         {redirect}
       </div>
