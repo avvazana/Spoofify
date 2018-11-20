@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint(8)        not null, primary key
+#  username        :string           not null
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  profile_pic_url :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ApplicationRecord
   validates :username, :session_token, :email, presence: true, uniqueness: true
   validates :password_digest, presence: {message: "Password can't be blank"}
@@ -5,7 +19,11 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
   attr_reader :password
+
   has_one_attached :photo
+  has_many :playlists,
+    foreign_key: :author_id,
+    class_name: :Playlist
 
   def password=(password)
     @password = password

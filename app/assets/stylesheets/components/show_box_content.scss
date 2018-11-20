@@ -1,0 +1,37 @@
+.playlist-show-item {
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+  padding-top: 30px;
+}
+
+.playlist-show-item-image {
+  min-width: 180px;
+  min-height: 180px;
+  max-height: 260px;
+  max-width: 260px;
+}
+.playlist-show-subtext {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.playlist-show-subtext p {
+  color: white;
+  padding-bottom: 5px;
+  font-size: 14px;
+  font-family: Circular,Helvetica,Arial,sans-serif;
+}
+.playlist-show-subtext span {
+  color: lightgray;
+  font-weight: 100;
+  font-size: 14px;
+  font-family: Circular,Helvetica,Arial,sans-serif;
+}
+
+.loading {
+ width: 60px;
+ margin: auto;
+ margin-top: 160px;
+}

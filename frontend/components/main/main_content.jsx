@@ -1,14 +1,20 @@
 import React from 'react';
 import PlaylistIndexItem from './playlist_index_item';
+// import PlaylistIndex from './playlist_index_item';
+import { NavLink, Redirect } from 'react-router-dom';
+import NavBar from './navbar';
+import Header from './header';
+import Modal from './modal';
 
 class MainContent extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      playlists: []
-    };
+    // this.state = {
+    //   headerpath: props.headerpath
+    // };
     this.fetchPlaylists = props.fetchPlaylists.bind(this);
+    this.logout = props.logout.bind(this);
   }
 
   componentDidMount() {
@@ -16,43 +22,52 @@ class MainContent extends React.Component {
   }
 
   render() {
-    const {playlists} = this.props;
+    const {playlists, navpath, show} = this.props;
+    debugger
+    const index = (
+      <div className="grid">
+        <ul>
+          {playlists.map(playlist => <PlaylistIndexItem playlist={playlist} navpath={navpath}/>)}
+        </ul>
+      </div>
+    );
+
+    let redirect = "";
+    if (this.props.path === '/browse' || this.props.path === '/browse/'){
+      redirect = <Redirect to={`/${navpath}/playlists`} />;
+    }
+
     return (
       <div className="main-container">
-
-        <nav className="nav-bar">
-          <div className="logo">
-            <img src={window.whiteLogoURL}></img>
-            <h1>Spoofify</h1>
-          </div>
-          <div className="icon-holder">
-            <span>
-              <img src={window.searchIcon}></img>
-              <h2>Search</h2>
-            </span>
-            <br></br>
-            <span>
-              <img src={window.homeIcon}></img>
-              <h2>Home</h2>
-            </span>
-            <br></br>
-            <span>
-              <img src={window.libraryIcon}></img>
-              <h2>Your Library</h2>
-            </span>
-          </div>
+        <div>
+          <NavBar className="nav" logout={this.logout}/>
+        </div>
+        <div className="main-body">
           <div>
-            <button className="logout" onClick={()=>this.props.logout()}>Logout</button>
+            <Header className="header"/>
           </div>
-        </nav>
+          <Modal />
+          {index}
+        </div>
 
-        <ul> Image Goes Here:
-
-          {playlists.map(playlist => <PlaylistIndexItem key={playlist.id} playlist={playlist} />)}
-        </ul>
+        {redirect}
       </div>
     );
   }
 }
 
 export default MainContent;
+
+// <div className="list">
+//   <ul>
+//     {songs.map(song => <SongIndexItem key={song.id} song={song} navpath={navpath} />)}
+//   </ul>
+// </div>
+// <div className="list">
+//   <ul>
+//     {artists.map(song => <SongIndexItem key={song.id} song={song} navpath={navpath} />)}
+//   </ul>
+// </div>
+
+// <Redirect to={`/${navpath}/${this.state.headerpath}`} />
+// <PlaylistIndex playlists={playlists}/>

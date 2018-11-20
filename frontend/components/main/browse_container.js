@@ -3,12 +3,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
 import { fetchPlaylists } from '../../actions/playlist_actions';
-import { selectAllPlaylists } from '../../reducers/selectors';
-import MainContent from './main_content'
+import { selectAllUnauthoredPlaylists } from '../../reducers/selectors';
+import MainContent from './main_content';
 
-const mapStateToProps = state => ({
-  playlists: selectAllPlaylists(state)
-});
+const mapStateToProps = (state, ownProps) => {
+
+  return {
+    playlists: selectAllUnauthoredPlaylists(state),
+    navpath: "browse",
+    path: ownProps.location.pathname
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
