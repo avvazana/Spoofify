@@ -27,4 +27,8 @@ class Song < ApplicationRecord
   has_many :arists,
     through: :song_artists,
     source: :artist
+
+  has_many :playlists,
+    through: :song_playlists,
+    source: :playlist
 end

@@ -1,4 +1,4 @@
-import * as APIUtil from '../util/playlist_api_util'
+import * as APIUtil from '../util/playlist_api_util';
 
 export const RECEIVE_ALL_PLAYLISTS = 'RECEIVE_ALL_PLAYLISTS';
 export const RECEIVE_SINGLE_PLAYLIST = 'RECEIVE_SINGLE_PLAYLIST';
@@ -11,10 +11,11 @@ const receivePlaylists = (playlists) => {
   };
 };
 
-const receivePlaylist = (playlist) => {
+const receivePlaylist = ({playlist, songs}) => {
   return {
     type: RECEIVE_SINGLE_PLAYLIST,
-    playlist
+    playlist,
+    songs
   };
 };
 
@@ -22,8 +23,8 @@ const removePlaylist = playlistId => {
   return {
     type: DELETE_PLAYLIST,
     playlistId
-  }
-}
+  };
+};
 
 export const fetchPlaylists = () => dispatch => {
   return (
@@ -34,8 +35,10 @@ export const fetchPlaylists = () => dispatch => {
 
 export const fetchPlaylist = (id) => dispatch => {
   return (
-    APIUtil.fetchPlaylist(id).then(
-      res => dispatch(receivePlaylist(res))
+    APIUtil.fetchPlaylist(id).then(res => {
+      
+        dispatch(receivePlaylist(res));
+      }
     ));
 };
 

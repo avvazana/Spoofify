@@ -1,7 +1,10 @@
 .main-container {
-  height: 1000px;
-  background-color: red; /* For browsers that do not support gradients */
-  background-image: linear-gradient(#8D200A, #6D1A08, #451005, #150501);
+  height: 100vh;
+  background: #34e89e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #0f3443, #34e89e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #0f3443, #34e89e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: flex;
+  font-family: Circular,Helvetica,Arial,sans-serif;
 }
 
 .main-container .nav-bar {
@@ -13,7 +16,6 @@
   background-color: black;
   opacity: .8;
   box-sizing: border-box;
-  position: fixed;
   top: 0;
 }
 
@@ -68,10 +70,50 @@
 
 .nav-bar .logout{
   color: white;
-  margin-top: 500px;
   align-self: end;
+  position: absolute;
+  bottom: 30px;
+  left: 70px;
 }
 
 .nav-bar .active-link{
   color: green;
+  background-color: green;
+}
+
+.grid ul {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.playlist-item {
+  padding: 20px;
+  flex-basis: 15%;
+  box-sizing: border-box;
+}
+
+.playlist-item-image {
+  min-width: 150px;
+  min-height: 150px;
+  max-height: 241px;
+  max-width: 241px;
+}
+.playlist-subtext {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.playlist-subtext p {
+  color:white;
+  padding-bottom: 5px;
+  font-size: 14px;
+  font-family: Circular,Helvetica,Arial,sans-serif;
+}
+.playlist-subtext span {
+  color: lightgray;
+  font-weight: 100;
+  font-size: 14px;
+  font-family: Circular,Helvetica,Arial,sans-serif;
 }
