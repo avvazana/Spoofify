@@ -19,9 +19,13 @@ Song_artist.destroy_all
 def create_user(params, filename)
   puts "In create user #{params}, #{filename}"
   user = User.new(params)
+  puts "getting #{filename}"
   file = EzDownload.open("https://s3.amazonaws.com/spoofify-dev/photos/#{filename}")
+  puts "got #{filename}"
   user.photo.attach(io: file, filename: filename)
+  puts "saving"
   user.save!
+  puts "saved"
   return user
 end
 
