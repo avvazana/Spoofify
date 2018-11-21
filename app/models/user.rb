@@ -21,6 +21,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_one_attached :photo
+  
   has_many :playlists,
     foreign_key: :author_id,
     class_name: :Playlist
