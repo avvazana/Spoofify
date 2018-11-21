@@ -5,46 +5,45 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 Album.destroy_all
 Song.destroy_all
 Artist.destroy_all
 User.destroy_all
 Playlist.destroy_all
 Follow.destroy_all
-SongPlaylist.destroy_all
-SongArtist.destroy_all
+Song_playlist.destroy_all
+Song_artist.destroy_all
 
 # file = EzDownload.open('https://s3.amazonaws.com/spoofify-dev/face.jpg')
 
 def create_user(params, filename)
   user = User.new(params)
-  file = EzDownload.open('https://s3.amazonaws.com/spoofify-dev/photos/filename')
+  file = EzDownload.open("https://s3.amazonaws.com/spoofify-dev/photos/#{filename}")
   user.photo.attach(io: file, filename: filename)
-  user.save
+  user.save!
   return user
 end
 
 def create_album(params, filename)
   album = Album.new(params)
-  file = EzDownload.open('https://s3.amazonaws.com/spoofify-dev/photos/filename')
+  file = EzDownload.open("https://s3.amazonaws.com/spoofify-dev/photos/#{filename}")
   album.photo.attach(io: file, filename: filename)
-  album.save
+  album.save!
   return album
 end
 
 def create_artist(params, filename)
   artist = Artist.new(params)
-  file = EzDownload.open('https://s3.amazonaws.com/spoofify-dev/photos/filename')
+  file = EzDownload.open("https://s3.amazonaws.com/spoofify-dev/photos/#{filename}")
   artist.photo.attach(io: file, filename: filename)
-  artist.save
+  artist.save!
   return artist
 end
 
 def create_song(params, filename)
   song = Song.new(params)
-  file = EzDownload.open('https://s3.amazonaws.com/spoofify-dev/tracks/filename')
-  song.song.attach(io: file, filename: filename)
+  file = EzDownload.open("https://s3.amazonaws.com/spoofify-dev/tracks/#{filename}")
+  song.track.attach(io: file, filename: filename)
   song.save
   return song
 end
@@ -60,7 +59,7 @@ nathan = create_user({username: 'Nathan', password: 'password', email: 'guest7@g
 hobbes = create_user({username: 'Hobbes', password: 'password', email: 'guest8@guest.com'}, 'face.jpg')
 unique = create_user({username: 'UniqueUsername', password: 'password', email: 'guest9@guest.com'}, 'face.jpg')
 william = create_user({username: 'Williamnot', password: 'password', email: 'guest10@guest.com'}, 'Williamnot.jpg')
-paul = create_user({username: 'PaulAsCalvin', password: 'password', email: 'guest11@guest.com'}, 'PaulAsCalvin.jpg')
+paul2 = create_user({username: 'PaulAsCalvin', password: 'password', email: 'guest11@guest.com'}, 'PaulAsCalvin.jpg')
 
 chilipeppers = create_artist({  name: 'Red Hot Chili Peppers'}, 'artist_chilipeppers.jpg')
 mattcorby = create_artist({  name: 'Matt Corby'}, 'artist_mattcorby.jpg')
@@ -88,23 +87,23 @@ mindless = create_album({title: 'Mindless'}, 'splash.jpg')
 
 www = create_song({title: 'Californication', album_id: bytheway.id}, 'Californication.mp3')
 zzz = create_song({title: 'Snow', album_id: bytheway.id}, 'Snow.mp3')
-a = create_song({title: 'Scar Tissue', album_id: bytheway.id}, 'Scar Tissue.mp3')
-b = create_song({title: 'Around The World', album_id: bytheway.id}, 'Around The World.mp3')
-c = create_song({title: 'Under The Bridge', album_id: bytheway.id}, 'Under The Bridge.mp3')
+a = create_song({title: 'Scar Tissue', album_id: bytheway.id}, 'Scar+Tissue.mp3')
+b = create_song({title: 'Around The World', album_id: bytheway.id}, 'Around+The+World.mp3')
+c = create_song({title: 'Under The Bridge', album_id: bytheway.id}, 'Under+The+Bridge.mp3')
 d = create_song({title: 'Otherwise', album_id: bytheway.id}, 'Otherwise.mp3')
 
 chilipeppers.songs += [a, b, c, d, zzz, www]
 
 e = create_song({title: 'Monday', album_id: monday.id}, 'Monday.mp3')
 f = create_song({title: 'Brother', album_id: monday.id}, 'Brother.mp3')
-g = create_song({title: 'Trick of the light', album_id: monday.id}, 'Matt Corby - Trick of the light.mp3')
-h = create_song({title: 'Wrong Man', album_id: monday.id}, 'Matt Corby - Wrong Man.mp3')
-i = create_song({title: 'Knife Edge', album_id: monday.id}, 'Matt Corby - Knife Edge.mp3')
-j = create_song({title: 'Resolution', album_id: monday.id}, 'Matt Corby - Resolution.mp3')
+g = create_song({title: 'Trick of the light', album_id: monday.id}, 'Matt+Corby+-+Trick+of+the+light.mp3')
+h = create_song({title: 'Wrong Man', album_id: monday.id}, 'Matt+Corby+-+Wrong+Man.mp3')
+i = create_song({title: 'Knife Edge', album_id: monday.id}, 'Matt+Corby+-+Knife+Edge.mp3')
+j = create_song({title: 'Resolution', album_id: monday.id}, 'Matt+Corby+-+Resolution.mp3')
 
 mattcorby.songs += [e, f, g, h, i, j]
 
-k = create_song({title: 'These Hands', album_id: hands.id}, 'These Hands.mp3')
+k = create_song({title: 'These Hands', album_id: hands.id}, 'These+Hands.mp3')
 l = create_song({title: 'Better', album_id: hands.id}, 'Better.mp3')
 
 sammhenshaw.songs += [k, l]
@@ -112,23 +111,23 @@ sammhenshaw.songs += [k, l]
 m = create_song({title: 'Bolt', album_id: wave.id}, 'Bolt.mp3')
 instrumentals.songs += [m]
 
-q = create_song({title: 'Warrior', album_id: sunshine.id}, 'Matisyahu - Warrior.mp3')
-r = create_song({title: 'Time Of Your Song', album_id: sunshine.id}, 'Matisyahu - Time Of Your Song.mp3')
-s = create_song({title: 'King Without a Crown', album_id: sunshine.id}, 'Matisyahu - King Without a Crown.mp3')
+q = create_song({title: 'Warrior', album_id: sunshine.id}, 'Matisyahu+Warrior.mp3')
+r = create_song({title: 'Time Of Your Song', album_id: sunshine.id}, 'Matisyahu+Time+Of+Your+Song.mp3')
+s = create_song({title: 'King Without a Crown', album_id: sunshine.id}, 'Matisyahu+King+Without+a+Crown.mp3')
 
 matisyahu.songs += [q, r, s]
 
 t = create_song({title: 'Evergreen', album_id: evergreen.id}, 'YEBBA.mp3')
-u = create_song({title: 'My Mind (live)', album_id: evergreen.id}, 'My Mind (live).mp3')
-v = create_song({title: 'Weak (cover', album_id: evergreen.id}, 'Weak (cover.mp3')
-w = create_song({title: 'No Peace', album_id: evergreen.id}, 'No Peace.mp3')
-x = create_song({title: 'Why My Day Will Come', album_id: evergreen.id}, 'Why My Day Will Come.mp3')
+u = create_song({title: 'My Mind (live)', album_id: evergreen.id}, 'My+Mind+(live).mp3')
+v = create_song({title: 'Weak (cover', album_id: evergreen.id}, 'Weak+(cover.mp3')
+w = create_song({title: 'No Peace', album_id: evergreen.id}, 'No+Peace.mp3')
+x = create_song({title: 'Why My Day Will Come', album_id: evergreen.id}, 'Why+My+Day+Will+Come.mp3')
 
 yebba.songs += [t, u, v, w, x]
 
 y = create_song({title: 'Demons', album_id: demons.id}, 'Demons.mp3')
 z = create_song({title: 'Amsterdam', album_id: demons.id}, 'Amsterdam.mp3')
-aa = create_song({title: 'On Top Of The World', album_id: demons.id}, 'On Top Of The World.mp3')
+aa = create_song({title: 'On Top Of The World', album_id: demons.id}, 'On+Top+Of+The+World.mp3')
 bb = create_song({title: 'Thunder', album_id: demons.id}, 'Thunder.mp3')
 cc = create_song({title: 'Natural', album_id: demons.id}, 'Natural.mp3')
 dd = create_song({title: 'Believer', album_id: demons.id}, 'Believer.mp3')
@@ -146,21 +145,21 @@ kk = create_song({title: 'Instrumental Words', album_id: light.id}, 'Instrumenta
 instrumentals.songs += [ee, ff, gg, hh, ii, jj, kk]
 
 ll = create_song({title: 'Zombies', album_id: lift.id}, 'Zombies.mp3')
-mm = create_song({title: 'Summertime Magic', album_id: lift.id}, 'Summertime Magic.mp3')
+mm = create_song({title: 'Summertime Magic', album_id: lift.id}, 'Summertime+Magic.mp3')
 nn = create_song({title: 'Sober', album_id: lift.id}, 'Sober.mp3')
-oo = create_song({title: 'IV. Sweatpants.mp3', album_id: lift.id}, 'IV. Sweatpants.mp3')
-pp = create_song({title: 'This Is America', album_id: lift.id}, 'This Is America.mp3')
-qq = create_song({title: 'Feels Like Summer', album_id: lift.id}, 'Feels Like Summer.mp3')
+oo = create_song({title: 'IV. Sweatpants.mp3', album_id: lift.id}, 'IV.+Sweatpants.mp3')
+pp = create_song({title: 'This Is America', album_id: lift.id}, 'This+Is+America.mp3')
+qq = create_song({title: 'Feels Like Summer', album_id: lift.id}, 'Feels+Like+Summer.mp3')
 rr = create_song({title: 'Redbone', album_id: lift.id}, 'Redbone.mp3')
 
 gambino.songs += [ll, mm, nn, oo, pp, qq, rr]
 
-ss = create_song({title: 'Original classic', album_id: come.id}, 'Sounds of Nature1.mp3')
-tt = create_song({title: 'Unoriginal classic', album_id: come.id}, 'Sounds of Nature2.mp3')
-uu = create_song({title: 'Classically classic', album_id: come.id}, 'Sounds of Nature3.mp3')
-vv = create_song({title: 'Classically original', album_id: come.id}, 'Sounds of Nature4.mp3')
-ww = create_song({title: 'Gift of Nature', album_id: explore.id}, 'Sounds of Nature5.mp3')
-xx = create_song({title: 'Gift of Life', album_id: explore.id}, 'Sounds of Nature6.mp3')
+ss = create_song({title: 'Original classic', album_id: come.id}, 'Sounds+of+Nature1.mp3')
+tt = create_song({title: 'Unoriginal classic', album_id: come.id}, 'Sounds+of+Nature2.mp3')
+uu = create_song({title: 'Classically classic', album_id: come.id}, 'Sounds+of+Nature3.mp3')
+vv = create_song({title: 'Classically original', album_id: come.id}, 'Sounds+of+Nature4.mp3')
+ww = create_song({title: 'Gift of Nature', album_id: explore.id}, 'Sounds+of+Nature5.mp3')
+xx = create_song({title: 'Gift of Life', album_id: explore.id}, 'Sounds+of+Nature6.mp3')
 yy = create_song({title: 'Classical Tune', album_id: mindless.id}, 'classical1.mp3')
 zz = create_song({title: 'Crossroads', album_id: mindless.id}, 'classical2.mp3')
 aaa = create_song({title: 'Choices', album_id: mindless.id}, 'classical3.mp3')

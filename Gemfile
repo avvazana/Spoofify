@@ -38,7 +38,7 @@ gem 'jquery-rails'
 gem 'bcrypt'
 gem "aws-sdk-s3", require: false
 gem 'rspotify'
-gem 'ez_download'
+gem 'ez_download', git: 'https://github.com/OscarAlvarez8830/EZDownload.git'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a  console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
