@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
  const PlaylistIndexItem = ({ playlist, navpath}) => {
-   debugger
+   
    return (
      <li className="playlist-item" key={playlist.id}>
        <Link to={`/${navpath}/playlists/${playlist.id}`}>

@@ -3,17 +3,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../../actions/modal_actions';
 import { createPlaylist } from '../../../actions/playlist_actions';
 
-const mapStateToProps = state => ({
-  currUserId: state.session.id
-});
-
-const mapDispatchToProps = dispatch => ({
-  closeModal: () => dispatch(closeModal()),
-  createPlaylist: playlist => dispatch(createPlaylist(playlist))
-});
-
 class PlaylistForm extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -41,10 +31,8 @@ class PlaylistForm extends React.Component {
       <div className="playlist-form">
 
         <button
-          className="x-btn button-strip"
-          onClick={this.props.closeModal}>X</button>
-
-
+          className="x-button"
+          onClick={this.props.closeModal}>x</button>
 
         <h1 className="playlist-form-header">Create new playlist</h1>
 
@@ -55,7 +43,6 @@ class PlaylistForm extends React.Component {
               <input type='text'
                 className="input-box-input"
                 placeholder="Start typing..."
-
                 onChange={this.handleChange()}>
               </input>
             </div>
@@ -63,16 +50,25 @@ class PlaylistForm extends React.Component {
         </form>
 
         <div className="playlist-btns">
-          <button
-            onClick={this.props.closeModal}
-            className="cancel-btn"
-            >CANCEL</button>
-          <button className="create-playlist-btn" onClick={this.handleSubmit}>CREATE</button>
+            <button
+              onClick={this.props.closeModal}
+              className="cancel-button-div"
+              >CANCEL</button>
+            <button className="create-button-div" onClick={this.handleSubmit}>CREATE</button>
         </div>
       </div>
     );
   }
 
 }
+
+const mapStateToProps = state => ({
+  currUserId: state.session.id
+});
+
+const mapDispatchToProps = dispatch => ({
+  closeModal: () => dispatch(closeModal()),
+  createPlaylist: playlist => dispatch(createPlaylist(playlist))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistForm);

@@ -6,7 +6,6 @@ import { PulseLoader } from 'react-spinners';
 class ShowBoxContent extends React.Component {
   constructor(props) {
     super(props);
-    debugger
     this.state = { loading: true };
   }
 
@@ -28,6 +27,12 @@ class ShowBoxContent extends React.Component {
           </label>
         );
       });
+    } else {
+      tracks = (
+        <div className="no-results">
+          Nothing to see here...
+        </div>
+      );
     }
 
     if (this.state.loading) {

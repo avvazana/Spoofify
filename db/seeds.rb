@@ -111,9 +111,9 @@ sammhenshaw.songs += [k, l]
 m = create_song({title: 'Bolt', album_id: wave.id}, 'Bolt.mp3')
 instrumentals.songs += [m]
 
-q = create_song({title: 'Warrior', album_id: sunshine.id}, 'Matisyahu+Warrior.mp3')
-r = create_song({title: 'Time Of Your Song', album_id: sunshine.id}, 'Matisyahu+Time+Of+Your+Song.mp3')
-s = create_song({title: 'King Without a Crown', album_id: sunshine.id}, 'Matisyahu+King+Without+a+Crown.mp3')
+q = create_song({title: 'Warrior', album_id: sunshine.id}, 'Matisyahu+-+Warrior.mp3')
+r = create_song({title: 'Time Of Your Song', album_id: sunshine.id}, 'Matisyahu+-+Time+Of+Your+Song.mp3')
+s = create_song({title: 'King Without a Crown', album_id: sunshine.id}, 'Matisyahu+-+King+Without+a+Crown.mp3')
 
 matisyahu.songs += [q, r, s]
 
