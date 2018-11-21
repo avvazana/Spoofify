@@ -17,6 +17,7 @@ Song_artist.destroy_all
 # file = EzDownload.open('https://s3.amazonaws.com/spoofify-dev/face.jpg')
 
 def create_user(params, filename)
+  puts "In create user #{params}, #{filename}"
   user = User.new(params)
   file = EzDownload.open("https://s3.amazonaws.com/spoofify-dev/photos/#{filename}")
   user.photo.attach(io: file, filename: filename)
@@ -25,6 +26,7 @@ def create_user(params, filename)
 end
 
 def create_album(params, filename)
+  puts "In create album #{params}, #{filename}"
   album = Album.new(params)
   file = EzDownload.open("https://s3.amazonaws.com/spoofify-dev/photos/#{filename}")
   album.photo.attach(io: file, filename: filename)
@@ -33,6 +35,7 @@ def create_album(params, filename)
 end
 
 def create_artist(params, filename)
+  puts "In create artist #{params}, #{filename}"
   artist = Artist.new(params)
   file = EzDownload.open("https://s3.amazonaws.com/spoofify-dev/photos/#{filename}")
   artist.photo.attach(io: file, filename: filename)
@@ -41,6 +44,7 @@ def create_artist(params, filename)
 end
 
 def create_song(params, filename)
+  puts "In create song #{params}, #{filename}"
   song = Song.new(params)
   file = EzDownload.open("https://s3.amazonaws.com/spoofify-dev/tracks/#{filename}")
   song.track.attach(io: file, filename: filename)
