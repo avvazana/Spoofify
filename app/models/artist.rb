@@ -15,7 +15,7 @@ class Artist < ApplicationRecord
 
   has_many :song_artists,
     foreign_key: :artist_id,
-    class_name: :Song_artist
+    class_name: :SongArtist
 
   has_many :songs,
     through: :song_artists,

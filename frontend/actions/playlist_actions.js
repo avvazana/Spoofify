@@ -36,7 +36,7 @@ export const fetchPlaylists = () => dispatch => {
 export const fetchPlaylist = (id) => dispatch => {
   return (
     APIUtil.fetchPlaylist(id).then(res => {
-      
+
         dispatch(receivePlaylist(res));
       }
     ));
@@ -62,3 +62,7 @@ export const deletePlaylist = (id) => dispatch => {
       () => dispatch(removePlaylist(id))
     ));
 };
+
+export const createSongOnPlaylist = songOnPlaylist => dispatch => {
+  return APIUtil.createSongOnPlaylist(songOnPlaylist).then(null, err => console.log(err));
+}

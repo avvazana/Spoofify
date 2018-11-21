@@ -19,6 +19,12 @@ class Api::PlaylistsController < ApplicationController
       render json: @playlist.errors.full_messages, status: 422
     end
   end
+  # 
+  # def add_song
+  #   @playlist = Playlist.find(params[:playlist_id])
+  #   @song = Song.find(params[:song_id])
+  #   @playlist.songs += [@song]
+  # end
 
   private
 

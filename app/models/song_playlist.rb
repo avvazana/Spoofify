@@ -9,7 +9,9 @@
 #  updated_at  :datetime         not null
 #
 
-class Song_playlist < ApplicationRecord
+class SongPlaylist < ApplicationRecord
+  validates :playlist_id, :song_id, presence: true
+
   belongs_to :song
   belongs_to :playlist
 end

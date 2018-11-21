@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class Song_artist < ApplicationRecord
+class SongArtist < ApplicationRecord
   belongs_to :song
   belongs_to :artist
 end

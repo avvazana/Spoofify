@@ -23,7 +23,7 @@ class MainContent extends React.Component {
 
   render() {
     const {playlists, navpath, show} = this.props;
-    
+
     const index = (
       <div className="grid">
         <ul>

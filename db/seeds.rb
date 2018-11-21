@@ -11,8 +11,8 @@ Artist.destroy_all
 User.destroy_all
 Playlist.destroy_all
 Follow.destroy_all
-Song_playlist.destroy_all
-Song_artist.destroy_all
+SongPlaylist.destroy_all
+SongArtist.destroy_all
 
 # file = EzDownload.open('https://s3.amazonaws.com/spoofify-dev/face.jpg')
 

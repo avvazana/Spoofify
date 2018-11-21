@@ -34,3 +34,11 @@ export const deletePlaylist = (id) => {
       url: `/api/playlists/${id}`
     });
 };
+
+export const createSongOnPlaylist = songPlaylist => (
+  $.ajax({
+    method: 'POST',
+    url: 'api/song_playlists',
+    data: { song_playlist: songPlaylist }
+  })
+);

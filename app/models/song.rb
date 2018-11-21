@@ -18,11 +18,11 @@ class Song < ApplicationRecord
 
   has_many :song_playlists,
     foreign_key: :song_id,
-    class_name: :Song_playlist
+    class_name: :SongPlaylist
 
   has_many :song_artists,
     foreign_key: :song_id,
-    class_name: :Song_artist
+    class_name: :SongArtist
 
   has_many :arists,
     through: :song_artists,
