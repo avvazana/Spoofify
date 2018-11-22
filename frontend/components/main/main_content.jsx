@@ -33,6 +33,22 @@ class MainContent extends React.Component {
       </div>
     );
 
+    // const index = (
+    //   <div className="grid">
+    //     <ul>
+    //       {albums.map(album => <AlbumIndexItem album={album} navpath={navpath}/>)}
+    //     </ul>
+    //   </div>
+    // );
+    //
+    // const index = (
+    //   <div className="grid">
+    //     <ul>
+    //       {artists.map(artist => <ArtistIndexItem artist={artist} navpath={navpath}/>)}
+    //     </ul>
+    //   </div>
+    // );
+
     let redirect = "";
     if (this.props.path === '/browse' || this.props.path === '/browse/'){
       redirect = <Redirect to={`/${navpath}/playlists`} />;
@@ -45,7 +61,7 @@ class MainContent extends React.Component {
         </div>
         <div className="main-body">
           <div>
-            <Header className="header"/>
+            <Header className="header" navpath={navpath}/>
           </div>
           <Modal />
           {index}

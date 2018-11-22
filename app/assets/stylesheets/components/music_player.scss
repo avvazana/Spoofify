@@ -276,9 +276,6 @@ progress[value]::-webkit-progress-value {
 }
 /* ------------------------------------ */
 
-/*  *//*  *//*  *//*  *//*  *//*  *//*  */
-/*  this is the godforsaken volume bar  */
-/*  *//*  *//*  *//*  *//*  *//*  *//*  */
 
 input[type=range] {
   -webkit-appearance: none;
@@ -313,47 +310,7 @@ input[type=range]::-webkit-slider-runnable-song {
   border: .5px solid hsla(0,0%,100%,.7);
 }
 
-iv[class^="track-index-highlight"] {
-  position: relative;
-  z-index: 0;
-  display: flex;
-  align-items: center;
-  height: 60px;
-  padding: 5px 5px 5px 15px;
-  transition: background-color .2s linear;
-}
 
-div[class*="track-index-highlight"]:hover {
-  background-color: rgba(0,0,0,.3);
-}
-
-div[class*="track-index-highlight"] i {
-  opacity: 0;
-}
-
-div[class*="track-index-highlight"]:hover i {
-  opacity: 1;
-  cursor: pointer;
-}
-
-div[class*="track-index-highlight"]:hover #index-play:hover {
-  color: #1db954;
-}
-
-.index-button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.active-track {
-  background-color: rgba(0,0,0,.3);
-}
-
-#index-pause {
-  opacity: 1;
-  color: #1db954;
-}
 
 .track-info-group {
   border-left: 1px solid hsla(0, 0%, 60%, 0.6);
@@ -800,128 +757,9 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   align-items: center;
 }
 
-/*  *//*  *//*  *//*  *//*  *//*  *//*  */
-/* this is the godforsaken progress bar */
-/*  *//*  *//*  *//*  *//*  *//*  *//*  */
-
-#elapsed-time input, #remaining-time input {
-  -webkit-user-select: none;
-}
-
-#elapsed-time, #remaining-time {
-  -webkit-user-select: none;
-  display: inline;
-  width: 40px;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 200;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  color: hsla(0,0%,100%,.7);
-  caret-color: transparent;
-  cursor: default;
-}
-
-progress[value] {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 7px;
-  width: 400px;
-  margin: 0 10px 0 10px;
-  border-radius: 15px;
-}
-
-progress[value]::-webkit-progress-bar {
-  background-color: rgba(109, 109, 109, .7);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-  border-radius: 15px;
-}
-
-progress[value]::-webkit-progress-value {
-  background-color: rgba(127, 127, 127, .7);
-  border-radius: 15px;
-  transition: background-color .1s linear;
-}
-
-.progress-bar:hover progress[value]::-webkit-progress-value {
-  background-color: #1db954;
-}
-
-.progress-bar:hover progress[value] {
-  cursor: pointer;
-}
-
-#play-circle, #pause-circle {
-  -webkit-user-select: none;
-  font-size: 40px;
-  transition: font-size .1s linear, color .1s linear;
-  color: hsla(0,0%,100%,.7);
-}
-
-#play-circle:hover, #pause-circle:hover {
-  cursor: pointer;
-  font-size: 44px;
-  color: #1db954;
-}
-
-#next-track, #prev-track {
-  -webkit-user-select: none;
-  font-size: 24px;
-  transition: font-size .1s linear, color .1s linear;
-  color: hsla(0,0%,100%,.7);
-}
-
-#next-track:hover, #prev-track:hover {
-  cursor: pointer;
-  font-size: 29px;
-  color: #1db954;
-}
-
-#queue, #device, #volume {
-  -webkit-user-select: none;
-  font-size: 20px;
-  color: hsla(0,0%,100%,.7);
-}
-
-.extra-controls {
-  display: flex;
-  justify-content: space-between;
-}
-
-#queue {
-  transition: color .1s linear;
-}
-
-#queue:hover {
-  cursor: default;
-  color: #1db954;
-}
-
-#device {
-  margin-left: 20px;
-  transition: color .1s linear;
-}
-
-#device:hover {
-  cursor: default;
-  color: #1db954;
-}
-
-#volume {
-  margin: 0 5px 0 20px;
-  transition: color .1s linear;
-}
-
-#volume:hover {
-  cursor: pointer;
-  color: #1db954;
-}
-
-/* volume slider */
+// volume slider
 #volume-control {
   width: 100px;
-  transition: color .1s linear;
 }
 
 #volume-control:hover {

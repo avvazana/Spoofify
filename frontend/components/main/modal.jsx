@@ -5,7 +5,7 @@ import PlaylistForm from './playlists/playlist_form';
 import PlaylistSongForm from './playlists/playlist_song_form';
 
 function Modal({ modal, closeModal} ) {
-
+  debugger
   if (!modal) {
     return null;
   }

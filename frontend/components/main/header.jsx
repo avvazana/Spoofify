@@ -3,6 +3,12 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 
+const mapStateToProps = state => {
+  return {
+
+  };
+};
+
 const mapDispatchToProps = dispatch => ({
   openModal: (modal) => dispatch(openModal(modal))
 });
@@ -22,25 +28,25 @@ class Header extends React.Component {
           <NavLink
             className="header-bar-link"
             activeClassName="active-header-link"
-            to={`/${this.props.page}/albums`}
+            to={`/${this.props.navpath}/albums`}
           >ALBUMS</NavLink>
 
           <NavLink
             className="header-bar-link"
             activeClassName="active-header-link"
-            to={`/${this.props.page}/artists`}
+            to={`/${this.props.navpath}/artists`}
           >ARTISTS</NavLink>
 
           <NavLink
             className="header-bar-link"
             activeClassName="active-header-link"
-            to={`/${this.props.page}/playlists`}
+            to={`/${this.props.navpath}/playlists`}
           >PLAYLISTS</NavLink>
 
           <NavLink
             className="header-bar-link"
             activeClassName="active-header-link"
-            to={`/${this.props.page}/songs`}
+            to={`/${this.props.navpath}/songs`}
           >SONGS</NavLink>
         </div>
 

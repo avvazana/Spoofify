@@ -59,19 +59,16 @@ class MusicPlayer extends React.Component {
   }
 
   printTime(time) {
-
-    if (isNaN(this.audio.duration)) {
+    if (!this.audio.duration) {
       return "-:--";
     }
-    let rounded = Math.floor(time);
-    let minutes = Math.floor(rounded / 60);
-    let seconds = Math.floor(rounded % 60);
+    let minutes = Math.floor(time / 60);
+    let seconds = Math.floor(time % 60);
     seconds >= 10 ? seconds = seconds : seconds = `0${seconds}`;
     return `${minutes}:${seconds}`;
   }
 
   updateProgress() {
-
     this.setState({ progress: this.audio.currentTime / this.audio.duration })
   }
 
@@ -121,7 +118,7 @@ class MusicPlayer extends React.Component {
     const { songInfo, currentSong, loggedIn, putSongInState, openModal,
       pauseCurrentSong, receiveCurrentSong } = this.props;
 
-    if (!loggedIn) { return null }
+    if (!loggedIn) { return null };
 
     return (
       <footer className="playbar">
@@ -137,7 +134,7 @@ class MusicPlayer extends React.Component {
                 <div className="now-playing-add-button-container">
                   <div className="now-playing-add-button"
                     onClick={ () => {
-                      openModal();
+                      openModal('newPlaylistSong');
                       putSongInState(currentSong.id);
                     }}>
                     <i className="material-icons">add</i>
@@ -182,9 +179,11 @@ class MusicPlayer extends React.Component {
               {
                 currentSong.id ? (
                   <div className="progress-bar">
-                    <input id="elapsed-time" type="text" readOnly
+                    <input id="elapsed-time" type="text"
+                      readOnly
                       value={ this.printTime(this.audio.currentTime) } />
                     <progress id="progress-control" max="1"
+                      readOnly
                       value={ this.state.progress || '' }
                       onClick={ (e) => this.seekProgress(
                         e.pageX,
@@ -192,7 +191,8 @@ class MusicPlayer extends React.Component {
                         e.currentTarget.offsetWidth)
                       }>
                     </progress>
-                    <input id="remaining-time" type="text" readOnly
+                    <input id="remaining-time" type="text"
+                      readOnly
                       value={ this.printTime(this.audio.duration - this.audio.currentTime) } />
                   </div>
                 ) : (
@@ -202,10 +202,10 @@ class MusicPlayer extends React.Component {
             </div>
 
             <audio
-              autoPlay
               id="playbar-audio"
-              src={ songInfo.trackUrl }
               ref={ tag => this.audio = tag }
+              autoPlay
+              src={ songInfo.trackUrl }
               onTimeUpdate={ this.updateProgress }
               volume={ this.state.volume }
               onEnded={ () => this.nextSong(currentSong.id) }>

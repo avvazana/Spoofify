@@ -12,11 +12,3 @@
     end
   end
 end
-
-# json.photoUrl url_for(playlist.photo)
-# json.trackUrl url_for(playlist.track)
-
-
-# json.songs playlist.songs.each do |song|
-#   json.set! song.id
-# end

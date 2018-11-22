@@ -1,7 +1,12 @@
 class Api::ArtistsController < ApplicationController
   def index
-    @artists = Artist.all
+    @artists = Artist.all.includes(:songs)
     render :index
+  end
+
+  def show
+    @artist = Artist.includes(:songs).find(params[:id])
+    render :show
   end
 
   private

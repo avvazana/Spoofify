@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  
+
   return {
     openModal: (modal, songId) => dispatch(openModal(modal, songId)),
     pauseCurrentSong: () => dispatch(pauseCurrentSong()),
@@ -42,10 +42,6 @@ class SongsIndexItem extends React.Component {
 
   componentWillReceiveProps(nextProps) {
 
-    if (!this.props.song) {
-      return null;
-    }
-
     if (this.props.song.id !== nextProps.currentSong.id) {
       this.setState({ playing: false });
     }
@@ -71,29 +67,34 @@ class SongsIndexItem extends React.Component {
   render () {
 
     const { putSongInState, openModal, song, playlist } = this.props;
-    let playlistId = playlist.id;
+
+    let indexButton = this.state.playing ? (
+        <div className="index-button-container">
+          <p id="index-pause" className="material-icons" onClick={() => {
+              this.togglePlay(song.id, playlist.id);
+            }}>pause_circle_outline
+          </p>
+        </div>
+      ) : (
+        <div className="index-button-container">
+          <p className="material-icons" onClick={() => {
+              this.togglePlay(song.id, playlist.id);
+            }}>play_arrow
+          </p>
+        </div>
+      );
 
     return (
-    <div id={`track-index-highlight-${song.id}`}
-      className={`track-index-highlight-${song.id}`}
-      onDoubleClick={ () => { this.togglePlay(song.id, playlistId); } }>
-      {
-        this.state.playing ? (
-          <div className="index-button-container">
-            <i id="index-pause" className="material-icons" onClick={() => {
-                this.togglePlay(song.id, playlistId);
-              }}>volume_up
-            </i>
-          </div>
-        ) : (
-          <div className="index-button-container">
-            <i id="index-play" className="material-icons" onClick={() => {
-                this.togglePlay(song.id, playlistId);
-              }}>play_arrow
-            </i>
-          </div>
-        )
-      }
+    <div className="song-index-item">
+      <div className={`song-index${song.id}`} onDoubleClick={ () => { this.togglePlay(song.id, playlist.id); } }>
+        { indexButton }
+        <div className="song-index-title">{song.title}</div>
+        <button
+          onClick={() => this.props.openModal('newPlaylistSong', `${song.id}`)}
+          className="pl-btn">
+          <img className="tripledot" src={window.tripledot}></img>
+        </button>
+      </div>
     </div>
   );
 }
