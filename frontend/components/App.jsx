@@ -8,6 +8,7 @@ import BrowseContainer from './main/browse_container';
 import SearchContainer from './main/search_container';
 import CollectionContainer from './main/collection_container';
 import PlaylistShowContainer from './main/playlist_show_container';
+import MusicPlayer from './main/music_player';
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
     <ProtectedRoute exact path="/collection/playlists" component={CollectionContainer}/>
     <ProtectedRoute exact path="/collection/playlists/:playlistId" component={PlaylistShowContainer}/>
     <Route exact path="/" component={SplashContainer}/>
+    <MusicPlayer/>
   </div>
 );
 };

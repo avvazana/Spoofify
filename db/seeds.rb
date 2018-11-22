@@ -169,11 +169,11 @@ ccc = create_song({title: 'Time', album_id: mindless.id}, 'classical6.mp3')
 classical.songs += [ss, tt, uu, vv, ww, xx, yy, zz, aaa, bbb, ccc]
 
 qqq = Playlist.create(title: 'Relax', author_id: spotify.id)
-Playlist.create(title: 'Chill', author_id: spotify.id)
-Playlist.create(title: 'Unwind', author_id: spotify.id)
-Playlist.create(title: 'Sublime', author_id: spotify.id)
-Playlist.create(title: 'Focus', author_id: paul.id)
-Playlist.create(title: 'Energize', author_id: paul2.id)
+rrr = Playlist.create(title: 'Chill', author_id: spotify.id)
+sss = Playlist.create(title: 'Unwind', author_id: spotify.id)
+ttt = Playlist.create(title: 'Sublime', author_id: spotify.id)
+uuu = Playlist.create(title: 'Focus', author_id: paul.id)
+vvv = Playlist.create(title: 'Energize', author_id: paul2.id)
 ppp = Playlist.create(title: 'Commute', author_id: guest.id)
 Playlist.create(title: 'Exercise', author_id: guest.id)
 Playlist.create(title: 'Dance', author_id: mafe.id)
@@ -189,6 +189,11 @@ Playlist.create(title: 'Magical World', author_id: hobbes.id)
 
 qqq.songs += [q, ss, h, t]
 ppp.songs += [k, l, q]
+rrr.songs += [a, b, c, d, e, f, g]
+sss.songs += [i, j, k, l, m, r, s, t, u, v, w]
+ttt.songs += [x, y, z, aaa, bbb, ccc]
+uuu.songs += [aa, bb, cc, dd, ee, ff, gg, hh, ii, jj, kk, ll, mm, nn, oo, pp]
+vvv.songs += [qq, rr, ss, tt, uu, vv, ww, xx, yy, zz, zzz, www]
 #
 # # a = Song.create!(album_id: 2, title: "Californication")
 # # b = Song.create!(album_id: 2, title: "Snow")

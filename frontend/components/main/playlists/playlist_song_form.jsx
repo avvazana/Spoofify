@@ -54,7 +54,7 @@ class PlaylistSongForm extends React.Component {
   render() {
     return (
       <div className="playlist-song-form">
-        <button className="x-btn button-strip" onClick={this.props.closeModal}>X</button>
+        <button className="x-btn form-button" onClick={this.props.closeModal}>X</button>
 
         <h1 className="playlist-form-header">Add to playlist</h1>
 
@@ -66,21 +66,19 @@ class PlaylistSongForm extends React.Component {
                 <button
                   playlist-id={`${playlist.id}`}
                   onClick={this.handleSubmit}
-                  className="button-strip"
+                  className="form-button"
                   key={playlist.id}
                 >
                   <div className="collection-index-item">
 
                     <div className="collection-image-container">
                       <div className="playlist-img">
-                        <h4 className="playlist-img-title">removed</h4>
+                        <h4 className="playlist-img-title">{playlist.title}</h4>
                       </div>
                       <div className="image-overlay">
-                        <img className='collection-img-overlay' src={window.playBtn}></img>
+                        <img className='collection-img-overlay' src={playlist.photoUrl}></img>
                       </div>
                     </div>
-
-                    <h3 className="collection-title">{playlist.title}</h3>
                   </div>
                 </button>
               );

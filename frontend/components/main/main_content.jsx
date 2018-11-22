@@ -5,6 +5,7 @@ import { NavLink, Redirect } from 'react-router-dom';
 import NavBar from './navbar';
 import Header from './header';
 import Modal from './modal';
+import MusicPlayer from './music_player';
 
 class MainContent extends React.Component {
 
@@ -58,16 +59,10 @@ class MainContent extends React.Component {
 
 export default MainContent;
 
-// <div className="list">
-//   <ul>
-//     {songs.map(song => <SongIndexItem key={song.id} song={song} navpath={navpath} />)}
-//   </ul>
-// </div>
-// <div className="list">
-//   <ul>
-//     {artists.map(song => <SongIndexItem key={song.id} song={song} navpath={navpath} />)}
-//   </ul>
-// </div>
+
+
+
+
 
 // <Redirect to={`/${navpath}/${this.state.headerpath}`} />
 // <PlaylistIndex playlists={playlists}/>

@@ -23,7 +23,7 @@ class ShowBoxContent extends React.Component {
     if(songs[0]){
        tracks = songs.map( (song) => {
         return (
-          <SongsIndexItem key={song.id} song={song}/>
+          <SongsIndexItem key={song.id} song={song} playlist={playlist}/>
         );
       });
     } else {
@@ -54,7 +54,7 @@ class ShowBoxContent extends React.Component {
         </div>
 
         <div className="show-body">
-    
+
           <div className="body-items">
             <div className="playlist-show-item" key={playlist.id}>
               <div className="playlist-show-item-image">
