@@ -133,6 +133,11 @@
   margin-bottom: 20px;
 }
 
+.session-submit:hover{
+  color: #fff;
+  background-color: #4bdf80;
+}
+
 .session-form input::placeholder{
   opacity: .5;
   font-family: Circular,Helvetica,Arial,sans-serif;
@@ -151,10 +156,6 @@
 //   color: red;
 // }
 
-.session-submit:hover{
-  color: #fff;
-  background-color: #4bdf80;
-}
 
 
 .session-form divider{

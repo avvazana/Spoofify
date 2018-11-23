@@ -72,13 +72,25 @@
   color: white;
   align-self: end;
   position: absolute;
-  bottom: 100px;
-  left: 70px;
+  bottom: 130px;
+  left: 60px;
+  background-color: #1db954;
+  padding: 4px 6px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  font-weight: 350;
+  text-align: center;
 }
 
-.nav-bar .active-link{
-  color: green;
-  background-color: green;
+.nav-bar .logout:hover{
+  color: #fff;
+  background-color: #4bdf80;
+}
+
+a.active-link {
+  color: green !important;
 }
 
 .grid ul {

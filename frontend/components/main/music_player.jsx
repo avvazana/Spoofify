@@ -129,6 +129,7 @@ class MusicPlayer extends React.Component {
               <div className="now-playing-container">
                 <div className="now-playing-info">
                   <div className="now-playing-song">{ songInfo.title }</div>
+                  <img className="song-index-photo" src={songInfo.photoUrl}></img>
                 </div>
 
                 <div className="now-playing-add-button-container">
@@ -215,8 +216,7 @@ class MusicPlayer extends React.Component {
 
         <div className="playbar-right">
           <div className="extra-controls">
-            <i id="queue" className="material-icons">playlist_play</i>
-            <i id="device" className="material-icons">speaker</i>
+
               { this.state.volume > 0 ? (
                 <i id="volume" className="material-icons"
                   onClick={ () => this.toggleMute() }>volume_up</i>
@@ -262,3 +262,6 @@ const mdp = (dispatch) => {
 };
 
 export default connect(msp, mdp)(MusicPlayer);
+
+// <i id="queue" className="material-icons">playlist_play</i>
+// <i id="device" className="material-icons">speaker</i>

@@ -1,8 +1,8 @@
 import * as APIUtil from '../util/playlist_api_util';
 
-export const RECEIVE_ALL_PLAYLISTS = 'RECEIVE_ALL_PLAYLISTS';
 export const RECEIVE_SINGLE_PLAYLIST = 'RECEIVE_SINGLE_PLAYLIST';
 export const DELETE_PLAYLIST = 'DELETE_PLAYLIST';
+export const RECEIVE_ALL_PLAYLISTS = 'RECEIVE_ALL_PLAYLISTS';
 
 const receivePlaylists = (playlists) => {
   return {

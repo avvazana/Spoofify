@@ -1,1 +1,3 @@
-json.partial! 'api/users/user', user: @user
+
+json.extract! @user, :id, :username, :song_ids, :album_ids
+json.artist_ids @artists.pluck(:id)

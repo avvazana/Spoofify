@@ -42,6 +42,10 @@
   transition: 0.3s;
 }
 
+.header-bar-link .active-link {
+  color: black;
+}
+
 .active-header-link {
   border-bottom: 3px solid green;
   color: hsla(0, 0%, 100%, 1);

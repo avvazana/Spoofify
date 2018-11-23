@@ -21,10 +21,22 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_one_attached :photo
-  
+
   has_many :playlists,
     foreign_key: :author_id,
     class_name: :Playlist
+
+  has_many :songs,
+    through: :playlists,
+    source: :songs
+
+  has_many :albums,
+    through: :playlists,
+    source: :albums
+
+  has_many :artists,
+    through: :songs,
+    source: :artists
 
   def password=(password)
     @password = password

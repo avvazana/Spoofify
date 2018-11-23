@@ -14,11 +14,12 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @artists = [Artist.first, Artist.second, Artist.third, Artist.fourth, Artist.fifth]
     render :show
   end
 
   private
-  
+
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end

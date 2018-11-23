@@ -6,32 +6,42 @@ import NavBar from './navbar';
 import Header from './header';
 import Modal from './modal';
 import MusicPlayer from './music_player';
+import SongsIndex from './songs_index';
 
 class MainContent extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.state = {
-    //   headerpath: props.headerpath
-    // };
+
     this.fetchPlaylists = props.fetchPlaylists.bind(this);
+    this.fetchSongs = props.fetchSongs.bind(this);
     this.logout = props.logout.bind(this);
   }
 
   componentDidMount() {
     this.fetchPlaylists();
+    this.fetchSongs();
   }
 
   render() {
-    const {playlists, navpath, show} = this.props;
+    const {playlists, navpath, show, path} = this.props;
 
-    const index = (
-      <div className="grid">
-        <ul>
-          {playlists.map(playlist => <PlaylistIndexItem playlist={playlist} navpath={navpath}/>)}
-        </ul>
-      </div>
-    );
+    let index = "";
+
+    if (!path || path.includes("playlists")) {
+      index = (
+        <div className="grid">
+          <ul>
+            {playlists.map(playlist => <PlaylistIndexItem playlist={playlist} navpath={navpath}/>)}
+          </ul>
+        </div>
+      );
+    } else if (path.includes("songs")) {
+      index = (
+        <SongsIndex/>
+      );
+    }
+
 
     // const index = (
     //   <div className="grid">

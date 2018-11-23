@@ -14,6 +14,13 @@ export const signup = user => (
   })
 );
 
+export const fetchCurrentUser = user => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/users/${user.id}`
+  })
+);
+
 export const logout = () => (
   $.ajax({
     method: 'DELETE',

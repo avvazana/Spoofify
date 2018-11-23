@@ -3,13 +3,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
 import { fetchPlaylists } from '../../actions/playlist_actions';
-import { selectAllAuthoredPlaylists } from '../../reducers/selectors';  //selectAllAssociatedAlbums, selectAllAssociatedArtists
+import { fetchSongs } from '../../actions/song_actions';
+import { selectAllAuthoredPlaylists, selectAllAssociatedAlbums, selectAllAssociatedArtists, selectAllSavedSongs} from '../../reducers/selectors';
 import MainContent from './main_content';
 
 const mapStateToProps = (state, ownProps) => ({
   playlists: selectAllAuthoredPlaylists(state),
-  // albums: selectAllAssociatedAlbums,
-  // artists: selectAllAssociatedArtists,
+  albums: selectAllAssociatedAlbums(state),
+  artists: selectAllAssociatedArtists(state),
+  songs: selectAllSavedSongs(state),
   navpath: "collection",
   path: ownProps.location.pathname
 });
@@ -17,7 +19,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout()),
-    fetchPlaylists: () => dispatch(fetchPlaylists())
+    fetchPlaylists: () => dispatch(fetchPlaylists()),
+    fetchSongs: () => dispatch(fetchSongs())
   };
 };
 
