@@ -52,6 +52,18 @@ progress[value]::-webkit-progress-value {
   font-size: 40px;
   transition: font-size .1s linear, color .1s linear;
   color: hsla(0,0%,100%,.7);
+  margin-bottom: 10px !important;
+  padding-bottom: 10px;
+}
+#play-circle {
+  margin-bottom: 20px;
+}
+#pause-circle{
+  color:white;
+}
+
+.song-index-item {
+  align-items: center;
 }
 
 #play-circle:hover, #pause-circle:hover {
@@ -65,6 +77,9 @@ progress[value]::-webkit-progress-value {
   font-size: 24px;
   transition: font-size .1s linear, color .1s linear;
   color: hsla(0,0%,100%,.7);
+  margin-bottom: 21px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #next-song:hover, #prev-song:hover {
@@ -115,6 +130,7 @@ progress[value]::-webkit-progress-value {
 
 /* volume slider */
 #volume-control {
+  margin-right: 20px;
   width: 100px;
   transition: color .1s linear;
 }
@@ -304,7 +320,7 @@ input[type=range]::-webkit-slider-runnable-song {
 .now-playing-artwork img {
   height: 60px;
   width: 60px;
-  box-shadow: 0px 0px 16px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 16px 6px white;
   -webkit-user-select: none;
 }
 
@@ -312,6 +328,19 @@ input[type=range]::-webkit-slider-runnable-song {
   height: 100%;
   width: auto;
   padding: 0 11px 0 11px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.now-playing-song{
+  color: white;
+  font-size: 14px;
+  margin-left: 12px;
+}
+
+#add-save{
+  filter: invert(1);
 }
 
 .now-playing-track {

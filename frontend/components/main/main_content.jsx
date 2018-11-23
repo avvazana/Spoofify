@@ -38,7 +38,7 @@ class MainContent extends React.Component {
       );
     } else if (path.includes("songs")) {
       index = (
-        <SongsIndex/>
+        <SongsIndex className="main-songs-index"/>
       );
     }
 

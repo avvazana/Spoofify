@@ -3,14 +3,16 @@
   flex-direction: column;
   padding-left: 50px;
   padding-top: 30px;
-  max-width: 260px;
+  max-width: 322px;
+  margin-left: 10%;
+  margin-top: 20px;
 }
 
 .playlist-show-item-image {
   min-width: 180px;
   min-height: 180px;
-  max-height: 260px;
-  max-width: 260px;
+  max-height: 322px;
+  max-width: 322px;
 }
 .playlist-show-subtext {
   padding-top: 10px;
@@ -69,11 +71,12 @@
   display: flex;
   height: 60px;
   justify-content: space-between;
-  max-width: 400px;
+  width: 900px;
   color: #f2f2f2;
   flex: 1;
   align-items: center;
 }
+
 
 .song-index-item:hover {
   background-color: #404040;
@@ -83,15 +86,16 @@
     opacity: 1;
   }
 }
+
 .song-item {
   margin-left: 20px;
   margin-right: 200px;
 }
 
 .tripledot {
-  width: 25px;
+  width: 15px;
   margin-right: 20px;
-  color: white;
+  filter: invert(1);
 }
 
 .song-index-title{
@@ -107,13 +111,15 @@ div[class*="song-index"] {
   padding: 5px 5px 5px 15px;
   transition: background-color .2s linear;
   width: 500px;
+  padding-right: 40px;
 }
 
-div[class*="song-index"]:hover {
-  background-color: rgba(0,0,0,.3);
-}
+// div[class*="song-index"]:hover {
+//   background-color: rgba(0,0,0,.3);
+// }
 
 div[class*="song-index"] p {
+  margin-bottom: 12px;
   opacity: 0;
 }
 

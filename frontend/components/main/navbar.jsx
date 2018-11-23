@@ -10,30 +10,30 @@ export default (props) => {
       </div>
 
       <div className="icon-holder">
-        <NavLink activeClassName="active-link" exact to ="/search/playlists">
-          <span>
+        <span>
+        <NavLink activeClassName="active-link" className="inactive-link" exact to ="/search/playlists">
             <img src={window.searchIcon}></img>
             <h2>Search</h2>
-          </span>
         </NavLink>
+      </span>
 
         <br></br>
 
-        <NavLink activeClassName="active-link" exact to ="/browse/playlists">
-          <span>
+        <span>
+        <NavLink activeClassName="active-link" className="inactive-link" exact to ="/browse/playlists">
             <img src={window.homeIcon}></img>
             <h2>Home</h2>
-          </span>
         </NavLink>
+      </span>
 
         <br></br>
 
-        <NavLink activeClassName="active-link" exact to ="/collection/playlists">
-          <span>
+        <span>
+        <NavLink activeClassName="active-link" className="inactive-link" exact to ="/collection/playlists">
             <img src={window.libraryIcon}></img>
             <h2>Your Library</h2>
-          </span>
         </NavLink>
+      </span>
       </div>
 
       <div>

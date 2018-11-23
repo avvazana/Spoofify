@@ -7,6 +7,10 @@
   font-family: Circular,Helvetica,Arial,sans-serif;
 }
 
+.main-songs-index{
+  margin-left: 500px;
+}
+
 .main-container .nav-bar {
   padding: 24px 24px 5px;
   display: flex;
@@ -55,7 +59,7 @@
 }
 
 .nav-bar span h2{
-  padding-top: 7px;
+  padding-top: 9px;
   padding-left: 9px;
   width: 120px;
   font-weight: 550;
@@ -68,29 +72,43 @@
   height: 31px;
 }
 
+.nav-bar .inactive-link {
+  display: flex;
+  flex-direction: row;
+}
+
+
+
 .nav-bar .logout{
   color: white;
   align-self: end;
   position: absolute;
   bottom: 130px;
-  left: 60px;
-  background-color: #1db954;
-  padding: 4px 6px;
+  left: 75px;
+  background-color: #00BE88;
+  padding: 6px 6px;
   border-radius: 40px;
   border: none;
   cursor: pointer;
-  width: 100px;
+  width: 70px;
   font-weight: 350;
   text-align: center;
+  font-size: 13px;
 }
 
 .nav-bar .logout:hover{
   color: #fff;
-  background-color: #4bdf80;
+  background-color: #007765;
+  transition-duration: .4s;
+  transform: scale(1.1);
 }
 
-a.active-link {
-  color: green !important;
+.active-link {
+  color: #00CF90 !important;
+}
+
+.grid {
+  margin-top: 20px;
 }
 
 .grid ul {

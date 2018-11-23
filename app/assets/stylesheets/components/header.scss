@@ -25,6 +25,8 @@
 
 .header-navs{
   margin-top: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .header-bar-link {
@@ -47,25 +49,38 @@
 }
 
 .active-header-link {
-  border-bottom: 3px solid green;
-  color: hsla(0, 0%, 100%, 1);
 }
+
+.active-header-link:after {
+  border-bottom: 2px solid #00A079;
+  content: ' ';
+  position: relative;
+  width: 60%;
+  display: block;
+  margin-left: 21%;
+  margin-top: 1px;
+
+}
+
+
 
 .new-playlist-btn:hover{
   color: #fff;
-  background-color: #4bdf80;
+  background-color: #007263;
+  transform: scale(1.1);
 }
 
 .new-playlist-btn {
-  margin-top: 5px;
-  background-color: #1db954;
+  margin-top: 20px;
+  margin-right: 40px !important;
+  background-color: #00A079;
   color: white;
   border: none;
   cursor: pointer;
-  width: 15%;
+  width: 12%;
   border-radius: 40px;
   font-weight: 400;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 2px;
   width: 141px;
   height: 31px;
@@ -185,9 +200,12 @@
 
 .playlist-song-form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   margin-bottom: 25%;
+  color: white;
 }
 
 .user-playlists {

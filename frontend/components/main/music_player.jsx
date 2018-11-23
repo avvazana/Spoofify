@@ -128,8 +128,8 @@ class MusicPlayer extends React.Component {
             currentSong.id ? (
               <div className="now-playing-container">
                 <div className="now-playing-info">
+                  <img className="song-index-photo" src={ songInfo.photoUrl }></img>
                   <div className="now-playing-song">{ songInfo.title }</div>
-                  <img className="song-index-photo" src={songInfo.photoUrl}></img>
                 </div>
 
                 <div className="now-playing-add-button-container">
@@ -138,7 +138,7 @@ class MusicPlayer extends React.Component {
                       openModal('newPlaylistSong');
                       putSongInState(currentSong.id);
                     }}>
-                    <i className="material-icons">add</i>
+                    <i id="add-save" className="material-icons">add</i>
                   </div>
                 </div>
               </div>
@@ -162,7 +162,7 @@ class MusicPlayer extends React.Component {
                   currentSong.playing ?
                   <i id="pause-circle"
                     className="material-icons"
-                    onClick={ () => pauseCurrentSong() }>pause_circle_outline</i>
+                    onClick={ () => pauseCurrentSong() }>pause_circle_filled</i>
                   :
                   <i id="play-circle"
                     className="material-icons"
@@ -229,7 +229,6 @@ class MusicPlayer extends React.Component {
             <input id="volume-control" type="range"
               min="0" max="100" step="1"
               defaultValue="100"
-              onInput={ (e) => this.setVolume(e.currentTarget.value) }
               onChange={ (e) => this.setVolume(e.currentTarget.value) }>
             </input>
           </div>
