@@ -192,7 +192,7 @@ a11 = Playlist.create(title: 'It\'s a Magical World', author_id: hobbes.id)
 
 qqq.songs += [www, ss, h, t, x, y, z]
 ppp.songs += [k, l, q, ff, gg, hh]
-a5.songs += [e, r, s ]
+a5.songs += [t, r, s ]
 rrr.songs += [q, b, c, dd, ee, ff ]
 sss.songs += [m, j, k, l]
 ttt.songs += [ll, y, z, aaa, bbb, ccc]
