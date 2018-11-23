@@ -1,13 +1,14 @@
 .collection-index-item {
   display: flex;
   justify-content: center;
-  width: 1200px;
   flex-direction: row;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .image-overlay {
-  height: 100px;
-  width: 100px;
+  width: 150px;
+  height: 150px;
 }
 
 .image-overlay {

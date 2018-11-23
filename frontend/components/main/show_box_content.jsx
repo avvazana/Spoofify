@@ -18,7 +18,7 @@ class ShowBoxContent extends React.Component {
 
   render () {
     const {playlist, logout, songs} = this.props;
-
+    
     let tracks = '';
     if(songs[0]){
        tracks = songs.map( (song) => {

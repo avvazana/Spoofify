@@ -3,7 +3,7 @@
   flex-direction: column;
   padding-left: 50px;
   padding-top: 30px;
-  max-width: 322px;
+  width: 400px;
   margin-left: 10%;
   margin-top: 20px;
 }
@@ -11,8 +11,8 @@
 .playlist-show-item-image {
   min-width: 180px;
   min-height: 180px;
-  max-height: 322px;
-  max-width: 322px;
+  max-height: 350px;
+  max-width: 350px;
 }
 .playlist-show-subtext {
   padding-top: 10px;
@@ -98,8 +98,17 @@
   filter: invert(1);
 }
 
+// .song-index-wrapper{
+//   display: flex;
+//   flex-direction: column;
+// }
 .song-index-title{
+  margin-left: 16px;
+}
+.song-index-album{
   margin-left: 15px;
+  font-size: 14px;
+  color: gray;
 }
 
 div[class*="song-index"] {
@@ -110,7 +119,7 @@ div[class*="song-index"] {
   height: 60px;
   padding: 5px 5px 5px 15px;
   transition: background-color .2s linear;
-  width: 500px;
+  width: 700px;
   padding-right: 40px;
 }
 

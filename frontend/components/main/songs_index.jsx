@@ -2,10 +2,11 @@ import React from 'react';
 import { fetchSongs } from '../../actions/song_actions';
 import { connect } from 'react-redux';
 import { logout, fetchCurrentUser } from '../../actions/session_actions';
-import { selectAllSavedSongs } from '../../reducers/selectors';
+import { selectAllSavedSongs, selectAllPlaylists } from '../../reducers/selectors';
 import SongsIndexItem from './songs/songs_index_item';
 
 const mapStateToProps = (state) => {
+
   const songs = selectAllSavedSongs(state);
   return {
     songs
@@ -34,7 +35,7 @@ class SongsIndex extends React.Component {
   render(){
     const {songs} = this.props;
 
-    if (!songs){return (<div className="no-results">Nothing to see here...</div>);}
+    if (!songs){return (<div className="no-results"> Nothing to see here...</div>);}
 
     let tracks = songs.map( (song) => {
       return (
@@ -43,7 +44,7 @@ class SongsIndex extends React.Component {
     });
 
     return(
-      <div>
+      <div className="tracks-index">
         {tracks}
       </div>
     );

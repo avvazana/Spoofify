@@ -70,6 +70,8 @@ class MainContent extends React.Component {
           <NavBar className="nav" logout={this.logout}/>
         </div>
         <div className="main-body">
+          <div className="main-padding">
+          </div>
           <div>
             <Header className="header" navpath={navpath}/>
           </div>

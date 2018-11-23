@@ -65,7 +65,6 @@ class SongsIndexItem extends React.Component {
   }
 
   render () {
-
     const { putSongInState, openModal, song, playlist } = this.props;
 
     let indexButton = this.state.playing ? (
@@ -87,8 +86,9 @@ class SongsIndexItem extends React.Component {
     return (
     <div className="song-index-item">
       <div className={`song-index${song.id}`} onDoubleClick={ () => { this.togglePlay(song.id, playlist.id); } }>
-        { indexButton }
-        <div className="song-index-title">{song.title}</div>
+          { indexButton }
+          <div className="song-index-title">{song.title}</div>
+          <div className="song-index-album">{song.album}</div>
         <button
           onClick={() => this.props.openModal('newPlaylistSong', `${song.id}`)}
           className="pl-btn">
