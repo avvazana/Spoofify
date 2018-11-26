@@ -1,11 +1,11 @@
 import React from 'react';
-import NavBar from './navbar';
+import NavBar from '../navbar/navbar';
 import { PulseLoader } from 'react-spinners';
-import SongsIndexItem from './songs/songs_index_item';
-import Header from './header';
-import Modal from './modal';
+import SongsIndexItem from './songs_index_item';
+import Header from '../header/header';
+import Modal from '../modals/modal';
 
-class ShowBoxContent extends React.Component {
+class GridShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { loading: true };
@@ -18,7 +18,7 @@ class ShowBoxContent extends React.Component {
 
   render () {
     const {playlist, logout, songs} = this.props;
-    
+
     let tracks = '';
     if(songs[0]){
        tracks = songs.map( (song) => {
@@ -79,4 +79,4 @@ class ShowBoxContent extends React.Component {
     );
   }
 }
-export default ShowBoxContent;
+export default GridShow;

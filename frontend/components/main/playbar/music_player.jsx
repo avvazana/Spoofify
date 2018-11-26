@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getSongList } from '../../reducers/selectors';
-import { openModal } from '../../actions/modal_actions';
-import { putSongInState } from '../../actions/song_actions';
+import { getSongList } from '../../../reducers/selectors';
+import { openModal } from '../../../actions/modal_actions';
+import { putSongInState } from '../../../actions/song_actions';
 import {
   receiveCurrentSong,
   pauseCurrentSong,
   removeCurrentSong
-} from '../../actions/song_actions';
+} from '../../../actions/song_actions';
 
 class MusicPlayer extends React.Component {
   constructor(props) {

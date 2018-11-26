@@ -4,11 +4,12 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import SplashContainer from './splash/splash_container';
-import BrowseContainer from './main/browse_container';
-import SearchContainer from './main/search_container';
-import CollectionContainer from './main/collection_container';
-import PlaylistShowContainer from './main/playlist_show_container';
-import MusicPlayer from './main/music_player';
+import BrowseContainer from './main/navbar/browse_container';
+import SearchContainer from './main/navbar/search_container';
+import CollectionContainer from './main/navbar/collection_container';
+import PlaylistShowContainer from './main/header/playlist_show_container';
+import MusicPlayer from './main/playbar/music_player';
+// import NavBar from '.main/navbar/navbar';
 
 const App = () => {
     return (

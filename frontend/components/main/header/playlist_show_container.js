@@ -1,9 +1,9 @@
 import React from 'react';
-import { fetchPlaylist } from '../../actions/playlist_actions';
+import { fetchPlaylist } from '../../../actions/playlist_actions';
 import { connect } from 'react-redux';
-import ShowBoxContent from './show_box_content';
-import { logout } from '../../actions/session_actions';
-import { selectPlaylistSongs } from '../../reducers/selectors';
+import ShowBoxContent from './grid_show';
+import { logout } from '../../../actions/session_actions';
+import { selectPlaylistSongs } from '../../../reducers/selectors';
 
 
 const mapStateToProps = (state, ownProps) => {

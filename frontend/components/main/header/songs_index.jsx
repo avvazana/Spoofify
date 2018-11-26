@@ -1,9 +1,9 @@
 import React from 'react';
-import { fetchSongs } from '../../actions/song_actions';
+import { fetchSongs } from '../../../actions/song_actions';
 import { connect } from 'react-redux';
-import { logout, fetchCurrentUser } from '../../actions/session_actions';
-import { selectAllSavedSongs, selectAllPlaylists } from '../../reducers/selectors';
-import SongsIndexItem from './songs/songs_index_item';
+import { logout, fetchCurrentUser } from '../../../actions/session_actions';
+import { selectAllSavedSongs, selectAllPlaylists } from '../../../reducers/selectors';
+import SongsIndexItem from './songs_index_item';
 
 const mapStateToProps = (state) => {
 

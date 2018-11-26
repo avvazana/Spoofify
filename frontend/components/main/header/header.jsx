@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { openModal } from '../../actions/modal_actions';
+import { openModal } from '../../../actions/modal_actions';
 
 const mapStateToProps = state => {
   return {

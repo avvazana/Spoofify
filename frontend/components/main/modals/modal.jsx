@@ -1,11 +1,11 @@
 import React from 'react';
-import { closeModal } from '../../actions/modal_actions';
+import { closeModal } from '../../../actions/modal_actions';
 import { connect } from 'react-redux';
-import PlaylistForm from './playlists/playlist_form';
-import PlaylistSongForm from './playlists/playlist_song_form';
+import PlaylistForm from './playlist_form';
+import PlaylistSongForm from './playlist_song_form';
 
 function Modal({ modal, closeModal} ) {
-  
+
   if (!modal) {
     return null;
   }

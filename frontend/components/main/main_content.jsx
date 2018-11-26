@@ -1,18 +1,17 @@
 import React from 'react';
-import PlaylistIndexItem from './playlist_index_item';
+import PlaylistIndexItem from './header/playlist_index_item';
 // import PlaylistIndex from './playlist_index_item';
 import { NavLink, Redirect } from 'react-router-dom';
-import NavBar from './navbar';
-import Header from './header';
-import Modal from './modal';
-import MusicPlayer from './music_player';
-import SongsIndex from './songs_index';
+import NavBar from './navbar/navbar';
+import Header from './header/header';
+import Modal from './modals/modal';
+import MusicPlayer from './playbar/music_player';
+import SongsIndex from './header/songs_index';
 
 class MainContent extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.fetchPlaylists = props.fetchPlaylists.bind(this);
     this.fetchSongs = props.fetchSongs.bind(this);
     this.logout = props.logout.bind(this);
