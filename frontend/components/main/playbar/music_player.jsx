@@ -21,9 +21,8 @@ class MusicPlayer extends React.Component {
 
     this.playButton = this.playButton.bind(this);
     this.setVolume = this.setVolume.bind(this);
-    this.toggleMute = this.toggleMute.bind(this);
     this.updateProgress = this.updateProgress.bind(this);
-    this.printTime = this.printTime.bind(this);
+    this.returnTime = this.returnTime.bind(this);
     this.seekProgress = this.seekProgress.bind(this);
 
   }
@@ -31,34 +30,18 @@ class MusicPlayer extends React.Component {
   componentWillReceiveProps(nextProps) {
 
     if (nextProps.currentSong.playing) {
-      setTimeout(() => this.audio.play(), 50);
-    } else if (nextProps.currentSong.playing === false) {
+      setTimeout(() => this.audio.play(), 30);
+    } else {
       this.audio.pause();
     }
   }
 
-  setVolume(val) {
-
-    this.audio.volume = val / 100;
-    this.setState( { volume: val });
+  setVolume(vol) {
+    this.audio.volume = vol / 100;
+    this.setState( { volume: vol });
   }
 
-  toggleMute() {
-
-    const volumeControl = document.getElementById("volume-control");
-
-    if (this.audio.volume > 0) {
-      this.setState( { lastVolume: this.audio.volume, volume: 0 });
-      this.audio.volume = 0;
-      volumeControl.value = 0;
-    } else {
-      this.audio.volume = this.state.lastVolume;
-      volumeControl.value = this.audio.volume * 100;
-      this.setState( { volume: this.audio.volume * 100 });
-    }
-  }
-
-  printTime(time) {
+  returnTime(time) {
     if (!this.audio.duration) {
       return "-:--";
     }
@@ -126,19 +109,19 @@ class MusicPlayer extends React.Component {
         <div className="playbar-left">
           {
             currentSong.id ? (
-              <div className="now-playing-container">
-                <div className="now-playing-info">
-                  <img className="song-index-photo" src={ songInfo.photoUrl }></img>
-                  <div className="now-playing-song">{ songInfo.title }</div>
+              <div className="playbar-container">
+                <div className="playing-container">
+                  <img className="song-photo" src={ songInfo.photoUrl }></img>
+                  <div className="playing-song">{ songInfo.title }</div>
                 </div>
 
-                <div className="now-playing-add-button-container">
-                  <div className="now-playing-add-button"
+                <div className="add-to-playlist-container">
+                  <div className="add-to-playlist-button"
                     onClick={ () => {
-                      openModal('newPlaylistSong');
                       putSongInState(currentSong.id);
+                      openModal('newPlaylistSong');
                     }}>
-                    <i id="add-save" className="material-icons">add</i>
+                    <i id="add-to-playlist" className="material-icons">add</i>
                   </div>
                 </div>
               </div>
@@ -149,7 +132,7 @@ class MusicPlayer extends React.Component {
 
         </div>
 
-        <div className="playbar-center">
+        <div className="playbar-middle">
           <div className="playbar-controls">
             <div className="playbar-control-buttons">
               <div className="skip-song-container">
@@ -172,32 +155,33 @@ class MusicPlayer extends React.Component {
 
               <div className="skip-song-container">
                 <i id="next-song" className="material-icons"
-                  onClick={ () => this.nextSong(currentSong.id) }>skip_next</i>
+                onClick={ () => this.nextSong(currentSong.id) }>skip_next</i>
               </div>
             </div>
 
             <div className="playbar-control-bar">
+              
               {
                 currentSong.id ? (
                   <div className="progress-bar">
-                    <input id="elapsed-time" type="text"
+                    <input id="time-passed" type="text"
                       readOnly
-                      value={ this.printTime(this.audio.currentTime) } />
+                      value={ this.returnTime(this.audio.currentTime) } />
                     <progress id="progress-control" max="1"
                       readOnly
                       value={ this.state.progress || '' }
                       onClick={ (e) => this.seekProgress(
-                        e.pageX,
                         e.currentTarget.offsetLeft,
+                        e.pageX,
                         e.currentTarget.offsetWidth)
                       }>
                     </progress>
-                    <input id="remaining-time" type="text"
+                    <input id="time-left" type="text"
                       readOnly
-                      value={ this.printTime(this.audio.duration - this.audio.currentTime) } />
+                      value={ this.returnTime(this.audio.duration - this.audio.currentTime) } />
                   </div>
                 ) : (
-                  <div></div>
+                  <p></p>
                 )
               }
             </div>
@@ -215,23 +199,7 @@ class MusicPlayer extends React.Component {
         </div>
 
         <div className="playbar-right">
-          <div className="extra-controls">
 
-              { this.state.volume > 0 ? (
-                <i id="volume" className="material-icons"
-                  onClick={ () => this.toggleMute() }>volume_up</i>
-              ) : (
-                <i id="volume" className="material-icons"
-                  onClick={ () => this.toggleMute() }>volume_off</i>
-              )
-              }
-
-            <input id="volume-control" type="range"
-              min="0" max="100" step="1"
-              defaultValue="100"
-              onChange={ (e) => this.setVolume(e.currentTarget.value) }>
-            </input>
-          </div>
         </div>
 
       </footer>
@@ -242,10 +210,10 @@ class MusicPlayer extends React.Component {
 const msp = state => {
 
   return {
-    loggedIn: Boolean(state.session.currentUser),
     songInfo: state.entities.songs[state.ui.currentSong.id] || {},
     currentSong: state.ui.currentSong,
-    songList: getSongList(state, state.ui.currentSong) || {}
+    songList: getSongList(state, state.ui.currentSong) || {},
+    loggedIn: Boolean(state.session.currentUser)
   };
 };
 
@@ -261,6 +229,3 @@ const mdp = (dispatch) => {
 };
 
 export default connect(msp, mdp)(MusicPlayer);
-
-// <i id="queue" className="material-icons">playlist_play</i>
-// <i id="device" className="material-icons">speaker</i>
