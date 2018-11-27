@@ -31,7 +31,7 @@ class SongsIndexItem extends React.Component {
 
   componentDidMount() {
 
-    if (this.props.currentSong.playing) {
+    if ((this.props.currentSong.playing) && (this.props.song.id === this.props.currentSong.id)) {
         this.setState({ playing: true });
     }
   }
@@ -45,7 +45,7 @@ class SongsIndexItem extends React.Component {
       this.setState({ playing: false });
     }
     else {
-        this.setState({ playing: true });
+      this.setState({ playing: true });
     }
   }
 

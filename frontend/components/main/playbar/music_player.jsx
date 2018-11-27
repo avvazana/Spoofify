@@ -29,7 +29,9 @@ class MusicPlayer extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.currentSong.playing) {
-      this.audio.pause();
+      if(this.audio){
+        this.audio.pause();
+      }
     } else {
       setTimeout(() => this.audio.play(), 30);
     }
