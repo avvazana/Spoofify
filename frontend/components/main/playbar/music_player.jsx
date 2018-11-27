@@ -102,7 +102,7 @@ class MusicPlayer extends React.Component {
       pauseCurrentSong, receiveCurrentSong } = this.props;
 
     if (!loggedIn) {
-      return;
+      return null;
     }
 
     let currentlyPlaying = currentSong.id ? (
