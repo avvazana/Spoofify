@@ -22,11 +22,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-
-
 class SongsIndexItem extends React.Component {
   constructor(props) {
-
     super(props);
     this.state = { playing: false };
     this.togglePlay = this.togglePlay.bind(this);
@@ -34,8 +31,7 @@ class SongsIndexItem extends React.Component {
 
   componentDidMount() {
 
-    if ((this.props.currentSong.playing) &&
-        (this.props.song.id === this.props.currentSong.id)) {
+    if ((this.props.currentSong.playing) && (this.props.song.id === this.props.currentSong.id)) {
         this.setState({ playing: true });
     }
   }
@@ -89,9 +85,7 @@ class SongsIndexItem extends React.Component {
           { indexButton }
           <div className="song-index-title">{song.title}</div>
           <div className="song-index-album">{song.album}</div>
-        <button
-          onClick={() => this.props.openModal('newPlaylistSong', `${song.id}`)}
-          className="pl-btn">
+        <button onClick={() => this.props.openModal('newPlaylistSong', `${song.id}`)}>
           <img className="tripledot" src={window.tripledot}></img>
         </button>
       </div>
