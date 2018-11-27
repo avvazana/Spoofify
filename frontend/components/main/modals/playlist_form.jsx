@@ -8,7 +8,7 @@ class PlaylistForm extends React.Component {
     super(props);
     this.state = {
       title: '',
-      user_id: this.props.currUserId
+      user_id: this.props.curretUserId
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -28,33 +28,26 @@ class PlaylistForm extends React.Component {
   render() {
 
     return (
-      <div className="playlist-form">
+      <div className="playlist-form-container">
 
-        <button
-          className="x-button"
-          onClick={this.props.closeModal}>x</button>
+        <button className="x-button" onClick={this.props.closeModal}>x</button>
 
         <h1 className="playlist-form-header">Create new playlist</h1>
 
-        <form className="playlist-name-field">
-          <div className="input-box">
-            <div className="content-spacing">
-              <h4 className="input-box-label">Playlist Name</h4>
-              <input type='text'
-                className="input-box-input"
-                placeholder="Start typing..."
+        <form className="playlist-form">
+          <div className="playlist-input">
+            <div>
+              <h4 className="playlist-input-label">Playlist Name</h4>
+              <input className="playlist-input-text" placeholder="Start typing..." type='text'
                 onChange={this.handleChange()}>
               </input>
             </div>
           </div>
         </form>
 
-        <div className="playlist-btns">
-            <button
-              onClick={this.props.closeModal}
-              className="cancel-button-div"
-              >CANCEL</button>
-            <button className="create-button-div" onClick={this.handleSubmit}>CREATE</button>
+        <div className="playlist-buttons">
+          <button className="create-button" onClick={this.handleSubmit}>CREATE</button>
+          <button className="cancel-button" onClick={this.props.closeModal} >CANCEL</button>
         </div>
       </div>
     );
@@ -63,12 +56,12 @@ class PlaylistForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  currUserId: state.session.id
+  curretUserId: state.session.id
 });
 
 const mapDispatchToProps = dispatch => ({
-  closeModal: () => dispatch(closeModal()),
-  createPlaylist: playlist => dispatch(createPlaylist(playlist))
+  createPlaylist: playlist => dispatch(createPlaylist(playlist)),
+  closeModal: () => dispatch(closeModal())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistForm);

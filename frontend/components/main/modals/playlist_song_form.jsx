@@ -46,37 +46,25 @@ class PlaylistSongForm extends React.Component {
     this.props.fetchPlaylists();
   }
 
-  // titleInitials(title) {
-  //   return title.split(' ')
-  //     .map( word => word[0].toUpperCase()).join('');
-  // }
-
   render() {
     return (
       <div className="playlist-song-form">
-        <button className="x-btn form-button" onClick={this.props.closeModal}>X</button>
-
-        <h1 className="playlist-form-header">Add to playlist</h1>
-
-
+        <div>
+          <button className="x-button form-button" onClick={this.props.closeModal}>X</button>
+          <h1 className="playlist-form-header">Add to playlist</h1>
+        </div>
         <form>
-          <ul className="item-rows user-playlists">
+          <ul className="users-playlists">
             {this.props.playlists.map( playlist => {
               return (
-                <button
-                  playlist-id={`${playlist.id}`}
-                  onClick={this.handleSubmit}
-                  className="form-button"
-                  key={playlist.id}
-                >
-                  <div className="collection-index-item">
-
-                    <div className="collection-image-container">
-                      <div className="playlist-img">
-                        <h4 className="playlist-img-title">{playlist.title}</h4>
+                <button key={playlist.id} playlist-id={`${playlist.id}`} onClick={this.handleSubmit}>
+                  <div className="song-form-container">
+                    <div className="song-form-image-item">
+                      <div>
+                        <h3>{playlist.title}</h3>
                       </div>
-                      <div className="image-overlay">
-                        <img className='collection-img-overlay' src={playlist.photoUrl}></img>
+                      <div className="song-form-image">
+                        <img src={playlist.photoUrl}></img>
                       </div>
                     </div>
                   </div>

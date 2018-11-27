@@ -43,7 +43,6 @@ class MusicPlayer extends React.Component {
   }
 
   checkProgress(pos, offset, width) {
-
     const clickedVal = (pos - offset) / width;
     this.audio.currentTime = this.audio.duration * clickedVal;
   }

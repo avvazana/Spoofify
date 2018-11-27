@@ -8,7 +8,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class Header extends React.Component {
-
   constructor(props) {
     super(props);
   }
@@ -45,7 +44,7 @@ class Header extends React.Component {
         </div>
 
         <button
-          className="new-playlist-btn"
+          className="new-playlist-button"
           onClick={() => this.props.openModal('newPlaylist')}
         >NEW PLAYLIST</button>
 
