@@ -8,7 +8,6 @@ const mapStateToProps = state => {
 
   return {
     playlists: selectAllAuthoredPlaylists(state),
-    currUserId: state.session.id,
     songId: state.ui.modal.songId
   };
 };
@@ -34,7 +33,6 @@ class PlaylistSongForm extends React.Component {
   }
 
   handleSubmit(e) {
-
     e.preventDefault();
     this.props.createSongOnPlaylist(
       {playlist_id: e.currentTarget.getAttribute('playlist-id'), song_id: this.props.songId}
@@ -50,7 +48,7 @@ class PlaylistSongForm extends React.Component {
     return (
       <div className="playlist-song-form">
         <div>
-          <button className="x-button form-button" onClick={this.props.closeModal}>X</button>
+          <button className="form-button x-button" onClick={this.props.closeModal}>X</button>
           <h1 className="playlist-form-header">Add to playlist</h1>
         </div>
         <form>
@@ -72,12 +70,7 @@ class PlaylistSongForm extends React.Component {
               );
             })}
           </ul>
-
-
         </form>
-
-
-
       </div>
     );
   }
