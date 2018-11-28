@@ -41,11 +41,11 @@ class SongsIndexItem extends React.Component {
     if (this.props.song.id !== nextProps.currentSong.id) {
       this.setState({ playing: false });
     }
-    else if (nextProps.currentSong.playing === false) {
-      this.setState({ playing: false });
+    else if (nextProps.currentSong.playing) {
+      this.setState({ playing: true });
     }
     else {
-      this.setState({ playing: true });
+      this.setState({ playing: false });
     }
   }
 

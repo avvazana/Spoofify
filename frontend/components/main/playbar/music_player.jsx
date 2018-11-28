@@ -21,30 +21,23 @@ class MusicPlayer extends React.Component {
 
     this.playButton = this.playButton.bind(this);
     this.setVolume = this.setVolume.bind(this);
-    this.checkProgress = this.checkProgress.bind(this);
     this.updateProgress = this.updateProgress.bind(this);
     this.returnTime = this.returnTime.bind(this);
-
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!nextProps.currentSong.playing) {
+    if (nextProps.currentSong.playing) {
+      this.audio.play();
+    } else {
       if(this.audio){
         this.audio.pause();
       }
-    } else {
-      setTimeout(() => this.audio.play(), 30);
     }
   }
 
   setVolume(vol) {
     this.audio.volume = vol / 100;
     this.setState( { volume: vol });
-  }
-
-  checkProgress(pos, offset, width) {
-    const clickedVal = (pos - offset) / width;
-    this.audio.currentTime = this.audio.duration * clickedVal;
   }
 
   updateProgress() {
@@ -139,12 +132,7 @@ class MusicPlayer extends React.Component {
           value={ this.returnTime(this.audio.currentTime) } />
         <progress id="progress-control" max="1"
           readOnly
-          value={ this.state.progress || '' }
-          onClick={ (e) => this.checkProgress(
-            e.currentTarget.offsetLeft,
-            e.pageX,
-            e.currentTarget.offsetWidth)
-          }>
+          value={ this.state.progress || '' }>
         </progress>
         <input id="time-left" type="text"
           readOnly
@@ -185,7 +173,6 @@ class MusicPlayer extends React.Component {
             </div>
 
             <audio
-              id="playbar-audio"
               ref={ tag => this.audio = tag }
               autoPlay
               src={ songInfo.trackUrl }
@@ -205,17 +192,15 @@ class MusicPlayer extends React.Component {
 }
 
 const msp = state => {
-
   return {
-    songInfo: state.entities.songs[state.ui.currentSong.id] || {},
     currentSong: state.ui.currentSong,
+    songInfo: state.entities.songs[state.ui.currentSong.id] || {},
     songList: getSongList(state, state.ui.currentSong) || {},
     loggedIn: Boolean(state.session.currentUser)
   };
 };
 
 const mdp = (dispatch) => {
-
   return {
     pauseCurrentSong: () => dispatch(pauseCurrentSong()),
     receiveCurrentSong: songId => dispatch(receiveCurrentSong(songId)),

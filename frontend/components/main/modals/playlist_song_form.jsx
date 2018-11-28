@@ -26,8 +26,8 @@ class PlaylistSongForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      song_id: null,
-      playlist_id: null
+      song_id: "",
+      playlist_id: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -35,7 +35,8 @@ class PlaylistSongForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createSongOnPlaylist(
-      {playlist_id: e.currentTarget.getAttribute('playlist-id'), song_id: this.props.songId}
+      {playlist_id: e.currentTarget.getAttribute('id'),
+      song_id: this.props.songId}
     );
     this.props.closeModal();
   }
@@ -55,7 +56,7 @@ class PlaylistSongForm extends React.Component {
           <ul className="users-playlists">
             {this.props.playlists.map( playlist => {
               return (
-                <button key={playlist.id} playlist-id={`${playlist.id}`} onClick={this.handleSubmit}>
+                <button key={playlist.id} id={`${playlist.id}`} onClick={this.handleSubmit}>
                   <div className="song-form-container">
                     <div className="song-form-image-item">
                       <div>
