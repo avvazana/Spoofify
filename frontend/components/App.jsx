@@ -30,7 +30,7 @@ const App = () => {
     <ProtectedRoute exact path="/collection/playlists/:playlistId" component={PlaylistShowContainer}/>
     <Route exact path="/" component={SplashContainer}/>
     <ProtectedRoute path="/" component={NavBarContainer}/>
-    <MusicPlayer/>
+    <ProtectedRoute path="/" component={MusicPlayer}/>
   </div>
 );
 };
