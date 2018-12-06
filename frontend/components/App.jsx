@@ -9,7 +9,9 @@ import SearchContainer from './main/navbar/search_container';
 import CollectionContainer from './main/navbar/collection_container';
 import PlaylistShowContainer from './main/header/playlist_show_container';
 import MusicPlayer from './main/playbar/music_player';
-// import NavBar from '.main/navbar/navbar';
+import NavBarContainer from './main/navbar/navbar_container';
+import { logout } from '../actions/session_actions';
+import { connect } from 'react-redux';
 
 const App = () => {
     return (
@@ -27,6 +29,7 @@ const App = () => {
     <ProtectedRoute exact path="/collection/songs" component={CollectionContainer}/>
     <ProtectedRoute exact path="/collection/playlists/:playlistId" component={PlaylistShowContainer}/>
     <Route exact path="/" component={SplashContainer}/>
+    <ProtectedRoute path="/" component={NavBarContainer}/>
     <MusicPlayer/>
   </div>
 );

@@ -62,12 +62,12 @@ class MainContent extends React.Component {
     if (this.props.path === '/browse' || this.props.path === '/browse/'){
       redirect = <Redirect to={`/${navpath}/playlists`} />;
     }
-
+    // 
+    // <div>
+    //   <NavBar className="nav" logout={this.logout}/>
+    // </div>
     return (
       <div className="main-container">
-        <div>
-          <NavBar className="nav" logout={this.logout}/>
-        </div>
         <div className="main-body">
           <div className="main-padding">
           </div>

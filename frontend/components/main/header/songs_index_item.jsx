@@ -6,14 +6,12 @@ import { connect } from 'react-redux';
 import { receiveCurrentSong, pauseCurrentSong, putSongInState } from '../../../actions/song_actions';
 
 const mapStateToProps = state => {
-
   return {
     currentSong: state.ui.currentSong || {}
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-
   return {
     openModal: (modal, songId) => dispatch(openModal(modal, songId)),
     pauseCurrentSong: () => dispatch(pauseCurrentSong()),
@@ -62,7 +60,7 @@ class SongsIndexItem extends React.Component {
 
   render () {
     const { putSongInState, openModal, song, playlist } = this.props;
-
+    debugger
     let indexButton = this.state.playing ? (
         <div className="index-button-container">
           <p id="index-pause" className="material-icons" onClick={() => {

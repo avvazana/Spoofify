@@ -47,11 +47,11 @@ class GridShow extends React.Component {
         </div>
       );
     }
+    // <div>
+    //   <NavBar className="nav" logout={logout.bind(this)}/>
+    // </div>
     return (
       <div className="main-container">
-        <div>
-          <NavBar className="nav" logout={logout.bind(this)}/>
-        </div>
 
         <div className="show-body">
 
