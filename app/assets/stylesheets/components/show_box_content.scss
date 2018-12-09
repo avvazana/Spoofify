@@ -39,6 +39,20 @@
  margin-top: 160px;
 }
 
+.loading::after {
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  // margin: auto;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  position: absolute;
+  background: -webkit-linear-gradient(to top, #0f3443, #34e89e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #0f3443, #34e89e);
+}
+
 .main-container {
   flex-direction: row;
 }

@@ -1,0 +1,25 @@
+Navbar Components
+  > Browse Container
+    - selectRandomPlaylists instead of selectAllUnauthoredPlaylists
+  > Collection Container
+    - selectAllSavedSongs method needs to be changed to include
+    only songs on 'saved' playlist (users first playlist)
+    => users controller need to create a saved playlist,
+    which will be the users first
+  > Search Container
+    - Come back to...
+
+Main Component
+  Create:
+  > Playlist Index Container
+  > Album Index Container
+  > Artist Index Container
+
+  > Grid Index
+  > Grid Index Item
+
+  > Playlist Show Container
+  > Artist Show Container
+  > Album Show Container
+
+  > Grid Show Container

@@ -18,7 +18,6 @@ class GridShow extends React.Component {
 
   render () {
     const {playlist, logout, songs} = this.props;
-
     let tracks = '';
     if(songs[0]){
        tracks = songs.map( (song) => {
@@ -35,13 +34,14 @@ class GridShow extends React.Component {
     }
 
     if (this.state.loading) {
+      //add gradient to background
       return (
         <div className='loading'>
           <PulseLoader
             sizeUnit={"px"}
             height={40}
             width={40}
-            color={'#1DB954'}
+            color={'#bbffe8'}
             loading={this.state.loading}
           />
         </div>

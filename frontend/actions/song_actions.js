@@ -5,19 +5,20 @@ export const REMOVE_CURRENT_SONG = "REMOVE_CURRENT_SONG";
 export const PAUSE_CURRENT_SONG = "PAUSE_CURRENT_SONG";
 export const PUT_SONG_IN_STATE = "PUT_SONG_IN_STATE";
 export const REMOVE_SONG_FROM_STATE = "REMOVE_SONG_FROM_STATE";
-export const RECEIVE_ALL_SONGS = 'RECEIVE_ALL_SONGS';
+export const RECEIVE_SAVED_SONGS = 'RECEIVE_SAVED_SONGS';
 
 
-const receiveSongs = (songs) => {
+const receiveSongs = ({songs, playlist}) => {
   return {
-    type: RECEIVE_ALL_SONGS,
-    songs
+    type: RECEIVE_SAVED_SONGS,
+    songs,
+    playlist
   };
 };
 
-export const fetchSongs = () => dispatch => {
+export const fetchSavedSongs = () => dispatch => {
   return (
-    APIUtil.fetchSongs().then(
+    APIUtil.fetchSavedSongs().then(
       res => dispatch(receiveSongs(res))
     ));
 };

@@ -13,25 +13,22 @@ class MainContent extends React.Component {
   constructor(props) {
     super(props);
     this.fetchPlaylists = props.fetchPlaylists.bind(this);
-    this.fetchSongs = props.fetchSongs.bind(this);
     this.logout = props.logout.bind(this);
   }
 
   componentDidMount() {
     this.fetchPlaylists();
-    this.fetchSongs();
   }
 
   render() {
     const {playlists, navpath, show, path} = this.props;
-
     let index = "";
-
+    
     if (!path || path.includes("playlists")) {
       index = (
         <div className="grid">
           <ul>
-            {playlists.map(playlist => <PlaylistIndexItem playlist={playlist} navpath={navpath}/>)}
+            {playlists.map(playlist => <PlaylistIndexItem key={playlist.id} playlist={playlist} navpath={navpath}/>)}
           </ul>
         </div>
       );
@@ -40,7 +37,6 @@ class MainContent extends React.Component {
         <SongsIndex className="main-songs-index"/>
       );
     }
-
 
     // const index = (
     //   <div className="grid">
@@ -62,7 +58,7 @@ class MainContent extends React.Component {
     if (this.props.path === '/browse' || this.props.path === '/browse/'){
       redirect = <Redirect to={`/${navpath}/playlists`} />;
     }
-    // 
+    //
     // <div>
     //   <NavBar className="nav" logout={this.logout}/>
     // </div>

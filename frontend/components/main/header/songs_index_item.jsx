@@ -60,7 +60,7 @@ class SongsIndexItem extends React.Component {
 
   render () {
     const { putSongInState, openModal, song, playlist } = this.props;
-    debugger
+    
     let indexButton = this.state.playing ? (
         <div className="index-button-container">
           <p id="index-pause" className="material-icons" onClick={() => {

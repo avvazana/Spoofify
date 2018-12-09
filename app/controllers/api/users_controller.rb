@@ -1,10 +1,10 @@
 class Api::UsersController < ApplicationController
 
   def create
-
     @user = User.new(user_params)
-
     if @user.save
+      # the first playlist for a user will be the 'saved' songs playlist
+      @user.playlists += [Playlist.create(title: 'Saved')]
       login!(@user)
       render 'api/users/show'
     else

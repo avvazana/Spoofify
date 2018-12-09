@@ -95,10 +95,6 @@ class MusicPlayer extends React.Component {
     const { songInfo, currentSong, loggedIn, putSongInState, openModal,
       pauseCurrentSong, receiveCurrentSong } = this.props;
 
-    if (!loggedIn) {
-      return null;
-    }
-
     let currentlyPlaying = currentSong.id ? (
       <div className="playbar-container">
         <div className="playing-container">

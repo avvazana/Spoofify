@@ -37,7 +37,6 @@ export const selectAllSavedSongs = state => {
       associatedSongs.push(song);
     }
   });
-
   return associatedSongs;
 };
 
@@ -90,7 +89,7 @@ export const selectAllUnauthoredPlaylists = state => {
 };
 
 export const selectPlaylistSongs = (state, playlist) => {
-
+  
   return playlist ? playlist.song_ids.map(id => state.entities.songs[id]) : [];
 };
 

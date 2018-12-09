@@ -1,13 +1,6 @@
-export const fetchSongs = () => {
+export const fetchSavedSongs = () => {
   return $.ajax({
       method: 'GET',
       url: '/api/songs'
-    });
-};
-
-export const fetchSong = (id) => {
-  return $.ajax({
-      method: 'GET',
-      url: `/api/songs/${id}`
     });
 };
