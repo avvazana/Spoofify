@@ -31,7 +31,7 @@ export const selectAllSavedSongs = state => {
   let associatedSongs = [];
   let songs = state.entities.songs;
   if(!state.session.currentUser.song_ids){return null;}
-  debugger
+
   Object.values(songs).forEach((song) => {
     if (state.session.currentUser.song_ids.includes(song.id)) {
       associatedSongs.push(song);
@@ -56,18 +56,16 @@ export const selectRandomAlbums = state => {
 
 export const selectRandomArtists = state => {
   let artists = Object.values(state.entities.artists);
-  let shuffledAlbums = shuffle(artists);
-  return shuffledAlbums.slice(0, 5);
+  let shuffledArtists = shuffle(artists);
+  return shuffledArtists.slice(0, 5);
 };
-
-
 
 export const selectAllPlaylists = state => Object.values(state.entities.playlists);
 
 export const selectAllAuthoredPlaylists = state => {
   let authoredPlaylists = [];
   let playlists = state.entities.playlists;
-  debugger
+
   Object.values(playlists).forEach((playlist) => {
 
     if (playlist.author_id === state.session.currentUser.id){
@@ -78,7 +76,7 @@ export const selectAllAuthoredPlaylists = state => {
 };
 
 export const selectAllUnauthoredPlaylists = state => {
-  debugger
+
   let unauthoredPlaylists = [];
   let playlists = state.entities.playlists;
   Object.values(playlists).forEach((playlist) => {

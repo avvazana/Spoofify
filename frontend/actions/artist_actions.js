@@ -17,3 +17,19 @@ const receiveArtist = ({artist, songs}) => {
     songs
   };
 };
+
+export const fetchArtists = () => dispatch => {
+  return (
+    APIUtil.fetchArtists().then(
+      res => dispatch(receiveArtists(res))
+    ));
+};
+
+export const fetchArtist = (id) => dispatch => {
+
+  return (
+    APIUtil.fetchArtist(id).then(res => {
+        dispatch(receiveArtist(res));
+      }
+    ));
+};

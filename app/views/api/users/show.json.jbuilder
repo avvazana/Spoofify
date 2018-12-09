@@ -1,3 +1,3 @@
 
-json.extract! @user, :id, :username, :song_ids, :album_ids, :saved_playlist_id
+json.extract! @user, :id, :username, :song_ids, :album_ids
 # json.artist_ids @artists.pluck(:id)

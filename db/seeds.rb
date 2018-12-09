@@ -64,10 +64,10 @@ paul2 = create_user({username: 'PaulAKACalvin', password: 'password', email: 'gu
 chilipeppers = create_artist({  name: 'Red Hot Chili Peppers'}, 'artist_chilipeppers.jpg')
 mattcorby = create_artist({  name: 'Matt Corby'}, 'artist_mattcorby.jpg')
 sammhenshaw = create_artist({  name: 'Samm Henshaw'}, 'artist_sammhenshaw.jpg')
-instrumentals = create_artist({  name: 'Intrumentals'}, 'artist_instrumental.jpg.jpg')
+instrumentals = create_artist({  name: 'Intrumentals'}, 'artist_instrumental.jpg')
 matisyahu = create_artist({  name: 'Matisyahu'}, 'artist_matisyahu.jpg')
 yebba = create_artist({  name: 'Yebba' }, 'artist_yebba.jpg')
-gambino = create_artist({  name: 'Childish Gambino'}, 'artist_gambino.jpg')
+gambino = create_artist({  name: 'Childish Gambino'}, 'artist_gambino.jpeg')
 dragons = create_artist({  name: 'Imagine Dragons'}, 'artist_dragons.jpg')
 classical = create_artist({  name: 'Classics'}, 'artist_classical.jpg')
 

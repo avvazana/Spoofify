@@ -23,12 +23,14 @@ const App = () => {
     <ProtectedRoute exact path="/browse/playlists/:playlistId" component={PlaylistShowContainer}/>
     <ProtectedRoute exact path="/browse/songs" component={BrowseContainer}/>
     <ProtectedRoute exact path="/browse/albums" component={BrowseContainer}/>
+    <ProtectedRoute exact path="/browse/artists" component={BrowseContainer}/>
     <ProtectedRoute exact path="/browse/albums/:albumId" component={BrowseContainer}/>
     <ProtectedRoute exact path="/search" component={SearchContainer}/>
     <ProtectedRoute exact path="/search/playlists" component={SearchContainer}/>
     <ProtectedRoute exact path="/collection" component={CollectionContainer}/>
     <ProtectedRoute exact path="/collection/playlists" component={CollectionContainer}/>
     <ProtectedRoute exact path="/collection/albums" component={CollectionContainer}/>
+    <ProtectedRoute exact path="/collection/artists" component={CollectionContainer}/>
     <ProtectedRoute exact path="/collection/songs" component={CollectionContainer}/>
     <ProtectedRoute exact path="/collection/playlists/:playlistId" component={PlaylistShowContainer}/>
     <Route exact path="/" component={SplashContainer}/>

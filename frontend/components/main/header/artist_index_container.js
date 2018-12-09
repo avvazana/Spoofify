@@ -5,9 +5,9 @@ import GridIndex from './grid_index';
 const mapStateToProps = (state, ownProps) => {
   
   return {
-    path: "album",
+    path: "artist",
     navpath: ownProps.navpath,
-    albums: ownProps.albums
+    albums: ownProps.artists
   };
 };
 

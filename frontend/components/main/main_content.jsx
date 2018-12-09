@@ -9,24 +9,26 @@ import MusicPlayer from './playbar/music_player';
 import SongsIndex from './header/songs_index';
 import PlaylistIndexContainer from './header/playlist_index_container';
 import AlbumIndexContainer from './header/album_index_container';
+import ArtistIndexContainer from './header/artist_index_container';
 
 class MainContent extends React.Component {
-
   constructor(props) {
     super(props);
     this.fetchPlaylists = props.fetchPlaylists.bind(this);
     this.fetchAlbums = props.fetchAlbums.bind(this);
+    this.fetchArtists = props.fetchArtists.bind(this);
     this.logout = props.logout.bind(this);
   }
 
   componentDidMount() {
     this.fetchPlaylists();
     this.fetchAlbums();
+    this.fetchArtists();
   }
 
   render() {
     const {playlists, navpath, show, path, artists, albums} = this.props;
-    debugger
+
     let index = "";
     // <div className="grid">
     //   <ul>
@@ -35,16 +37,21 @@ class MainContent extends React.Component {
     // </div>
 
     if (!path || path.includes("playlists")) {
-      debugger
+
       index = (
         <div className="grid">
           <PlaylistIndexContainer playlists={playlists} navpath={navpath}/>
         </div>
       );
     } else if (path.includes("artists")) {
-
+      
+      index = (
+        <div className="grid">
+          <ArtistIndexContainer artists={artists} navpath={navpath}/>
+        </div>
+      );
     } else if (path.includes("albums")) {
-      debugger
+
       index = (
         <div className="grid">
           <AlbumIndexContainer albums={albums} navpath={navpath}/>

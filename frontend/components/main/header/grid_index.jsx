@@ -9,7 +9,7 @@ class GridIndex extends React.Component {
 
   render(){
     const {playlists, artists, albums, navpath, path} = this.props;
-
+    
     let gridElements = '';
     if (playlists) {
       gridElements = playlists;

@@ -10,6 +10,5 @@ export default combineReducers({
   playlists: playlistsReducer,
   songs: songsReducer,
   artists: artistsReducer,
-  albums: albumsReducer,
-  users: usersReducer
+  albums: albumsReducer
 });
