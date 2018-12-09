@@ -7,29 +7,47 @@ import Header from './header/header';
 import Modal from './modals/modal';
 import MusicPlayer from './playbar/music_player';
 import SongsIndex from './header/songs_index';
+import PlaylistIndexContainer from './header/playlist_index_container';
+import AlbumIndexContainer from './header/album_index_container';
 
 class MainContent extends React.Component {
 
   constructor(props) {
     super(props);
     this.fetchPlaylists = props.fetchPlaylists.bind(this);
+    this.fetchAlbums = props.fetchAlbums.bind(this);
     this.logout = props.logout.bind(this);
   }
 
   componentDidMount() {
     this.fetchPlaylists();
+    this.fetchAlbums();
   }
 
   render() {
-    const {playlists, navpath, show, path} = this.props;
+    const {playlists, navpath, show, path, artists, albums} = this.props;
+    debugger
     let index = "";
-    
+    // <div className="grid">
+    //   <ul>
+    //     {playlists.map(playlist => <PlaylistIndexItem key={playlist.id} playlist={playlist} navpath={navpath}/>)}
+    //   </ul>
+    // </div>
+
     if (!path || path.includes("playlists")) {
+      debugger
       index = (
         <div className="grid">
-          <ul>
-            {playlists.map(playlist => <PlaylistIndexItem key={playlist.id} playlist={playlist} navpath={navpath}/>)}
-          </ul>
+          <PlaylistIndexContainer playlists={playlists} navpath={navpath}/>
+        </div>
+      );
+    } else if (path.includes("artists")) {
+
+    } else if (path.includes("albums")) {
+      debugger
+      index = (
+        <div className="grid">
+          <AlbumIndexContainer albums={albums} navpath={navpath}/>
         </div>
       );
     } else if (path.includes("songs")) {

@@ -17,3 +17,10 @@ const receiveAlbum = ({album, songs}) => {
     songs
   };
 };
+
+export const fetchAlbums = () => dispatch => {
+  return (
+    APIUtil.fetchAlbums().then(
+      res => dispatch(receiveAlbums(res))
+    ));
+};

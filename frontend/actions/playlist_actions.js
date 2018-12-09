@@ -5,7 +5,6 @@ export const DELETE_PLAYLIST = 'DELETE_PLAYLIST';
 export const RECEIVE_ALL_PLAYLISTS = 'RECEIVE_ALL_PLAYLISTS';
 
 const receivePlaylists = (playlists) => {
-
   return {
     type: RECEIVE_ALL_PLAYLISTS,
     playlists

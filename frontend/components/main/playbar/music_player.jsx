@@ -91,7 +91,7 @@ class MusicPlayer extends React.Component {
   }
 
   render() {
-
+    debugger
     const { songInfo, currentSong, loggedIn, putSongInState, openModal,
       pauseCurrentSong, receiveCurrentSong } = this.props;
 
