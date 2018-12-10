@@ -24,3 +24,10 @@ export const fetchAlbums = () => dispatch => {
       res => dispatch(receiveAlbums(res))
     ));
 };
+
+export const fetchAlbum = (id) => dispatch => {
+  return (
+    APIUtil.fetchAlbums(id).then(
+      res => dispatch(receiveAlbums(res))
+    ));
+};

@@ -7,9 +7,9 @@ import { selectPlaylistSongs, selectAllSavedSongs, selectAllPlaylists } from '..
 import SongsIndexItem from './songs_index_item';
 
 const mapStateToProps = (state) => {
-  const playlist = state.entities.playlists[500];
+  const playlist = state.entities.playlists[250];
   const songs = selectPlaylistSongs(state, playlist);
-  const playlistId = 500;
+  const playlistId = 250;
   return {
     songs,
     playlist,

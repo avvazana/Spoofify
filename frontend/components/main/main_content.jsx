@@ -1,6 +1,4 @@
 import React from 'react';
-import PlaylistIndexItem from './header/playlist_index_item';
-// import PlaylistIndex from './playlist_index_item';
 import { NavLink, Redirect } from 'react-router-dom';
 import NavBar from './navbar/navbar';
 import Header from './header/header';
@@ -30,33 +28,28 @@ class MainContent extends React.Component {
     const {playlists, navpath, show, path, artists, albums} = this.props;
 
     let index = "";
-    // <div className="grid">
-    //   <ul>
-    //     {playlists.map(playlist => <PlaylistIndexItem key={playlist.id} playlist={playlist} navpath={navpath}/>)}
-    //   </ul>
-    // </div>
 
     if (!path || path.includes("playlists")) {
-
       index = (
         <div className="grid">
           <PlaylistIndexContainer playlists={playlists} navpath={navpath}/>
         </div>
       );
+
     } else if (path.includes("artists")) {
-      
       index = (
         <div className="grid">
           <ArtistIndexContainer artists={artists} navpath={navpath}/>
         </div>
       );
-    } else if (path.includes("albums")) {
 
+    } else if (path.includes("albums")) {
       index = (
         <div className="grid">
           <AlbumIndexContainer albums={albums} navpath={navpath}/>
         </div>
       );
+
     } else if (path.includes("songs")) {
       index = (
         <SongsIndex className="main-songs-index"/>

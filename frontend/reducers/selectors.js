@@ -56,8 +56,9 @@ export const selectRandomAlbums = state => {
 
 export const selectRandomArtists = state => {
   let artists = Object.values(state.entities.artists);
-  let shuffledArtists = shuffle(artists);
-  return shuffledArtists.slice(0, 5);
+  return artists;
+  // let shuffledArtists = shuffle(artists);
+  // return shuffledArtists.slice(0, 5);
 };
 
 export const selectAllPlaylists = state => Object.values(state.entities.playlists);
@@ -89,8 +90,11 @@ export const selectAllUnauthoredPlaylists = state => {
 };
 
 export const selectPlaylistSongs = (state, playlist) => {
-
   return playlist ? playlist.song_ids.map(id => state.entities.songs[id]) : [];
+};
+
+export const selectAlbumSongs = (state, album) => {
+  return album ? album.song_ids.map(id => state.entities.songs[id]) : [];
 };
 
 export const selectAllSongs = state => Object.values(state.entities.songs);

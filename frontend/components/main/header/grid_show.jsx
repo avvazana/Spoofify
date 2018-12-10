@@ -9,15 +9,21 @@ class GridShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { loading: true };
+    this.fetchElement = this.props.fetchPlaylist || this.props.fetchAlbum;
+    this.elementId = this.props.playlistId || this.props.albumId;
+    this.fetchElement = this.fetchElement.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchPlaylist(this.props.playlistId)
+    this.fetchElement(this.elementId)
     .then( () => setTimeout(() => this.setState({loading: false}), 700));
   }
 
   render () {
-    const {playlist, logout, songs} = this.props;
+    const {playlist, album, logout, songs} = this.props;
+    if (album) {
+      playlist = album;
+    }
     let tracks = '';
     if(songs[0]){
        tracks = songs.map( (song) => {

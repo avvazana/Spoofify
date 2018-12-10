@@ -1,7 +1,7 @@
 .playlist-show-item {
   display: flex;
   flex-direction: column;
-  padding-left: 50px;
+  // padding-left: 50px;
   padding-top: 30px;
   width: 400px;
   margin-left: 10%;
@@ -60,8 +60,8 @@
 .show-body{
   display: flex;
   flex-direction: column;
-  width: 1200px;
-  height: 900px;
+  width: 100vh;
+  height: 100vh;
 }
 
 .body-items {
@@ -77,7 +77,7 @@
 
 .tracks {
   margin-top: 50px;
-  margin-left: 100px;
+  // margin-left: 100px;
 }
 
 .song-index-item {
