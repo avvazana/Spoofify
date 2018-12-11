@@ -8,6 +8,7 @@ import SongsIndex from './header/songs_index';
 import PlaylistIndexContainer from './header/playlist_index_container';
 import AlbumIndexContainer from './header/album_index_container';
 import ArtistIndexContainer from './header/artist_index_container';
+import Search from './header/search/search';
 
 class MainContent extends React.Component {
   constructor(props) {
@@ -56,37 +57,26 @@ class MainContent extends React.Component {
       );
     }
 
-    // const index = (
-    //   <div className="grid">
-    //     <ul>
-    //       {albums.map(album => <AlbumIndexItem album={album} navpath={navpath}/>)}
-    //     </ul>
-    //   </div>
-    // );
-    //
-    // const index = (
-    //   <div className="grid">
-    //     <ul>
-    //       {artists.map(artist => <ArtistIndexItem artist={artist} navpath={navpath}/>)}
-    //     </ul>
-    //   </div>
-    // );
-
     let redirect = "";
     if (this.props.path === '/browse' || this.props.path === '/browse/'){
       redirect = <Redirect to={`/${navpath}/playlists`} />;
     }
-    //
-    // <div>
-    //   <NavBar className="nav" logout={this.logout}/>
-    // </div>
+
+    let header = '';
+
+    // if (this.props.navpath.includes("search")){
+    //   header = ( <Search/> );
+    // } else {
+      header = ( <Header className="header" navpath={navpath}/> );
+    // }
+
     return (
       <div className="main-container">
         <div className="main-body">
           <div className="main-padding">
           </div>
           <div>
-            <Header className="header" navpath={navpath}/>
+            {header}
           </div>
           <Modal />
           {index}

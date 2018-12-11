@@ -91,7 +91,7 @@ class MusicPlayer extends React.Component {
   }
 
   render() {
-    
+    debugger
     const { songInfo, currentSong, loggedIn, putSongInState, openModal,
       pauseCurrentSong, receiveCurrentSong } = this.props;
 
@@ -121,7 +121,7 @@ class MusicPlayer extends React.Component {
     (<i id="play-circle" className="material-icons"
       onClick={ () => this.playButton(currentSong.id) }>play_circle_outline</i>);
 
-    let playbar = currentSong.id ? (
+    let playbar = (currentSong.id && this.audio) ? (
       <div className="progress-bar">
         <input id="time-passed" type="text"
           readOnly

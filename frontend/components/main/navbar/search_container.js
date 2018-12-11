@@ -7,17 +7,14 @@ import { selectAllPlaylists } from '../../../reducers/selectors';
 import MainContent from '../main_content';
 
 const mapStateToProps = state => ({
-  playlists: selectAllPlaylists(state),
   navpath: "search",
+  path: ownProps.location.pathname
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    logout: () => dispatch(logout()),
-    fetchPlaylists: () => dispatch(fetchPlaylists())
+    logout: () => dispatch(logout())
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
-
-// pagepath: props.pagepath || "playlists"

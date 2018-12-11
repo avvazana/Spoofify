@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     openModal: (modal, songId) => dispatch(openModal(modal, songId)),
     pauseCurrentSong: () => dispatch(pauseCurrentSong()),
-    receiveCurrentSong: (songId, playlistId) => dispatch(receiveCurrentSong(songId, playlistId)),
+    receiveCurrentSong: (songId, elementId, elementType) => dispatch(receiveCurrentSong(songId, elementId, elementType)),
     putSongInState: (songId) => dispatch(putSongInState(songId))
   };
 };
@@ -61,7 +61,7 @@ class SongsIndexItem extends React.Component {
     const { putSongInState, openModal, song, playlist, album } = this.props;
     let element = playlist || album;
     let elementType = "playlist";
-    
+
     if (element === album) {
       elementType = "album";
     }
