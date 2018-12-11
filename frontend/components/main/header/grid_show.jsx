@@ -11,12 +11,10 @@ class GridShow extends React.Component {
     this.state = { loading: true };
     this.fetchElement = this.props.fetchPlaylist || this.props.fetchAlbum;
     this.elementId = this.props.playlistId || this.props.albumId;
-
     this.fetchElement = this.fetchElement.bind(this);
   }
 
   componentDidMount(){
-
     this.fetchElement(this.elementId)
     .then( () => setTimeout(() => this.setState({loading: false}), 700));
   }

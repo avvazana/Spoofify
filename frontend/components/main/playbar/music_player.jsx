@@ -55,6 +55,7 @@ class MusicPlayer extends React.Component {
   }
 
   prevSong(currentSongId) {
+    debugger
     if (this.audio.currentTime >= 1) {
       this.audio.currentTime = 0;
       return;
@@ -70,6 +71,7 @@ class MusicPlayer extends React.Component {
   }
 
   nextSong(currentSongId) {
+    debugger
     const songList = this.props.songList;
     let nextIndex = songList.indexOf(currentSongId) + 1;
 
@@ -81,7 +83,6 @@ class MusicPlayer extends React.Component {
     this.props.receiveCurrentSong(songList[nextIndex]);
   }
 
-
   playButton(currentSongId) {
     if (currentSongId) {
       this.props.receiveCurrentSong(currentSongId);
@@ -91,7 +92,7 @@ class MusicPlayer extends React.Component {
   }
 
   render() {
-    debugger
+
     const { songInfo, currentSong, loggedIn, putSongInState, openModal,
       pauseCurrentSong, receiveCurrentSong } = this.props;
 

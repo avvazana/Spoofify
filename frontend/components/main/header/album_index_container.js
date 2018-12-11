@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import GridIndex from './grid_index';
+import { fetchAlbums } from '../../../actions/album_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  
   return {
     path: "album",
     navpath: ownProps.navpath,
@@ -11,7 +11,13 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchAlbums: () => dispatch(fetchAlbums()),
+  };
+};
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(GridIndex);
