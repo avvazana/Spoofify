@@ -28,23 +28,24 @@ class GridIndex extends React.Component {
 
   render(){
     const {playlists, artists, albums, navpath, path} = this.props;
-
+    let property = "title";
     let gridElements = [];
     if (playlists) {
       gridElements = playlists;
     } else if (artists) {
       gridElements = artists;
+      property = "name";
     } else {
       gridElements = albums;
     }
-    debugger
     let filteredElements = [];
-    if (this.props.searchTerm && gridElements) {
+    if (this.props.searchTerm && gridElements && !artists) {
       filteredElements = gridElements.filter(a => a.title.toLowerCase().includes(this.props.searchTerm.toLowerCase()));
+    } else if (this.props.searchTerm && gridElements) {
+      filteredElements = gridElements.filter(a => a.name.toLowerCase().includes(this.props.searchTerm.toLowerCase()));
     } else {
       filteredElements = gridElements;
     }
-    debugger
 
     return (
       <div className="grid">

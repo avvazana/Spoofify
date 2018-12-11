@@ -1,6 +1,10 @@
 class Api::ArtistsController < ApplicationController
   def index
-    @artists = Artist.all.includes(:songs)
+    if search_query
+      @artists = Artist.where('lower(title) LIKE ?', "%#{search_query.downcase}" )
+    else
+      @artists = Artist.all.includes(:songs)
+    end
     render :index
   end
 
@@ -14,4 +18,9 @@ class Api::ArtistsController < ApplicationController
   def artist_params
     params.require(:artist).permit(:name)
   end
+
+  def search_query
+    params[:search_query]
+  end
+
 end

@@ -1,13 +1,19 @@
 class Api::PlaylistsController < ApplicationController
+
+  def index
+    if search_query
+      @playlists = Playlist.where('lower(title) LIKE ?', "%#{search_query.downcase}" )
+    else
+      @playlists = Playlist.all.includes(:songs, :author)
+    end
+    render :index
+  end
+
   def show
     @playlist = Playlist.includes(:songs, :author).find(params[:id])
     render :show
   end
 
-  def index
-    @playlists = Playlist.all.includes(:songs, :author)
-    render :index
-  end
 
   def create
     @playlist = Playlist.new(playlist_params)
@@ -25,10 +31,14 @@ class Api::PlaylistsController < ApplicationController
   #   @song = Song.find(params[:song_id])
   #   @playlist.songs += [@song]
   # end
-
   private
 
   def playlist_params
     params.require(:playlist).permit(:title, :author_id)
   end
+
+  def search_query
+    params[:search_query]
+  end
+
 end
