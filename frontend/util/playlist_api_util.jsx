@@ -6,7 +6,6 @@ export const fetchPlaylists = () => {
 };
 
 export const fetchPlaylist = (id) => {
-  
   return $.ajax({
       method: 'GET',
       url: `/api/playlists/${id}`

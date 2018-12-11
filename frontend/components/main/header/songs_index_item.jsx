@@ -47,31 +47,36 @@ class SongsIndexItem extends React.Component {
     }
   }
 
-  togglePlay(songId, playlistId) {
-
+  togglePlay(songId, elementId, elementType) {
     if (this.state.playing) {
       this.props.pauseCurrentSong();
       this.setState({ playing: false });
     } else {
-      this.props.receiveCurrentSong(songId, playlistId);
+      this.props.receiveCurrentSong(songId, elementId, elementType);
       this.setState({ playing: true });
     }
   }
 
   render () {
-    const { putSongInState, openModal, song, playlist } = this.props;
+    const { putSongInState, openModal, song, playlist, album } = this.props;
+    let element = playlist || album;
+    let elementType = "playlist";
     
+    if (element === album) {
+      elementType = "album";
+    }
+
     let indexButton = this.state.playing ? (
         <div className="index-button-container">
           <p id="index-pause" className="material-icons" onClick={() => {
-              this.togglePlay(song.id, playlist.id);
+              this.togglePlay(song.id, element.id, elementType);
             }}>pause_circle_outline
           </p>
         </div>
       ) : (
         <div className="index-button-container">
           <p className="material-icons" onClick={() => {
-              this.togglePlay(song.id, playlist.id);
+              this.togglePlay(song.id, element.id, elementType);
             }}>play_arrow
           </p>
         </div>
@@ -79,7 +84,7 @@ class SongsIndexItem extends React.Component {
 
     return (
     <div className="song-index-item">
-      <div className={`song-index${song.id}`} onDoubleClick={ () => { this.togglePlay(song.id, playlist.id); } }>
+      <div className={`song-index${song.id}`} onDoubleClick={ () => { this.togglePlay(song.id, element.id, elementType); } }>
           { indexButton }
           <div className="song-index-title">{song.title}</div>
           <div className="song-index-album">{song.album}</div>

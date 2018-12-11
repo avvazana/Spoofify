@@ -1,11 +1,15 @@
 class Api::AlbumsController < ApplicationController
   def index
-    @albums = Album.all.includes(:songs)
+    if search_query
+      @albums = Album.where('lower(title) LIKE ?', "%#{search_query.downcase}" )
+    else
+      @albums = Album.all.includes(:songs)
+    end
     render :index
   end
 
   def show
-    @album = Album.includes(:songs, :author).find(params[:id])
+    @album = Album.includes(:songs, :artists).find(params[:id])
     render :show
   end
 
@@ -13,5 +17,13 @@ class Api::AlbumsController < ApplicationController
 
   def album_params
     params.require(:album).permit(:title)
+  end
+
+  def album_ids
+    params[:album_ids]
+  end
+
+  def search_query
+    params[:search_query]
   end
 end

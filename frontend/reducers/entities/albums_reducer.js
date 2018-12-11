@@ -2,6 +2,7 @@ import { RECEIVE_ALL_ALBUMS, RECEIVE_SINGLE_ALBUM } from '../../actions/album_ac
 import merge from 'lodash/merge';
 
 const albumsReducer = (state = {}, action) => {
+  
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_ALL_ALBUMS:

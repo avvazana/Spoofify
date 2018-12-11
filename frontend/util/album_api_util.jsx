@@ -1,7 +1,8 @@
-export const fetchAlbums = () => {
+export const fetchAlbums = (props) => {
   return $.ajax({
       method: 'GET',
-      url: '/api/albums'
+      url: '/api/albums',
+      data: props
     });
 };
 

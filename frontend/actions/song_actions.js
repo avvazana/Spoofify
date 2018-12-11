@@ -37,11 +37,12 @@ export const removeSongFromState = () => {
 };
 
 
-export const receiveCurrentSong = (songId, playlistId) => {
+export const receiveCurrentSong = (songId, elementId, elementType) => {
   return {
     type: RECEIVE_CURRENT_SONG,
     songId: songId,
-    playlistId: playlistId
+    elementId: elementId,
+    elementType: elementType
   };
 };
 

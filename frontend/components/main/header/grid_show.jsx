@@ -11,24 +11,25 @@ class GridShow extends React.Component {
     this.state = { loading: true };
     this.fetchElement = this.props.fetchPlaylist || this.props.fetchAlbum;
     this.elementId = this.props.playlistId || this.props.albumId;
+
     this.fetchElement = this.fetchElement.bind(this);
   }
 
   componentDidMount(){
+
     this.fetchElement(this.elementId)
     .then( () => setTimeout(() => this.setState({loading: false}), 700));
   }
 
   render () {
     const {playlist, album, logout, songs} = this.props;
-    if (album) {
-      playlist = album;
-    }
     let tracks = '';
+    let element = playlist || album;
+
     if(songs[0]){
        tracks = songs.map( (song) => {
         return (
-          <SongsIndexItem key={song.id} song={song} playlist={playlist}/>
+          <SongsIndexItem key={song.id} song={song} playlist={playlist} album={album}/>
         );
       });
     } else {
@@ -40,7 +41,6 @@ class GridShow extends React.Component {
     }
 
     if (this.state.loading) {
-      //add gradient to background
       return (
         <div className='loading'>
           <PulseLoader
@@ -53,22 +53,20 @@ class GridShow extends React.Component {
         </div>
       );
     }
-    // <div>
-    //   <NavBar className="nav" logout={logout.bind(this)}/>
-    // </div>
+
     return (
       <div className="main-container">
 
         <div className="show-body">
 
           <div className="body-items">
-            <div className="playlist-show-item" key={playlist.id}>
+            <div className="playlist-show-item" key={element.id}>
               <div className="playlist-show-item-image">
-                <img src={playlist.photoUrl}></img>
+                <img src={element.photoUrl}></img>
               </div>
               <div className="playlist-show-subtext">
-                <p>{playlist.title}</p>
-                <span>{playlist.author}</span>
+                <p>{element.title}</p>
+                <span>{element.author || element.artists}</span>
               </div>
             </div>
 

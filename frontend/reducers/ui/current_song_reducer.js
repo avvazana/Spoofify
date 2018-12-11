@@ -7,7 +7,7 @@ export default (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_SONG:
       return merge({}, state,
-        { id: action.songId, playlist: action.playlistId, playing: true });
+        { id: action.songId, [action.elementType]: action.elementId, playing: true });
     case PAUSE_CURRENT_SONG:
       return merge({}, state, { playing: false });
     case RECEIVE_CURRENT_SONG:
