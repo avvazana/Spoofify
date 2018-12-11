@@ -16,12 +16,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => {
-  // fetchSavedSongs: () => dispatch(fetchSongs())
   return {
     logout: () => dispatch(logout()),
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
-
-// selectRandomAlbums, selectRandomArtists

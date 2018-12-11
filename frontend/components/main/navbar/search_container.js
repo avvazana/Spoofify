@@ -6,10 +6,12 @@ import { fetchPlaylists } from '../../../actions/playlist_actions';
 import { selectAllPlaylists } from '../../../reducers/selectors';
 import MainContent from '../main_content';
 
-const mapStateToProps = state => ({
-  navpath: "search",
-  path: ownProps.location.pathname
-});
+const mapStateToProps = (state, ownProps) => {
+  return ({
+    navpath: "search",
+    path: ownProps.location.pathname
+  });
+};
 
 const mapDispatchToProps = dispatch => {
   return {

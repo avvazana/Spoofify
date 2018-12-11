@@ -26,10 +26,9 @@ const removePlaylist = playlistId => {
   };
 };
 
-export const fetchPlaylists = () => dispatch => {
-
+export const fetchPlaylists = (props) => dispatch => {
   return (
-    APIUtil.fetchPlaylists().then(
+    APIUtil.fetchPlaylists(props).then(
       res => dispatch(receivePlaylists(res))
     ));
 };

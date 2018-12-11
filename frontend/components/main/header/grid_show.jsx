@@ -23,9 +23,8 @@ class GridShow extends React.Component {
     const {playlist, album, logout, songs} = this.props;
     let tracks = '';
     let element = playlist || album;
-
     if(songs[0]){
-       tracks = songs.map( (song) => {
+       tracks = songs.map((song) => {
         return (
           <SongsIndexItem key={song.id} song={song} playlist={playlist} album={album}/>
         );

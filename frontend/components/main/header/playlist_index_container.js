@@ -4,6 +4,7 @@ import GridIndex from './grid_index';
 import { fetchPlaylists } from '../../../actions/playlist_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   return {
     path: "playlist",
     navpath: ownProps.navpath,

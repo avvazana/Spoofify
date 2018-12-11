@@ -19,8 +19,8 @@ class MainContent extends React.Component {
     const {playlists, navpath, show, path, artists, albums} = this.props;
 
     let index = "";
-
-    if (!path || path.includes("playlists")) {
+    debugger
+    if (!path || path.includes("playlists") && !path.includes("search")) {
       index = (
         <div className="grid">
           <PlaylistIndexContainer playlists={playlists} navpath={navpath}/>
@@ -53,12 +53,12 @@ class MainContent extends React.Component {
     }
 
     let header = '';
-
-    // if (this.props.navpath.includes("search")){
-    //   header = ( <Search/> );
-    // } else {
+    debugger
+    if (this.props.navpath.includes("search")){
+      header = ( <Search/> );
+    } else {
       header = ( <Header className="header" navpath={navpath}/> );
-    // }
+    }
 
     return (
       <div className="main-container">

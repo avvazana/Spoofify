@@ -50,8 +50,9 @@ function shuffle(a) {
 
 export const selectRandomAlbums = state => {
   let albums = Object.values(state.entities.albums);
-  let shuffledAlbums = shuffle(albums);
-  return shuffledAlbums.slice(0, 5);
+  return albums;
+  // let shuffledAlbums = shuffle(albums);
+  // return shuffledAlbums.slice(0, 5);
 };
 
 export const selectRandomArtists = state => {
