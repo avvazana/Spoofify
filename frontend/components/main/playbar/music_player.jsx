@@ -19,9 +19,11 @@ class MusicPlayer extends React.Component {
                   lastVolume: 100,
                   volume: 100 };
 
-    this.playButton = this.playButton.bind(this);
+    this.toggleMute = this.toggleMute.bind(this);
     this.setVolume = this.setVolume.bind(this);
+    this.seekProgress = this.seekProgress.bind(this);
     this.updateProgress = this.updateProgress.bind(this);
+    this.playButton = this.playButton.bind(this);
     this.returnTime = this.returnTime.bind(this);
   }
 
@@ -35,10 +37,28 @@ class MusicPlayer extends React.Component {
     }
   }
 
+  toggleMute() {
+    const volumeControl = document.getElementById("volume-control");
+    if (this.audio.volume > 0) {
+     this.setState( { lastVolume: this.audio.volume, volume: 0 });
+     volumeControl.value = 0;
+     this.audio.volume = 0;
+   } else {
+     this.setState( { volume: this.audio.volume * 100 });
+     volumeControl.value = this.audio.volume * 100;
+     this.audio.volume = this.state.lastVolume;
+   }
+ }
+
   setVolume(vol) {
     this.audio.volume = vol / 100;
     this.setState( { volume: vol });
   }
+
+  seekProgress(location, difference, width) {
+   const clickedNum = (location - difference) / width;
+   this.audio.currentTime = this.audio.duration * clickedNum;
+ }
 
   updateProgress() {
     this.setState({ progress: this.audio.currentTime / this.audio.duration });
@@ -55,7 +75,6 @@ class MusicPlayer extends React.Component {
   }
 
   prevSong(currentSongId) {
-    debugger
     if (this.audio.currentTime >= 1) {
       this.audio.currentTime = 0;
       return;
@@ -71,7 +90,6 @@ class MusicPlayer extends React.Component {
   }
 
   nextSong(currentSongId) {
-    debugger
     const songList = this.props.songList;
     let nextIndex = songList.indexOf(currentSongId) + 1;
 
@@ -129,7 +147,12 @@ class MusicPlayer extends React.Component {
           value={ this.returnTime(this.audio.currentTime) } />
         <progress id="progress-control" max="1"
           readOnly
-          value={ this.state.progress || '' }>
+          value={ this.state.progress || '' }
+          onClick={ (e) => this.seekProgress(
+            e.pageX,
+            e.currentTarget.offsetLeft,
+            e.currentTarget.offsetWidth)
+          }>
         </progress>
         <input id="time-left" type="text"
           readOnly
@@ -181,6 +204,12 @@ class MusicPlayer extends React.Component {
         </div>
 
         <div className="playbar-right">
+          <input id="volume-control" type="range"
+           min="0" max="100" step="1"
+           defaultValue="100"
+           onInput={ (e) => this.setVolume(e.currentTarget.value) }
+           onChange={ (e) => this.setVolume(e.currentTarget.value) }>
+         </input>
         </div>
 
       </footer>
