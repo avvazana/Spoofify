@@ -138,6 +138,15 @@ progress[value]::-webkit-progress-value {
   color: #1db954;
 }
 
+ #volume {
+  margin: 0 5px 0 20px;
+  transition: color .1s linear;
+}
+ #volume:hover {
+  cursor: pointer;
+  color: #1db954;
+}
+
 .playbar-container {
   height: auto;
   display: flex;

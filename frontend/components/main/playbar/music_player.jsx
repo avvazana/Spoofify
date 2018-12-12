@@ -204,6 +204,14 @@ class MusicPlayer extends React.Component {
         </div>
 
         <div className="playbar-right">
+            { this.state.volume > 0 ? (
+              <i id="volume" className="material-icons"
+                onClick={ () => this.toggleMute() }>volume_up</i>
+            ) : (
+              <i id="volume" className="material-icons"
+                onClick={ () => this.toggleMute() }>volume_off</i>
+            )
+            }
           <input id="volume-control" type="range"
            min="0" max="100" step="1"
            defaultValue="100"
