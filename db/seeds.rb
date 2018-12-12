@@ -61,22 +61,12 @@ unique = create_user({username: 'SomeCleverUsername', password: 'password', emai
 william = create_user({username: 'WillTheGod', password: 'password', email: 'guest10@guest.com'}, 'Williamnot.jpg')
 paul2 = create_user({username: 'PaulAKACalvin', password: 'password', email: 'guest11@guest.com'}, 'PaulAsCalvin.jpg')
 
-chilipeppers = create_artist({  name: 'Red Hot Chili Peppers'}, 'artist_chilipeppers.jpg')
-mattcorby = create_artist({  name: 'Matt Corby'}, 'artist_mattcorby.jpg')
-sammhenshaw = create_artist({  name: 'Samm Henshaw'}, 'artist_sammhenshaw.jpg')
-instrumentals = create_artist({  name: 'Intrumentals'}, 'artist_instrumental.jpg')
-matisyahu = create_artist({  name: 'Matisyahu'}, 'artist_matisyahu.jpg')
-yebba = create_artist({  name: 'Yebba' }, 'artist_yebba.jpg')
-gambino = create_artist({  name: 'Childish Gambino'}, 'artist_gambino.jpeg')
-dragons = create_artist({  name: 'Imagine Dragons'}, 'artist_dragons.jpg')
-classical = create_artist({  name: 'Classics'}, 'artist_classical.jpg')
-
 bytheway = create_album({title: 'By the Way'}, 'chilipeppers.jpg')
 monday = create_album({title: 'Monday'}, 'corby.jpg')
 hands = create_album({title: 'Hands'}, 'cat.jpeg')
 wave = create_album({title: 'Surf'}, 'wave.jpg')
 sunshine = create_album({title: 'Sunshine'}, 'matisyahu.jpg')
-jelly = create_album({title: 'Keep Swimming'}, 'jellyfish.jpg')
+jelly = create_album({title: 'Keep Swimming'}, 'penguin.jpeg')
 evergreen = create_album({title: 'Evergreen'}, 'bird.jpeg')
 demons = create_album({title: 'Demons'}, 'splash6.jpg')
 light = create_album({title: 'Light'}, 'splash5.jpg')
@@ -84,6 +74,88 @@ lift = create_album({title: 'Lift'}, 'splash4.jpg')
 come = create_album({title: 'Come together'}, 'splash3.jpg')
 explore = create_album({title: 'Explore'}, 'splash2.jpg')
 mindless = create_album({title: 'Mindless'}, 'splash.jpg')
+
+chilipeppers = create_artist({  name: 'Red Hot Chili Peppers'}, 'artist_chilipeppers.jpg')
+mattcorby = create_artist({  name: 'Matt Corby'}, 'artist_mattcorby.jpg')
+sammhenshaw = create_artist({  name: 'Samm Henshaw'}, 'artist_sammhenshaw.jpg')
+instrumentals = create_artist({  name: 'Intrumentals'}, 'lowqualpic.jpeg')
+matisyahu = create_artist({  name: 'Matisyahu'}, 'artist_matisyahu.jpg')
+yebba = create_artist({  name: 'Yebba' }, 'artist_yebba.jpg')
+gambino = create_artist({  name: 'Childish Gambino'}, 'artist_gambino.jpg')
+dragons = create_artist({  name: 'Imagine Dragons'}, 'artist_dragons.jpg')
+classical = create_artist({  name: 'Classics'}, 'lowqualguitar.jpeg')
+
+alexboye = create_artist({name: 'Alex Boye'}, 'artist_alex_boye.jpg')
+altj = create_artist({ name:'Alt J'}, 'artist_altj.jpg')
+arctic = create_artist({name: 'Arctic Monkeys'}, 'artist_arctic_monkeys.jpg')
+samsmith = create_artist({ name:'Sam Smith'}, 'artist_sam_smith.jpg')
+beyonce = create_artist({name: 'Beyonce'}, 'artist_beyonce.jpeg')
+jackjohnson = create_artist({name: 'Jack Johnson'}, 'artist_jack_johnson.jpg')
+
+love = create_album({title: 'Everything is Love'}, 'roses.jpeg')
+am = create_album({title: 'AM'}, 'arctic_monkeys.jpg')
+space = create_album({title: 'Taro'}, 'space.jpeg')
+same = create_album({title: 'All the Same'}, 'tree.jpeg')
+dreams = create_album({title: 'In Between Dreams'}, 'beachspectrum.jpeg')
+nirvana = create_album({title: 'Nirvana'}, 'watersky.jpeg')
+
+
+s1 = create_song({title: 'Beethoven\'s Secret', album_id: same.id}, 'Alex_Boye_Beethoven.mp3')
+s2 = create_song({title: 'Lord of the Rings', album_id: same.id}, 'Alex_Boye_The__Piano__Guys____Lord__of__the__Rings____.mp3')
+s3 = create_song({title: 'Christmas Time', album_id: same.id}, 'Alex__Boye____Christmas__Time__Is__Here____.mp3')
+s4 = create_song({title: 'Paradise', album_id: same.id}, 'Alex__Boye____Peponi__(Paradise)____.mp3')
+s5 = create_song({title: 'Let it Go', album_id: same.id}, 'Alex__Boye______Let__It__Go____.mp3')
+s6 = create_song({title: 'Over the Rainbow', album_id: same.id}, 'Alex_Boye_The__Piano__Guys____Over__the__Rainbow_____Simple__Gifts____.mp3')
+
+alexboye.songs += [s1, s2, s3, s4, s5, s6]
+
+s7 = create_song({title: 'Intro', album_id: space.id}, 'alt-J-Intro.mp3')
+s8 = create_song({title: 'Fitzpleasure', album_id: space.id}, 'alt-J-Fitzpleasure.mp3')
+s9 = create_song({title: 'Matilda', album_id: space.id}, 'alt-J-Matilda.mp3')
+s10 = create_song({title: 'Taro', album_id: space.id}, 'alt-J-Taro.mp3')
+s11 = create_song({title: 'Tessellate', album_id: space.id}, 'alt-J-Tessellate.mp3')
+
+altj.songs += [s7, s8, s9, s10, s11]
+
+s12 = create_song({title: 'Arabella', album_id: am.id}, 'Arctic-MonkeysDo-I-Wanna-Know.mp3')
+s13 = create_song({title: 'Do I Wanna Know', album_id: am.id}, 'Arctic-MonkeysArabella.mp3')
+s14 = create_song({title: 'Fluorescent Adolescent', album_id: am.id}, 'Arctic-MonkeysFluorescent-Adolescent.mp3')
+s15 = create_song({title: 'R U Mine', album_id: am.id}, 'Arctic-MonkeysR-U-Mine.mp3')
+s16 = create_song({title: 'Why\'d you only call me when you\'re high?', album_id: am.id}, 'Arctic-MonkeysWhyd.mp3')
+
+arctic.songs += [s12, s13, s14, s15, s16]
+
+s17 = create_song({title: 'Halo', album_id: love.id}, 'Beyonce-Halo.mp3')
+s18 = create_song({title: 'Crazy in Love', album_id: love.id}, 'Beyonce_Crazy_In_Love.mp3')
+s19 = create_song({title: 'If I Were a Boy', album_id: love.id}, 'Beyonce_If_I_Were_a_Boy.mp3')
+s20 = create_song({title: 'Beautiful Liar', album_id: love.id}, 'Beyonce_Shakira_Beautiful_Liar_.mp3')
+
+beyonce.songs += [s17, s18, s19, s20]
+
+s21 = create_song({title: 'Banana Pancakes', album_id: dreams.id}, 'Jack_Johnson__Banana_Pancakes_.mp3')
+s22 = create_song({title: 'Bubble Toes', album_id: dreams.id}, 'Jack_Johnson__Bubble_Toes_.mp3')
+s23 = create_song({title: 'Flake', album_id: dreams.id}, 'Jack_Johnson__Flake_.mp3')
+s24 = create_song({title: 'Fortunate Fool', album_id: dreams.id}, 'Jack_Johnson__Fortunate_Fool_.mp3')
+s25 = create_song({title: 'Go On', album_id: dreams.id}, 'Jack_Johnson__Go_On_.mp3')
+s26 = create_song({title: 'Good People', album_id: dreams.id}, 'Jack_Johnson__Good_People_.mp3')
+s27 = create_song({title: 'Imagine', album_id: dreams.id}, 'Jack_Johnson__Imagine_.mp3')
+s28 = create_song({title: 'Inaudible Melodies', album_id: dreams.id}, 'Jack_Johnson__Inaudbile_Melodies_.mp3')
+s29 = create_song({title: 'Sitting, Waiting, Wishing', album_id: dreams.id}, 'Jack_Johnson__Sitting,_Waiting,_Wishing_.mp3')
+s30 = create_song({title: 'Upside Down', album_id: dreams.id}, 'Jack_Johnson__Upside_Down_.mp3')
+
+jackjohnson.songs += [s21, s22, s23, s24, s25, s26, s27, s28, s29, s30]
+
+s31 = create_song({title: 'I\'m Not The Only One', album_id: nirvana.id}, 'Sam_Smith__I\'m_Not_The_Only_One_.mp3')
+s32 = create_song({title: 'I\'ve Told You Now', album_id: nirvana.id}, 'Sam_Smith__I\'ve_Told_You_Now.mp3')
+s33 = create_song({title: 'Latch', album_id: nirvana.id}, 'Sam_Smith__Latch.mp3')
+s34 = create_song({title: 'Lay Me Down', album_id: nirvana.id}, 'Sam_Smith__Lay_Me_Down_.mp3')
+s35 = create_song({title: 'Like I Can', album_id: nirvana.id}, 'Sam_Smith__Like_I_Can_.mp3')
+s36 = create_song({title: 'Nirvana', album_id: nirvana.id}, 'Sam_Smith__Nirvana_.mp3')
+s37 = create_song({title: 'Stay With Me', album_id: nirvana.id}, 'Sam_Smith__Stay_With_Me_.mp3')
+s38 = create_song({title: 'Too Good At Goodbyes', album_id: nirvana.id}, 'Sam_Smith__Too_Good_At_Goodbyes.mp3')
+s39 = create_song({title: 'No Peace', album_id: nirvana.id}, 'Sam_Smith_feat._YEBBA__No_Peace_.mp3')
+
+samsmith.songs += [s31, s32, s33, s34, s35, s36, s37, s38, s39]
 
 www = create_song({title: 'Californication', album_id: bytheway.id}, 'Californication.mp3')
 zzz = create_song({title: 'Snow', album_id: bytheway.id}, 'Snow.mp3')
@@ -121,7 +193,7 @@ t = create_song({title: 'Evergreen', album_id: evergreen.id}, 'YEBBA.mp3')
 u = create_song({title: 'My Mind (live)', album_id: evergreen.id}, 'My+Mind+(live).mp3')
 
 v = create_song({title: 'Weak (cover)', album_id: jelly.id}, 'Weak+(cover).mp3')
-w = create_song({title: 'No Peace', album_id: jelly.id}, 'No+Peace.mp3')
+w = create_song({title: 'Yebba No Peace', album_id: jelly.id}, 'No+Peace.mp3')
 x = create_song({title: 'Why My Day Will Come', album_id: jelly.id}, 'Why+My+Day+Will+Come.mp3')
 
 yebba.songs += [t, u]
@@ -171,16 +243,16 @@ ccc = create_song({title: 'Time', album_id: mindless.id}, 'classical6.mp3')
 
 classical.songs += [ss, tt, uu, vv, ww, xx, yy, zz, aaa, bbb, ccc]
 
-qqq = Playlist.create(title: 'Brush Teeth', author_id: spotify.id)
-rrr = Playlist.create(title: 'Stare at Wall', author_id: spotify.id)
+qqq = Playlist.create(title: 'Running in Circles', author_id: spotify.id)
+rrr = Playlist.create(title: 'Staring at a Wall', author_id: spotify.id)
 sss = Playlist.create(title: 'Unicycling', author_id: spotify.id)
-ttt = Playlist.create(title: 'Calculus', author_id: spotify.id)
-uuu = Playlist.create(title: 'Freaky Focus', author_id: paul.id)
-vvv = Playlist.create(title: 'Mastering Mischief', author_id: paul2.id)
+ttt = Playlist.create(title: 'Abstract Algebra', author_id: spotify.id)
+uuu = Playlist.create(title: 'Fully Focused', author_id: paul.id)
+vvv = Playlist.create(title: 'Master of Mischief', author_id: paul2.id)
 ppp = Playlist.create(title: 'Knitting Party', author_id: guest.id)
 a1 = Playlist.create(title: 'Hannukah Hipster', author_id: guest.id)
 a2 = Playlist.create(title: 'Danza!', author_id: mafe.id)
-a3 = Playlist.create(title: 'Free Will', author_id: william.id)
+a3 = Playlist.create(title: 'Freedom of Will', author_id: william.id)
 a4 = Playlist.create(title: 'Stocks n Socks', author_id: trev.id)
 a5 = Playlist.create(title: 'Cloning an App', author_id: spotify.id)
 a6 = Playlist.create(title: 'Making Portals', author_id: dusty.id)
@@ -193,18 +265,18 @@ a11 = Playlist.create(title: 'It\'s a Magical World', author_id: hobbes.id)
 qqq.songs += [www, ss, h, t, x, y, z]
 ppp.songs += [k, l, q, ff, gg, hh]
 a5.songs += [t, r, s ]
-rrr.songs += [q, b, c, dd, ee, ff ]
-sss.songs += [m, j, k, l]
-ttt.songs += [ll, y, z, aaa, bbb, ccc]
-uuu.songs += [y, bb, cc, dd, ee, ff, gg, hh]
-vvv.songs += [ee, rr, ss, tt, uu ]
+rrr.songs += [q, s1, c, dd, ee, ff ]
+sss.songs += [m, j, s9, l]
+ttt.songs += [ll, s13, z, aaa, bbb, ccc]
+uuu.songs += [s21, s31, s1, dd, ee, ff, gg, hh]
+vvv.songs += [ee, rr, s8, tt, uu ]
 a1.songs += [t, jj, kk, ll]
-a2.songs += [ss, ww, xx, rr, ss, tt]
-a3.songs += [ww, nn, oo, pp]
-a4.songs += [e, zz, zzz, www]
+a2.songs += [ss, s13, xx, rr, tt]
+a3.songs += [ww, s32, s18, pp]
+a4.songs += [e, s13, zzz, www]
 a6.songs += [www, f, g, dd, ee, ff]
 a7.songs += [yy, e, u, v, w]
-a8.songs += [q, ff, gg, hh]
+a8.songs += [q, s20, s25, hh]
 a9.songs += [m, bbb, ccc]
 a10.songs += [ss, tt, uu]
 a11.songs += [t, gg, hh]
