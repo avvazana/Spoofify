@@ -4,19 +4,19 @@ import SearchResults from './search_results';
 
 class Search extends React.Component {
   constructor(props) {
-    debugger
+    
     super(props);
     this.state = { searchTerm: '' };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
-    debugger
+    
     this.setState({ searchTerm: e.target.value });
   }
 
   render () {
-    debugger
+    
     let results;
     if (this.state.searchTerm) {
       results = (

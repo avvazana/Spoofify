@@ -12,18 +12,27 @@ class GridShow extends React.Component {
     this.fetchElement = this.props.fetchPlaylist || this.props.fetchAlbum;
     this.elementId = this.props.playlistId || this.props.albumId;
     this.fetchElement = this.fetchElement.bind(this);
+    this.timeout = this.timeout.bind(this);
+  }
+
+  timeout(){
+    setTimeout(() => this.setState({loading: false}), 700);
   }
 
   componentDidMount(){
     this.fetchElement(this.elementId)
-    .then( () => setTimeout(() => this.setState({loading: false}), 700));
+    .then( this.timeout );
   }
 
   render () {
+    function isDefined(song){
+      return song ? true : false;
+    }
+
     const {playlist, album, logout, songs} = this.props;
     let tracks = '';
     let element = playlist || album;
-    if(songs[0]){
+    if(songs.every(isDefined)){
        tracks = songs.map((song) => {
         return (
           <SongsIndexItem key={song.id} song={song} playlist={playlist} album={album}/>

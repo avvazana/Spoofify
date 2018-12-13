@@ -5,7 +5,7 @@ import { fetchPlaylists } from '../../../actions/playlist_actions';
 import { selectAllPlaylists } from '../../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
+  
   return {
     path: "playlist",
     navpath: ownProps.navpath,

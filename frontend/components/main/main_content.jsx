@@ -19,7 +19,7 @@ class MainContent extends React.Component {
     const {playlists, navpath, show, path, artists, albums} = this.props;
 
     let index = "";
-    debugger
+    
     if (!path || path.includes("playlists") && !path.includes("search")) {
       index = (
         <div className="grid">
@@ -53,7 +53,7 @@ class MainContent extends React.Component {
     }
 
     let header = '';
-    debugger
+    
     if (this.props.navpath.includes("search")){
       header = ( <Search/> );
     } else {

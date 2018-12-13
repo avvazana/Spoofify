@@ -9,18 +9,20 @@ import { withRouter, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class SearchResults extends React.Component {
+
   render () {
+    const navpath = "browse";
     const section = this.props.match.params.section;
     return (
       <div className="search-results">
         <div className="search-section">
             <h2>Top Results</h2>
             <h3>Albums</h3>
-            <AlbumIndexContainer searchTerm={this.props.searchTerm} />
+            <AlbumIndexContainer searchTerm={this.props.searchTerm} navpath={navpath} />
             <h3>Playlists</h3>
-            <PlaylistIndexContainer searchTerm={this.props.searchTerm} />
+            <PlaylistIndexContainer searchTerm={this.props.searchTerm} navpath={navpath}/>
             <h3>Artists</h3>
-            <ArtistIndexContainer searchTerm={this.props.searchTerm} />
+            <ArtistIndexContainer searchTerm={this.props.searchTerm} navpath={navpath}/>
         </div>
       </div>
     );

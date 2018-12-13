@@ -123,6 +123,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 20px;
   padding-left: 20%;
 }
 
@@ -189,12 +190,28 @@
   color:white;
   padding-bottom: 5px;
   font-size: 14px;
+  font-weight: 450;
   font-family: Circular,Helvetica,Arial,sans-serif;
 }
 
-.artist-subtext, .album-subtext, .playlist-subtext span {
-  color: lightgray;
-  font-weight: 100;
+.album-item p {
+  color: white;
+  padding-bottom: 5px;
   font-size: 14px;
+  font-weight: 450;
+  font-family: Circular,Helvetica,Arial,sans-serif;
+}
+
+.artist-subtext span {
+  color:white;
+  padding-bottom: 5px;
+  font-size: 14px;
+  font-family: Circular,Helvetica,Arial,sans-serif;
+}
+
+.album-subtext, .playlist-subtext span {
+  color: lightgray;
+  font-weight: 200;
+  font-size: 12px;
   font-family: Circular,Helvetica,Arial,sans-serif;
 }

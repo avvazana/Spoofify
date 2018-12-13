@@ -192,7 +192,7 @@ class MusicPlayer extends React.Component {
               { playbar }
             </div>
 
-            <audio
+            <audio id="testing"
               ref={ tag => this.audio = tag }
               autoPlay
               src={ songInfo.trackUrl }

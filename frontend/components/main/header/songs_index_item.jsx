@@ -4,6 +4,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { openModal } from '../../../actions/modal_actions';
 import { connect } from 'react-redux';
 import { receiveCurrentSong, pauseCurrentSong, putSongInState } from '../../../actions/song_actions';
+import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 
 const mapStateToProps = state => {
   return {
@@ -75,6 +76,7 @@ class SongsIndexItem extends React.Component {
         </div>
       ) : (
         <div className="index-button-container">
+          <span className="material-icons">audiotrack</span>
           <p className="material-icons" onClick={() => {
               this.togglePlay(song.id, element.id, elementType);
             }}>play_arrow
