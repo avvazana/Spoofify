@@ -16,9 +16,10 @@ const receiveSongs = ({songs, playlist}) => {
   };
 };
 
-export const fetchSavedSongs = () => dispatch => {
+export const fetchSavedSongs = (props) => dispatch => {
+  
   return (
-    APIUtil.fetchSavedSongs().then(
+    APIUtil.fetchSavedSongs(props).then(
       res => dispatch(receiveSongs(res))
     ));
 };

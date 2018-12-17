@@ -22,7 +22,6 @@ import { Link } from 'react-router-dom';
    } else {
      img = (<img src={element.photoUrl}></img>)
    }
-   debugger
    return (
      <li className={`${path}-item`} key={element.id}>
        <Link to={`/${navpath}/${path}s/${element.id}`}>

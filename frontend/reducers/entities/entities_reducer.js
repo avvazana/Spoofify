@@ -5,6 +5,7 @@ import songsReducer from './songs_reducer';
 import artistsReducer from './artists_reducer';
 import albumsReducer from './albums_reducer';
 import usersReducer from './users_reducer';
+// import searchReducer from './search_reducer';
 
 export default combineReducers({
   playlists: playlistsReducer,
@@ -12,3 +13,5 @@ export default combineReducers({
   artists: artistsReducer,
   albums: albumsReducer
 });
+
+// remoteAlbums: searchReducer

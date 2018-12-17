@@ -1,9 +1,13 @@
 class Api::SongsController < ApplicationController
 
   def index
-    # if song_ids
-    @saved_playlist = current_user.playlists.first
-    @songs = @saved_playlist.songs
+    
+    if search_query
+      @songs = Song.where('lower(title) LIKE ?', "%#{search_query.downcase}" )
+    else
+      @saved_playlist = current_user.playlists.first
+      @songs = @saved_playlist.songs
+    end
     render :index
   end
 
@@ -17,8 +21,8 @@ class Api::SongsController < ApplicationController
   #   params[:song_ids]
   # end
   #
-  # def search_term
-  #   params[:search_term]
-  # end
+  def search_query
+    params[:search_query]
+  end
 
 end

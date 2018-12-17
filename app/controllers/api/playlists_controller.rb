@@ -2,7 +2,7 @@ class Api::PlaylistsController < ApplicationController
 
   def index
     if search_query
-      @playlists = Playlist.where('lower(title) LIKE ?', "%#{search_query.downcase}" )
+      @playlists = Playlist.where('lower(title) LIKE ?', "%#{search_query.downcase}%" )
     else
       @playlists = Playlist.all.includes(:songs, :author)
     end

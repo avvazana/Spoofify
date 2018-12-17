@@ -78,6 +78,7 @@
 .tracks {
   margin-top: 50px;
   // margin-left: 100px;
+  width: 100% !important;
 }
 
 .song-index-item {
@@ -85,7 +86,7 @@
   display: flex;
   height: 60px;
   justify-content: space-between;
-  width: 900px;
+  width: 1200px;
   color: #f2f2f2;
   flex: 1;
   align-items: center;
@@ -140,7 +141,7 @@ div[class*="song-index"] {
   height: 60px;
   padding: 5px 5px 5px 15px;
   transition: background-color .2s linear;
-  width: 1000px;
+  width: 100%;
   padding-right: 40px;
 }
 

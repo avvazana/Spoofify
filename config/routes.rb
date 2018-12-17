@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "static_pages#root"
 
   namespace :api, defaults: { format: :json } do
+    get('albums/get_albums', { to: 'albums#get_albums' })
     resources :users, only: [:show, :create]
     resource :session, only: [:create, :destroy]
     resources :songs, only: [:index, :show]

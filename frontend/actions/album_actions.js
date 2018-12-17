@@ -19,6 +19,7 @@ const receiveAlbum = ({album, songs}) => {
 };
 
 export const fetchAlbums = (props) => dispatch => {
+  
   return (
     APIUtil.fetchAlbums(props).then(
       res => dispatch(receiveAlbums(res))
