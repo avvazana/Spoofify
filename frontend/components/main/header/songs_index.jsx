@@ -7,10 +7,10 @@ import { selectPlaylistSongs, selectAllSavedSongs, selectAllPlaylists } from '..
 import SongsIndexItem from './songs_index_item';
 
 const mapStateToProps = (state, ownProps) => {
-
-  const playlist = state.entities.playlists[323];
+  debugger
+  const playlist = Object.values(state.entities.playlists)[0];
   const songs = selectPlaylistSongs(state, playlist);
-  const playlistId = 323;
+  const playlistId = parseInt(Object.keys(state.entities.playlists)[0]);
   return {
     songs,
     playlist,
@@ -32,13 +32,13 @@ const mapDispatchToProps = (dispatch) => {
 
 class SongsIndex extends React.Component {
   constructor(props){
-    
+
     super(props);
     this.fetchSavedSongs = props.fetchSavedSongs.bind(this);
   }
 
   componentDidMount() {
-    
+
     let search_query = this.props.searchTerm;
     if (search_query) {
       this.fetchSavedSongs(
@@ -59,7 +59,7 @@ class SongsIndex extends React.Component {
   }
 
   render(){
-    
+
     const {songs, playlist } = this.props;
     if (!playlist){return (<div className="no-results"></div>);}
     if (!songs[songs.length-1]){return (<div className="no-results"></div>);}
