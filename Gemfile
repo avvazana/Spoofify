@@ -40,7 +40,7 @@ gem "aws-sdk-s3", require: false
 gem 'rspotify'
 gem "font-awesome-rails"
 gem 'ez_download', git: 'https://github.com/OscarAlvarez8830/EZDownload.git'
-gem 'feedjira'
+# gem 'feedjira'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a  console
