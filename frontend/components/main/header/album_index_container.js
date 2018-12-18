@@ -6,12 +6,12 @@ import { requestAllAlbums } from '../../../actions/search_actions';
 import { selectRandomAlbums } from '../../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
-
+  debugger
   return {
     path: "album",
     navpath: ownProps.navpath,
-    // albums: Object.values(state.entities.remoteAlbums) || ownProps.albums || [],
-    albums: ownProps.albums || selectRandomAlbums(state) || [],
+    albums: Object.values(state.entities.remoteAlbums) || ownProps.albums || [],
+    // albums: ownProps.albums || selectRandomAlbums(state) || [],
     searchTerm: ownProps.searchTerm
   };
 };
@@ -20,8 +20,8 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchAlbums: (props) => dispatch(fetchAlbums(props)),
     requestAllAlbums: (searchQuery) => {
-    return dispatch(requestAllAlbums(searchQuery));
-  },
+      return dispatch(requestAllAlbums(searchQuery));
+    },
   };
 };
 

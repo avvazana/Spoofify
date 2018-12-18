@@ -4,8 +4,12 @@ import { Link } from 'react-router-dom';
  const GridIndexItem = ({ path, element, navpath}) => {
    // path will be playlist, album, or artist
    // navpath will be browse or collection
+   if (element.artworkUrl100) {
+     debugger
+     element.artworkUrl100 = element.artworkUrl100.replace('100x100', '600x600');
+   }
    let img = '';
-   if (Array.isArray(element.photoUrl)) {
+   if (Array.isArray(element.photoUrl || element.artworkUrl100)) {
      // element.photoUrl = element.photoUrl[0];
      img = (
        <div className="image-combiner">
@@ -20,7 +24,7 @@ import { Link } from 'react-router-dom';
        </div>
      )
    } else {
-     img = (<img src={element.photoUrl}></img>)
+     img = (<img src={element.photoUrl || element.artworkUrl100}></img>)
    }
    return (
      <li className={`${path}-item`} key={element.id}>
@@ -29,8 +33,8 @@ import { Link } from 'react-router-dom';
            {img}
          </div>
          <div className={`${path}-subtext`}>
-           <p>{element.title}</p>
-           <span>{element.author || element.name}</span>
+           <p>{element.title || element.collectionName}</p>
+           <span>{element.author || element.name || element.artistName}</span>
          </div>
        </Link>
      </li>

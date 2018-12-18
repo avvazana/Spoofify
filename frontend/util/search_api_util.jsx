@@ -12,7 +12,8 @@ export const fetchSingleAlbum = (searchQuery) => {
     url: 'https://itunes.apple.com/search?',
     data: {
       country: 'US',
-      media: 'podcast',
+      media: 'music',
+      entity: 'album',
       limit: 10,
       lang: 'en_us',
       term: searchQuery
@@ -21,12 +22,12 @@ export const fetchSingleAlbum = (searchQuery) => {
 };
 
 const parseSearchTerms = (searchQuery) => {
-
   let query = "";
   const searchString = searchQuery.search_term.split(" ").join("+");
   const searchParams = {
     country: 'US',
-    media: 'podcast',
+    media: 'music',
+    entity: 'album',
     limit: 10,
     lang: 'en_us',
     term: searchString

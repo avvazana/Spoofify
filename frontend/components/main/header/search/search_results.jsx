@@ -18,7 +18,6 @@ class SearchResults extends React.Component {
       <div className="search-results">
         <div className="search-section">
             <h2>Top Results</h2>
-
             <h3>Albums</h3>
             <AlbumIndexContainer searchTerm={this.props.searchTerm} navpath={navpath} />
             <h3>Playlists</h3>
@@ -35,6 +34,6 @@ const mapStateToProps = state => ({
 });
 
 export default withRouter(connect(mapStateToProps)(SearchResults));
-// 
+//
 // <h3>Songs</h3>
 // <SongsIndex searchTerm={this.props.searchTerm} navpath={navpath} />

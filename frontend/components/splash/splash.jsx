@@ -25,7 +25,7 @@ const sessionLinks = () => (
         <h1>Music for everyone.</h1>
         <h4>Millions of songs. No credit card needed.</h4>
         <Link to={'/signup'} className="splash-to-sign-up">
-          <button className="splash-to-sign-up-button">GET SPOTIFY FREE</button>
+          <button className="splash-to-sign-up-button">GET SPOOFIFY FREE</button>
         </Link>
       </div>
     </div>
