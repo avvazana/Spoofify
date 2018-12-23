@@ -7,6 +7,7 @@ import { selectPlaylistSongs } from '../../../reducers/selectors';
 
 
 const mapStateToProps = (state, ownProps) => {
+  
   const playlist = state.entities.playlists[ownProps.match.params.playlistId] || { title: "", song_ids: [], photoUrl: "" };
   const songs = selectPlaylistSongs(state, playlist);
   return {

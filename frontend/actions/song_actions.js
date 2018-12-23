@@ -17,7 +17,7 @@ const receiveSongs = ({songs, playlist}) => {
 };
 
 export const fetchSavedSongs = (props) => dispatch => {
-  
+
   return (
     APIUtil.fetchSavedSongs(props).then(
       res => dispatch(receiveSongs(res))
@@ -39,6 +39,7 @@ export const removeSongFromState = () => {
 
 
 export const receiveCurrentSong = (songId, elementId, elementType) => {
+  
   return {
     type: RECEIVE_CURRENT_SONG,
     songId: songId,

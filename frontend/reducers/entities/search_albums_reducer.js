@@ -2,7 +2,7 @@ import { RECEIVE_ALL_ALBUMS, RECEIVE_ALBUM } from '../../actions/search_actions'
 import { merge } from 'lodash';
 
 export default (state = {}, action) => {
-
+  
   switch (action.type) {
     case RECEIVE_ALL_ALBUMS:
       const newState = merge({}, state);

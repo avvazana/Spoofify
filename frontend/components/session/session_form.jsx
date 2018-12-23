@@ -35,11 +35,11 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const buttonText = this.props.formType === 'login' ? 'LOG IN' : 'SIGN UP'
-    const otherButtonText = this.props.formType === 'login' ? 'SIGN UP' : 'LOG IN'
-    const otherButtonLabel = this.props.formType === 'login' ? 'Don\'t have an account?' : 'Already have an account?'
-    const otherFormType = this.props.formType === 'login' ? 'signup' : 'login'
-    const clickType = this.props.formType === 'login' ? (<button className="session-form-other-button">SIGN UP</button>) : (<p className="session-form-other-login">Log in</p>)
+    const buttonText = this.props.formType === 'login' ? 'LOG IN' : 'SIGN UP';
+    const otherButtonText = this.props.formType === 'login' ? 'SIGN UP' : 'LOG IN';
+    const otherButtonLabel = this.props.formType === 'login' ? 'Don\'t have an account?' : 'Already have an account?';
+    const otherFormType = this.props.formType === 'login' ? 'signup' : 'login';
+    const clickType = this.props.formType === 'login' ? (<button className="session-form-other-button">SIGN UP</button>) : (<p className="session-form-other-login">Log in</p>);
 
     const email = (
       <div>
@@ -53,8 +53,7 @@ class SessionForm extends React.Component {
         </label>
         <br/>
       </div>
-
-    )
+    );
     return (
       <div className="session-form-container">
         <Link to={'/'} className="session-to-splash">
@@ -64,7 +63,7 @@ class SessionForm extends React.Component {
           </header>
         </Link>
         <div className="demo-div">
-          <button onClick={() => {this.props.login({username: 'Guest', password: 'password'})}} className="demo-button">DEMO LOGIN</button>
+          <button onClick={() => {this.props.login({username: 'Guest', password: 'password'});}} className="demo-button">DEMO LOGIN</button>
         </div>
         <div className="demo-form-divider">
           <h2><span>OR</span></h2>
@@ -99,7 +98,7 @@ class SessionForm extends React.Component {
           </div>
           <h2>{otherButtonLabel}</h2>
         </form>
-        <Link to={`/${otherFormType}`} className="session-link">
+        <Link onClick={this.props.clearErrors} to={`/${otherFormType}`} className="session-link">
           {clickType}
         </Link>
         <div>

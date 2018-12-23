@@ -11,14 +11,13 @@ class GridIndex extends React.Component {
   }
 
   componentDidMount(){
-    debugger
+
     this.fetchElements(
       {search_term: this.props.searchTerm}
     );
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
     if (nextProps.searchTerm && this.props.searchTerm !== nextProps.searchTerm) {
       this.fetchElements({
         search_term: nextProps.searchTerm
@@ -27,7 +26,7 @@ class GridIndex extends React.Component {
   }
 
   render(){
-    debugger
+
     const {playlists, artists, albums, navpath, path} = this.props;
     let property = "title";
     let gridElements = [];
@@ -44,7 +43,7 @@ class GridIndex extends React.Component {
       filteredElements = gridElements.filter(a => a.title.toLowerCase().includes(this.props.searchTerm.toLowerCase()));
     } else if (this.props.searchTerm && gridElements && !albums) {
       filteredElements = gridElements.filter(a => a.name.toLowerCase().includes(this.props.searchTerm.toLowerCase()));
-    } 
+    }
     else {
       filteredElements = gridElements;
     }
@@ -52,7 +51,7 @@ class GridIndex extends React.Component {
     return (
       <div className="grid">
         <ul>
-          {filteredElements.map(element => <GridIndexItem key={element.id} element={element} navpath={navpath} path={path}/>)}
+          {filteredElements.map(element => <GridIndexItem key={element.id || element.collectionId} element={element} navpath={navpath} path={path}/>)}
         </ul>
       </div>
     );

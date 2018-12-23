@@ -29,15 +29,13 @@ class SongsIndexItem extends React.Component {
   }
 
   componentDidMount() {
-
-    if ((this.props.currentSong.playing) && (this.props.song.id === this.props.currentSong.id)) {
+    if ((this.props.currentSong.playing) && (this.props.song.id  === this.props.currentSong.id || this.props.song.trackId === this.props.currentSong.id)) {
         this.setState({ playing: true });
     }
   }
 
   componentWillReceiveProps(nextProps) {
-
-    if (this.props.song.id !== nextProps.currentSong.id) {
+    if ((this.props.song.id !== nextProps.currentSong.id) || (this.props.song.trackId !== nextProps.currentSong.id)) {
       this.setState({ playing: false });
     }
     else if (nextProps.currentSong.playing) {
@@ -49,16 +47,19 @@ class SongsIndexItem extends React.Component {
   }
 
   togglePlay(songId, elementId, elementType) {
+    
     if (this.state.playing) {
       this.props.pauseCurrentSong();
       this.setState({ playing: false });
     } else {
+      
       this.props.receiveCurrentSong(songId, elementId, elementType);
       this.setState({ playing: true });
     }
   }
 
   render () {
+    
     const { putSongInState, openModal, song, playlist, album } = this.props;
     let element = playlist || album;
     let elementType = "playlist";
@@ -70,7 +71,7 @@ class SongsIndexItem extends React.Component {
     let indexButton = this.state.playing ? (
         <div className="index-button-container">
           <p id="index-pause" className="material-icons" onClick={() => {
-              this.togglePlay(song.id, element.id, elementType);
+              this.togglePlay(song.id || song.trackId, element.id || element.collectionId, elementType);
             }}>pause_circle_outline
           </p>
         </div>
@@ -78,7 +79,7 @@ class SongsIndexItem extends React.Component {
         <div className="index-button-container">
           <span className="material-icons">audiotrack</span>
           <p className="material-icons" onClick={() => {
-              this.togglePlay(song.id, element.id, elementType);
+              this.togglePlay(song.id || song.trackId, element.id || element.collectionId, elementType);
             }}>play_arrow
           </p>
         </div>
@@ -86,11 +87,11 @@ class SongsIndexItem extends React.Component {
 
     return (
     <div className="song-index-item">
-      <div className={`song-index${song.id}`} onDoubleClick={ () => { this.togglePlay(song.id, element.id, elementType); } }>
+      <div className={`song-index${song.id || song.trackId}`} onDoubleClick={ () => { this.togglePlay(song.id || song.trackId, element.id || element.collectionId, elementType); } }>
           { indexButton }
-          <div className="song-index-title">{song.title}</div>
-          <div className="song-index-album">{song.album}</div>
-        <button onClick={() => this.props.openModal('newPlaylistSong', `${song.id}`)}>
+          <div className="song-index-title">{song.title || song.trackName}</div>
+          <div className="song-index-album">{song.album || song.collectionName}</div>
+        <button onClick={() => this.props.openModal('newPlaylistSong', `${song.id || song.trackId}`)}>
           <img className="tripledot" src={window.tripledot}></img>
         </button>
       </div>

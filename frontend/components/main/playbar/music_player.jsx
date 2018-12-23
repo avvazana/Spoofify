@@ -90,6 +90,7 @@ class MusicPlayer extends React.Component {
   }
 
   nextSong(currentSongId) {
+    
     const songList = this.props.songList;
     let nextIndex = songList.indexOf(currentSongId) + 1;
 
@@ -102,6 +103,7 @@ class MusicPlayer extends React.Component {
   }
 
   playButton(currentSongId) {
+    
     if (currentSongId) {
       this.props.receiveCurrentSong(currentSongId);
     } else {
@@ -110,15 +112,15 @@ class MusicPlayer extends React.Component {
   }
 
   render() {
-
+    
     const { songInfo, currentSong, loggedIn, putSongInState, openModal,
       pauseCurrentSong, receiveCurrentSong } = this.props;
 
     let currentlyPlaying = currentSong.id ? (
       <div className="playbar-container">
         <div className="playing-container">
-          <img className="song-photo" src={ songInfo.photoUrl }></img>
-          <div className="playing-song">{ songInfo.title }</div>
+          <img className="song-photo" src={ songInfo.photoUrl || songInfo.artworkUrl100 }></img>
+          <div className="playing-song">{ songInfo.title || songInfo.trackName}</div>
         </div>
         <div className="add-to-playlist-container">
           <div className="add-to-playlist-button"
@@ -195,7 +197,7 @@ class MusicPlayer extends React.Component {
             <audio id="testing"
               ref={ tag => this.audio = tag }
               autoPlay
-              src={ songInfo.trackUrl }
+              src={ songInfo.trackUrl || songInfo.previewUrl}
               onTimeUpdate={ this.updateProgress }
               volume={ this.state.volume }
               onEnded={ () => this.nextSong(currentSong.id) }>
@@ -226,9 +228,10 @@ class MusicPlayer extends React.Component {
 }
 
 const msp = state => {
+  
   return {
     currentSong: state.ui.currentSong,
-    songInfo: state.entities.songs[state.ui.currentSong.id] || {},
+    songInfo: state.entities.songs[state.ui.currentSong.id] || state.entities.remoteSongs[state.ui.currentSong.id] || {},
     songList: getSongList(state, state.ui.currentSong) || {},
     loggedIn: Boolean(state.session.currentUser)
   };

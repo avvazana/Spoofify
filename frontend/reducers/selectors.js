@@ -95,18 +95,28 @@ export const selectPlaylistSongs = (state, playlist) => {
 };
 
 export const selectAlbumSongs = (state, album) => {
+
   return album ? album.song_ids.map(id => state.entities.songs[id]) : [];
 };
 
 export const selectAllSongs = state => Object.values(state.entities.songs);
 
 export const getSongList = (state, currentSong) => {
+  
   if (!currentSong.id) {
     return [];
   }
-  const currentPlaylist = state.entities.playlists[parseInt(state.ui.currentSong.playlist)];
-  if (!currentPlaylist) {
+
+  let currentListOfSongIds = "";
+
+  if(state.ui.currentSong.playlist) {
+    currentListOfSongIds = state.entities.playlists[parseInt(state.ui.currentSong.playlist)].song_ids;
+  } else if (state.ui.currentSong.album) {
+    currentListOfSongIds = Object.keys(state.entities.remoteSongs);
+  }
+
+  if (!currentListOfSongIds) {
     return [];
   }
-  return state.entities.playlists[parseInt(state.ui.currentSong.playlist)].song_ids;
+  return currentListOfSongIds;
 };

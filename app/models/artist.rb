@@ -20,4 +20,8 @@ class Artist < ApplicationRecord
   has_many :songs,
     through: :song_artists,
     source: :song
+
+  has_many :albums,
+    through: :songs,
+    source: :album
 end

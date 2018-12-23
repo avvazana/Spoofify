@@ -83,6 +83,7 @@ import {
      this.props.receiveCurrentSong(songList[prevIndex]);
   }
    playButton(currentSongId) {
+     
      if (currentSongId === undefined) {
       return;
     } else {
@@ -90,6 +91,7 @@ import {
     }
   }
    render() {
+     
      const { songInfo, currentSong, loggedIn, putSongInState, openModal,
       pauseCurrentSong, receiveCurrentSong } = this.props;
      if (!loggedIn) { return null }
@@ -166,7 +168,7 @@ import {
              <audio
               autoPlay
               id="playbar-audio"
-              src={ songInfo.trackUrl }
+              src={ songInfo.trackUrl || songInfo.previewUrl}
               ref={ tag => this.audio = tag }
               onTimeUpdate={ this.updateProgress }
               volume={ this.state.volume }

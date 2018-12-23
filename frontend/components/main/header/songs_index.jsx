@@ -7,7 +7,7 @@ import { selectPlaylistSongs, selectAllSavedSongs, selectAllPlaylists } from '..
 import SongsIndexItem from './songs_index_item';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
+
   const playlist = Object.values(state.entities.playlists)[0];
   const songs = selectPlaylistSongs(state, playlist);
   const playlistId = parseInt(Object.keys(state.entities.playlists)[0]);
@@ -61,6 +61,7 @@ class SongsIndex extends React.Component {
   render(){
 
     const {songs, playlist } = this.props;
+    
     if (!playlist){return (<div className="no-results"></div>);}
     if (!songs[songs.length-1]){return (<div className="no-results"></div>);}
 
