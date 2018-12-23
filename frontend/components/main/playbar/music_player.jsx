@@ -90,20 +90,21 @@ class MusicPlayer extends React.Component {
   }
 
   nextSong(currentSongId) {
-    
+    debugger
     const songList = this.props.songList;
-    let nextIndex = songList.indexOf(currentSongId) + 1;
+    let nextIndex = songList.indexOf(currentSongId.toString()) + 1;
 
     if (songList.length === 0) {
       return;
     } else if (nextIndex >= songList.length) {
-      nextIndex = 0;
+      this.audio.pause();
+      this.props.removeCurrentSong();
+    } else {
+      this.props.receiveCurrentSong(songList[nextIndex]);
     }
-    this.props.receiveCurrentSong(songList[nextIndex]);
   }
 
   playButton(currentSongId) {
-    
     if (currentSongId) {
       this.props.receiveCurrentSong(currentSongId);
     } else {
@@ -112,7 +113,6 @@ class MusicPlayer extends React.Component {
   }
 
   render() {
-    
     const { songInfo, currentSong, loggedIn, putSongInState, openModal,
       pauseCurrentSong, receiveCurrentSong } = this.props;
 
@@ -228,7 +228,7 @@ class MusicPlayer extends React.Component {
 }
 
 const msp = state => {
-  
+  debugger
   return {
     currentSong: state.ui.currentSong,
     songInfo: state.entities.songs[state.ui.currentSong.id] || state.entities.remoteSongs[state.ui.currentSong.id] || {},

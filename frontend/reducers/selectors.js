@@ -102,7 +102,7 @@ export const selectAlbumSongs = (state, album) => {
 export const selectAllSongs = state => Object.values(state.entities.songs);
 
 export const getSongList = (state, currentSong) => {
-  
+  debugger
   if (!currentSong.id) {
     return [];
   }

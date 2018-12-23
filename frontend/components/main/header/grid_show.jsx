@@ -7,7 +7,7 @@ import Modal from '../modals/modal';
 
 class GridShow extends React.Component {
   constructor(props) {
-    
+
     super(props);
     this.state = { loading: true };
     this.fetchElement = this.props.fetchPlaylist || this.props.requestSingleAlbum || this.props.fetchArtist;
@@ -26,7 +26,7 @@ class GridShow extends React.Component {
   }
 
   render () {
-    
+
     function isDefined(song){
       return song ? true : false;
     }
@@ -61,9 +61,8 @@ class GridShow extends React.Component {
     //     </div>
     //   );
     // }
-    
-    if (element.artworkUrl100) {
 
+    if (element.artworkUrl100) {
       element.artworkUrl100 = element.artworkUrl100.replace('100x100', '600x600');
     }
 
