@@ -6,7 +6,7 @@ import { requestAllAlbums } from '../../../actions/search_actions';
 import { selectRandomAlbums } from '../../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
-  
+  debugger
   return {
     path: "album",
     navpath: ownProps.navpath,

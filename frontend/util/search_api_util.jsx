@@ -1,5 +1,5 @@
 export const fetchAllAlbums = (searchQuery) => {
-  
+  debugger
   if (!searchQuery.search_term) {
     searchQuery.search_term = randomizeQuery();
   }

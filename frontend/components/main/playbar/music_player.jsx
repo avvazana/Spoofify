@@ -90,9 +90,11 @@ class MusicPlayer extends React.Component {
   }
 
   nextSong(currentSongId) {
-    debugger
-    const songList = this.props.songList;
-    let nextIndex = songList.indexOf(currentSongId.toString()) + 1;
+    let songList = this.props.songList;
+    songList = songList.map((el) => {
+      return parseInt(el);
+    });
+    let nextIndex = songList.indexOf(currentSongId) + 1;
 
     if (songList.length === 0) {
       return;
@@ -228,7 +230,7 @@ class MusicPlayer extends React.Component {
 }
 
 const msp = state => {
-  debugger
+
   return {
     currentSong: state.ui.currentSong,
     songInfo: state.entities.songs[state.ui.currentSong.id] || state.entities.remoteSongs[state.ui.currentSong.id] || {},

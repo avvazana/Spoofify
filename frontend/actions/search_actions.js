@@ -4,6 +4,7 @@ export const RECEIVE_ALL_ALBUMS = 'RECEIVE_ALL_ALBUMS';
 export const RECEIVE_ALBUM = 'RECEIVE_ALBUM';
 
 export const requestAllAlbums = (searchQuery) => {
+  debugger
   return (dispatch) => {
     return SearchApiUtil.fetchAllAlbums(searchQuery)
       .then(null,
@@ -33,7 +34,7 @@ export const receiveAllAlbums = (albums) => {
 };
 
 export const receiveSingleAlbum = (res) => {
-  
+
   return {
     type: RECEIVE_ALBUM,
     album: res[0],

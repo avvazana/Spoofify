@@ -3,7 +3,7 @@ import { RECEIVE_CURRENT_SONG, PAUSE_CURRENT_SONG, REMOVE_CURRENT_SONG} from '..
 
 export default (state = {}, action) => {
   Object.freeze(state);
-  debugger
+
   switch (action.type) {
     case RECEIVE_CURRENT_SONG:
       let newState = merge({}, state, { id: action.songId, [action.elementType]: action.elementId, playing: true });
