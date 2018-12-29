@@ -94,6 +94,10 @@ export const selectPlaylistSongs = (state, playlist) => {
   return playlist ? playlist.song_ids.map(id => state.entities.songs[id]) : [];
 };
 
+export const selectArtistSongs = (state, artist) => {
+  return artist ? artist.song_ids.map(id => state.entities.songs[id]) : [];
+};
+
 export const selectAlbumSongs = (state, album) => {
 
   return album ? album.song_ids.map(id => state.entities.songs[id]) : [];
@@ -102,7 +106,7 @@ export const selectAlbumSongs = (state, album) => {
 export const selectAllSongs = state => Object.values(state.entities.songs);
 
 export const getSongList = (state, currentSong) => {
-  
+  debugger
   if (!currentSong.id) {
     return [];
   }
@@ -113,6 +117,8 @@ export const getSongList = (state, currentSong) => {
     currentListOfSongIds = state.entities.playlists[parseInt(state.ui.currentSong.playlist)].song_ids;
   } else if (state.ui.currentSong.album) {
     currentListOfSongIds = Object.keys(state.entities.remoteSongs);
+  } else if (state.ui.currentSong.artist) {
+    currentListOfSongIds = state.entities.artists[parseInt(state.ui.currentSong.artist)].song_ids;
   }
 
   if (!currentListOfSongIds) {

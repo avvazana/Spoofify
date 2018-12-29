@@ -47,25 +47,29 @@ class SongsIndexItem extends React.Component {
   }
 
   togglePlay(songId, elementId, elementType) {
-    
+
     if (this.state.playing) {
       this.props.pauseCurrentSong();
       this.setState({ playing: false });
     } else {
-      
+      debugger
       this.props.receiveCurrentSong(songId, elementId, elementType);
       this.setState({ playing: true });
     }
   }
 
   render () {
-    
-    const { putSongInState, openModal, song, playlist, album } = this.props;
-    let element = playlist || album;
+
+    const { putSongInState, openModal, song, playlist, album, artist } = this.props;
+    let element = playlist || album || artist;
     let elementType = "playlist";
 
     if (element === album) {
       elementType = "album";
+    }
+
+    if (element === artist) {
+      elementType = "artist";
     }
 
     let indexButton = this.state.playing ? (

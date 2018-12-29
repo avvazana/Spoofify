@@ -9,8 +9,8 @@ json.songs do
   end
 end
 
-json.@artist do
+json.artist do
   json.extract! @artist, :id, :name, :song_ids
-  json.photoUrl url_for(@artist.photo);
+  json.photoUrl url_for(@artist.photo)
   json.album_ids @artist.albums.pluck(:id)
 end

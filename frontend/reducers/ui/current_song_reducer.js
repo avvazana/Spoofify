@@ -9,8 +9,13 @@ export default (state = {}, action) => {
       let newState = merge({}, state, { id: action.songId, [action.elementType]: action.elementId, playing: true });
       if (action.elementType === "album"){
         delete newState.playlist;
+        delete newState.artist;
       } else if (action.elementType === "playlist") {
         delete newState.album;
+        delete newState.artist;
+      } else if (action.elementType === "artist") {
+        delete newState.album;
+        delete newState.playlist;
       }
       return newState;
     case PAUSE_CURRENT_SONG:

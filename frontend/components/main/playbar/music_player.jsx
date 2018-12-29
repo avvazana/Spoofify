@@ -90,6 +90,7 @@ class MusicPlayer extends React.Component {
   }
 
   nextSong(currentSongId) {
+    debugger
     let songList = this.props.songList;
     songList = songList.map((el) => {
       return parseInt(el);

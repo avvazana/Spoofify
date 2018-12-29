@@ -7,6 +7,7 @@ import { selectArtistSongs } from '../../../reducers/selectors';
 
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   // const artist = Object.values(state.entities.remoteArtists)[ownProps.match.params.artistId] || ownProps.artists || [],
   const artist = state.entities.artists[ownProps.match.params.artistId] || { name: "", song_ids: [], photoUrl: "" };
   const songs = selectArtistSongs(state, artist);
