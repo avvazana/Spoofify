@@ -46,6 +46,29 @@
   font-family: Circular,Helvetica,Arial,sans-serif;
 }
 
+.follow-button {
+  background-color: gray;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 40px;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 2px;
+  width: 90px;
+  height: 15px;
+  text-align: center;
+  transition: 0.3s;
+  padding-bottom: 10px;
+}
+
+.follow-button:hover {
+  color: #fff;
+  background-color: lightgray;
+  transition: 0.3s;
+  transform: scale(1.1)
+}
+
 .loading {
  width: 60px;
  margin: auto;
