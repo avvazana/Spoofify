@@ -52,7 +52,7 @@ class SongsIndexItem extends React.Component {
       this.props.pauseCurrentSong();
       this.setState({ playing: false });
     } else {
-      debugger
+      
       this.props.receiveCurrentSong(songId, elementId, elementType);
       this.setState({ playing: true });
     }

@@ -48,7 +48,7 @@ class SearchResults extends React.Component {
     //     </li>
     //   </ul>
     // </div>
-    debugger
+    
     return (
       <div className="search-results">
         <div className="search-section">

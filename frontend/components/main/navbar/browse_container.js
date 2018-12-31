@@ -6,6 +6,7 @@ import { selectAllUnauthoredPlaylists, selectRandomAlbums, selectRandomArtists} 
 import MainContent from '../main_content';
 
 const mapStateToProps = (state, ownProps) => {
+  
   return {
     playlists: selectAllUnauthoredPlaylists(state),
     albums: selectRandomAlbums(state),

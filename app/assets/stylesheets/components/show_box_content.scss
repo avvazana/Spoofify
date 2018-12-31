@@ -33,6 +33,19 @@
   font-family: Circular,Helvetica,Arial,sans-serif;
 }
 
+.show-follow {
+  display: flex;
+  justify-content: center;
+}
+
+.follow-button {
+  padding-top: 10px;
+  color: lightgray;
+  font-weight: 100;
+  font-size: 14px;
+  font-family: Circular,Helvetica,Arial,sans-serif;
+}
+
 .loading {
  width: 60px;
  margin: auto;

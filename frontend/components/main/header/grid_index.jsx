@@ -11,7 +11,7 @@ class GridIndex extends React.Component {
   }
 
   componentDidMount(){
-    debugger
+    
     this.fetchElements(
       {search_term: this.props.searchTerm}
     );
@@ -26,7 +26,7 @@ class GridIndex extends React.Component {
   }
 
   render(){
-    debugger
+    
     const {playlists, artists, albums, navpath, path} = this.props;
     let property = "title";
     let gridElements = [];

@@ -15,5 +15,6 @@ export default combineReducers({
   artists: artistsReducer,
   albums: albumsReducer,
   remoteAlbums: searchAlbumsReducer,
-  remoteSongs: searchSongsReducer
+  remoteSongs: searchSongsReducer,
+  users: usersReducer
 });

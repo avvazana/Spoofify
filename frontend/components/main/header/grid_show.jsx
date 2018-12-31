@@ -14,6 +14,8 @@ class GridShow extends React.Component {
     this.elementId = this.props.playlistId || this.props.albumId || this.props.artistId;
     this.fetchElement = this.fetchElement.bind(this);
     this.timeout = this.timeout.bind(this);
+    this.handleFollow = this.handleFollow.bind(this);
+
   }
 
   timeout(){
@@ -23,6 +25,18 @@ class GridShow extends React.Component {
   componentDidMount(){
     this.fetchElement(this.elementId)
     .then( this.timeout );
+  }
+
+  handleFollow(e) {
+
+    const following = this.props.currentUser.followed_artist_ids.includes(this.props.artist.id);
+    const follow = {
+      user_id: this.props.currentUser.id,
+      followable_id: this.props.artist.id,
+      followable_type: 'Artist'
+    };
+
+    following ? this.props.deleteFollow(follow) : this.props.createFollow(follow);
   }
 
   render () {
@@ -66,6 +80,16 @@ class GridShow extends React.Component {
       element.artworkUrl100 = element.artworkUrl100.replace('100x100', '600x600');
     }
 
+    let follows = "";
+    if (this.props.artist) {
+      follows = (
+        <button className="follow-button"
+            onClick={this.handleFollow}>
+            {this.props.currentUser.followed_artist_ids.includes(this.props.artist.id) ? 'Unfollow' : 'Follow'}
+        </button>
+      );
+    }
+
     return (
       <div className="main-container">
         <div className="show-body">
@@ -77,6 +101,9 @@ class GridShow extends React.Component {
               <div className="playlist-show-subtext">
                 <p>{element.title || element.name || element.collectionName}</p>
                 <span>{element.author || element.artists || element.artistName}</span>
+              </div>
+              <div className="show-follow">
+                {follows}
               </div>
             </div>
             <div className="tracks">

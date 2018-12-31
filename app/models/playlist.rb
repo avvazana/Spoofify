@@ -30,4 +30,7 @@ class Playlist < ApplicationRecord
 
   has_one_attached :photo
   has_one_attached :track
+
+  has_many :follows, as: :followable, dependent: :destroy
+  has_many :followers, through: :follows, source: :user
 end

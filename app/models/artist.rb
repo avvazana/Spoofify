@@ -24,4 +24,7 @@ class Artist < ApplicationRecord
   has_many :albums,
     through: :songs,
     source: :album
+
+  has_many :follows, as: :followable, dependent: :destroy
+  has_many :followers, through: :follows, source: :user
 end

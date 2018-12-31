@@ -38,6 +38,10 @@ class User < ApplicationRecord
     through: :songs,
     source: :artists
 
+  has_many :follows
+  has_many :followed_artists, through: :follows, source: :followable, source_type: 'Artist'
+  has_many :followed_playlists, through: :follows, source: :followable, source_type: 'Playlist'
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
