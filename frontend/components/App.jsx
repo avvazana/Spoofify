@@ -42,6 +42,8 @@ const App = () => {
     <ProtectedRoute path="/" component={NavBarContainer}/>
     <ProtectedRoute path="/" component={MusicPlayer}/>
   </div>
+
+
   );
   };
 
