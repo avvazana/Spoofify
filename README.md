@@ -8,8 +8,6 @@ This is Spoofify. A Spotify-inspired full-stack application built in 10 days.
 Built using a React, Redux, and JavaScript frontend, the site renders and updates dynamically.
 Modular architecture is utilized to minimize components to improve readability, reusability and scaling potential.
 
-![alt text](https://github.com/avvazana/Spoofify/raw/master/assets/spoofifyFrontend.png)
-
 ## The Back-End
 
 Built using a Ruby on Rails backend that communicates with a PostgreSQL database and interacts with Amazon Web Services S3 to store and retrieve assets.
@@ -22,18 +20,18 @@ Login and signup using BCrypt encryption with contextual error messages. Both a 
 ### Playlist CRUD
 Playlists can be created and played by any user, but songs can only be added and removed from a playlist by the user who created it. Additionally, playlists can only be deleted by the user who created it.
 
-![alt text](https://github.com/avvazana/Spoofify/raw/master/assets/createPlaylist.png)
+![alt text](https://github.com/avvazana/Spoofify/raw/master/app/assets/images/createPlaylist.png)
 
 ### Audio that plays while navigating
 The audio player, a core feature for any music app, is a top-level component for this app. This allows users to stream music, change songs, and save the currently-playing song to their library while navigating the site.
 
-![alt text](https://github.com/avvazana/Spoofify/raw/master/assets/playbar.png)
+![alt text](https://github.com/avvazana/Spoofify/raw/master/app/assets/images/playbar.png)
 
 ### Search and Apple Music API
 The search bar allows a user to find albums, playlists, songs, and artists instantly.
-An Apple Music API was implemented to give the user the ability to search a virtually infinite amount of albums and preview the songs there. 
+An Apple Music API was implemented to give the user the ability to search a virtually infinite amount of albums and preview the songs there.
 
-![alt text](https://github.com/avvazana/Spoofify/raw/master/assets/search.png)
+![alt text](https://github.com/avvazana/Spoofify/raw/master/app/assets/images/search.png)
 
 
 ### Queueing, Skipping forward and backwards
