@@ -1,7 +1,7 @@
 # Welcome to Spoofify
 This is Spoofify. A Spotify-inspired full-stack application built in 10 days.
 
-[Spoofify Live](https://avivazana.com/Spoofify/)
+[Spoofify Live](http://spoofify.avivazana.com/#/)
 
 ## The Front-End
 
